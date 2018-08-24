@@ -71,26 +71,7 @@ namespace FangZhouShuMa.Migrations.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("FangZhouShuMa.Model.Entities.Slot", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Description");
-
-                    b.Property<int>("FormId");
-
-                    b.Property<int?>("PeopleNeed");
-
-                    b.Property<decimal?>("Price");
-
-                    b.Property<int>("SignupId");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Slot");
-                });
-
+        
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")

@@ -13,4 +13,8 @@
     <ProjectReference Include="..\FangZhouShuMa.Model\FangZhouShuMa.Model.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\FangZhouShuMa\" />
+  </ItemGroup>
+
 </Project>

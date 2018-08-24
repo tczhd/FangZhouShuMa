@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using FangZhouShuMa.Data;
 using FangZhouShuMa.Model;
 using FangZhouShuMa.API.Services;
+using FangZhouShuMa.Migrations;
 
 namespace FangZhouShuMa.API
 {
@@ -30,7 +31,10 @@ namespace FangZhouShuMa.API
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")
                   //, b => b.MigrationsAssembly("OnSignup.API")));
                   , b => b.MigrationsAssembly("FangZhouShuMa.Migrations")));
-            
+
+            services.AddDbContext<FangZhouShuMaContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")
+                  , b => b.MigrationsAssembly("FangZhouShuMa.Migrations")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
