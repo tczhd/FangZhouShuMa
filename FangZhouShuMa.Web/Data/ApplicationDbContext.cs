@@ -4,10 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using FangZhouShuMa.Model;
-using FangZhouShuMa.Model.Entities;
+using FangZhouShuMa.Web.Models;
 
-namespace FangZhouShuMa.Data
+namespace FangZhouShuMa.Web.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
