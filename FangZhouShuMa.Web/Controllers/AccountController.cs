@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using FangZhouShuMa.Model;
+using FangZhouShuMa.DataAccess.Models;
 using FangZhouShuMa.Web.Models.AccountViewModels;
 using FangZhouShuMa.Web.Services;
 

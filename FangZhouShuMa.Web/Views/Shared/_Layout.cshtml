@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - FangZhouShuMa.Web</title>
+    <title>@ViewData["Title"] - 方舟数码</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -13,12 +13,22 @@
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     </environment>
 </head>
 <body>
+
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
+            <div style="background-color:lightyellow;" class="navbar-collapse collapse bar-login">
+                <ul class="nav navbar-nav navbar-left login">
+                    <li class="welcome">
+                        <p>欢迎来到方舟标识！免费服务电话：<font class="cheng66"> 0512-88888888</font> </p>
+                    </li>
+                </ul>
+                <span>@await Html.PartialAsync("_LoginPartial")</span>
+            </div>
+
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -26,23 +36,159 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">FangZhouShuMa.Web</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
+                    <div><img src="~/images/FZBS_Logo.jpg" /> <span class="logo-title">太仓方舟标识有限公司 </span></div>
+                </a>
+
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">主页</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About">关于</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">联系</a></li>
+
                 </ul>
-                @await Html.PartialAsync("_LoginPartial")
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/Quote/SinglePage" id="QuoteSinglePage">数码报价</a></li>
+                    <li><a href="/Trade/KCalendar" id="TradeKCalendar">传统报价</a></li>
+                    <li><a href="/Order/List" id="OrderList">订单管理</a></li>
+                    <li><a href="/Vip/List" id="VipList">账户管理</a></li>
+                    <li><a href="/Vip/Edit" id="VipEdit">会员信息</a></li>
+
+                </ul>
             </div>
-        </div>
+
+                <div class="navbar"  style="background-color:lightyellow; margin-bottom:0; min-height:30px; padding-top:3px;">
+
+                    <div class="col-xs-2">
+                        <img src="/images/guest.png" width="25" height="25"/><span>
+                            普通游客
+                        </span>
+                    </div>
+
+                    <div class="col-xs-2">
+                        <img src="/images/member.png" width="25" height="25" />
+                        <span>
+                            普通会员
+                        </span>
+                    </div>
+                    <div class="col-xs-3">
+                        <p>专属客服电话：<font class="c1">18905171717</font></p>
+                    </div>
+
+
+                    <div class="col-xs-5">
+                        <span>
+                            我的余额：<font class="red" id="fontAccount">
+                                0
+                            </font>元
+                        </span>
+                        <a href="/Vip/Recharge" class="chongzhi" style="display: none;">充值</a>
+                    </div>
+
+                </div>
+
+            </div>
     </nav>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; 2018 - FangZhouShuMa.Web</p>
+        <footer style="text-align:center">
+            <div class="foot1 clearfix">
+                <ul>
+                    <li><img src="/images/index_30.png" width="57" height="60" /><h3>商务印刷&nbsp;&nbsp;引导品牌</h3></li>
+                    <li><img src="/images/index_32.png" width="90" height="60" /><h3>本地印刷 极速送达</h3></li>
+                    <li><img src="/images/index_35.png" width="67" height="60" /><h3>本地印刷 极速送达</h3></li>
+                </ul>
+            </div>
+            <div class="foot2 clearfix">
+                <div class="foot2_1190">
+                    <div class="foot_logo">
+                        <img src="/images/fzbs-logo.png" width="191" height="60" />
+
+
+                        <h4>0512-88888888</h4>
+                        <p>客服9点-24点</p>
+                    </div>
+                    <div class="foot739">
+                        <ul>
+
+                            <li>
+                                <h3><a href="javascript:void(0)"> 操作指南	</a></h3>
+                                <p>
+                                    <a href="/help?key=help-operate-vip" target="_blank">会员级别</a>
+                                </p>
+                                <p>
+                                    <a href="/help?key=help-operate-order" target="_blank">下单流程</a>
+                                </p>
+                                <p>
+                                    <a href="/help?key=help-operate-know" target="_blank">完稿须知</a>
+                                </p>
+                                <p>
+                                    <a href="/help?key=help-operate-ticket" target="_blank">开票须知</a>
+                                </p>
+
+                            </li>
+                            <li>
+                                <h3><a href="javascript:void(0)"> 支付方式</a></h3>
+                                <p>
+                                    <a href="/help?key=help-pay-zfb" target="_blank">支付宝支付</a>
+                                </p>
+                                <p>
+                                    <a href="/help?key=help-pay-yhzz" target="_blank">银行转账</a>
+                                </p>
+
+                            </li>
+                            <li>
+                                <h3><a href="javascript:void(0)"> 配送方式	</a></h3>
+                                <p>
+                                    <a href="/help?key=help-delivery-shsm" target="_blank">送货上门</a>
+                                </p>
+                                <p>
+                                    <a href="/help?key=help-delivery-yyzt" target="_blank">预约自提</a>
+                                </p>
+
+                            </li>
+                            <li>
+                                <h3><a href="javascript:void(0)"> 售后服务</a></h3>
+                                <p>
+                                    <a href="/help?key=help-service-fpwd" target="_blank">找回密码</a>
+                                </p>
+                                <p>
+                                    <a href="/help?key=help-service-thyz" target="_blank">退货原则</a>
+                                </p>
+
+                            </li>
+                            <li>
+                                <h3><a href="javascript:void(0)"> 关于我们	</a></h3>
+                                <p>
+                                    <a href="/help?key=help-about-info" target="_blank">斯马特简介</a>
+                                </p>
+                                <p>
+                                    <a href="/help?key=help-about-contact-u" target="_blank">联系我们</a>
+                                </p>
+                                <p>
+                                    <a href="/help?key=help-about-develop" target="_blank">发展历程</a>
+                                </p>
+
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="foot_erweima">
+                        <ul>
+                            <li><img src="/Content/images/index_46.png" width="102" height="101" /><p>斯马特微信</p></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <p>
+                Copyright ©2018 方舟数码® www.fzbs.cn <a href="http://www.fzbs.cn/" target="_blank">
+                </a> <a href="javascript:;" target="_blank">苏ICP备0000000号</a>     <br> 大仓方舟标识有限公司<span>电子信箱：<a href="mailto:fzbs@vip.163.com" target="_blank">fzbs@vip.163.com</a></span>
+                <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cspan id='cnzz_stat_icon_1262220485'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1262220485%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+            </p>
         </footer>
     </div>
 

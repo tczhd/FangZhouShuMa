@@ -23,9 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FangZhouShuMa.Data\FangZhouShuMa.Data.csproj" />
-    <ProjectReference Include="..\FangZhouShuMa.Migrations\FangZhouShuMa.Migrations.csproj" />
-    <ProjectReference Include="..\FangZhouShuMa.Model\FangZhouShuMa.Model.csproj" />
+    <ProjectReference Include="..\FangZhouShuMa.DataAccess\FangZhouShuMa.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>

@@ -8,10 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using FangZhouShuMa.Data;
-using FangZhouShuMa.Model;
+using FangZhouShuMa.DataAccess;
+using FangZhouShuMa.DataAccess.Models;
 using FangZhouShuMa.API.Services;
-using FangZhouShuMa.Migrations;
 
 namespace FangZhouShuMa.API
 {
@@ -30,11 +29,11 @@ namespace FangZhouShuMa.API
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")
                   //, b => b.MigrationsAssembly("OnSignup.API")));
-                  , b => b.MigrationsAssembly("FangZhouShuMa.Migrations")));
+                  , b => b.MigrationsAssembly("FangZhouShuMa.DataAccess")));
 
             services.AddDbContext<FangZhouShuMaContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")
-                  , b => b.MigrationsAssembly("FangZhouShuMa.Migrations")));
+                  , b => b.MigrationsAssembly("FangZhouShuMa.DataAccess")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()

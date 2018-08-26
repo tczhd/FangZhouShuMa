@@ -1,4 +1,5 @@
 ﻿@using FangZhouShuMa.Web.Views.Manage
+@using FangZhouShuMa.DataAccess.Models
 @inject SignInManager<ApplicationUser> SignInManager
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();

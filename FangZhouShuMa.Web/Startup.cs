@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using FangZhouShuMa.Data;
-using FangZhouShuMa.Model;
+using FangZhouShuMa.DataAccess;
+using FangZhouShuMa.DataAccess.Models;
 using FangZhouShuMa.Web.Services;
 
 namespace FangZhouShuMa.Web
@@ -26,15 +26,14 @@ namespace FangZhouShuMa.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDbContext<ApplicationDbContext>(options =>
-            //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")
-              , b => b.MigrationsAssembly("FangZhouShuMa.Migrations")));
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")
+                , b => b.MigrationsAssembly("FangZhouShuMa.DataAccess")));
 
             services.AddDbContext<FangZhouShuMaContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")
-                  , b => b.MigrationsAssembly("FangZhouShuMa.Migrations")));
+                  , b => b.MigrationsAssembly("FangZhouShuMa.DataAccess")));
+
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
