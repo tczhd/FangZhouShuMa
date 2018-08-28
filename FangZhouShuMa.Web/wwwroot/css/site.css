@@ -16,23 +16,6 @@
     padding-left: 0;
 }
 
-@media (min-width: 768px) {
-    .container {
-        width: 100%;
-    }
-}
-
-@media (min-width: 992px) {
-    .container {
-        width: 100%;
-    }
-}
-
-@media (min-width: 1200px) {
-    .container {
-        width: 100%;
-    }
-}
 
 /* Carousel */
 .carousel-caption p {
@@ -75,14 +58,6 @@
     border-bottom-width: 0;
 }
 
-@media (min-width: 768px) {
-    .navbar-nav > li > a {
-        /* (80px - line-height of 27px) / 2 = 26.5px */
-        padding-top:5px;
-        padding-bottom: 5px;
-        line-height: 27px;
-    }
-}
 
 .navbar a {
     color: black;
@@ -90,13 +65,6 @@
 
 .bar-login {
     background: #F5F5F5;
-    padding-right: 35px;
-    padding-left: 35px;
-}
-
-.bar-header {
-    padding-left: 100px;
-    
 }
 
 .bar-detail {
@@ -104,8 +72,8 @@
     margin-bottom: 0;
     min-height: 30px;
     padding-top: 5px;
-    padding-left:35px;
-    padding-right:35px;
+    padding-left: 35px;
+    padding-right: 35px;
 }
 
 .bar-title {
@@ -115,14 +83,14 @@
 }
 
     .bar-title ul li {
-        margin-top:15px;
-        margin-bottom:15px;
+        margin-top: 15px;
+        margin-bottom: 15px;
     }
 
-    .login > li > a {
-        padding-top: 15px;
-        padding-bottom: 15px;
-    }
+.login > li > a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
 
 .login > li > a {
     line-height: 0;
@@ -146,13 +114,7 @@
 .navbar-header a span {
     color: black;
 }
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
-    }
-}
+
 
 
 
@@ -628,27 +590,79 @@
 
 
 
-    .header_r ul li {
-        color: #666;
-        font-size: 17px;
-        font-family: "微软雅黑";
-        border-right: 1px solid #999;
+.header_r ul li {
+    color: #666;
+    font-size: 17px;
+    font-family: "微软雅黑";
+    border-right: 1px solid #999;
+}
+
+    .header_r ul li:last-child {
+        border-right: none;
     }
 
-        .header_r ul li:last-child {
-            border-right: none;
+    .header_r ul li a {
+        color: #666;
+    }
+
+        .header_r ul li a:hover {
+            color: #9dc816;
+            text-decoration: none;
         }
 
-        .header_r ul li a {
-            color: #666;
+        .header_r ul li a.on {
+            color: #9dc816;
+            font-weight: bold;
         }
 
-            .header_r ul li a:hover {
-                color: #9dc816;
-                text-decoration: none;
-            }
 
-            .header_r ul li a.on {
-                color: #9dc816;
-                font-weight: bold;
-            }
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+
+    .navbar-collapse.collapse,
+    .navbar-header {
+        padding: 0 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 100%;
+    }
+
+    .navbar-nav > li > a {
+        /* (80px - line-height of 27px) / 2 = 26.5px */
+        padding-top: 5px;
+        padding-bottom: 5px;
+        line-height: 27px;
+    }
+
+    .navbar-collapse.collapse,
+    .navbar-header {
+        padding: 0 20px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 100%;
+    }
+
+    .navbar-collapse.collapse, .navbar-header {
+        padding: 0 50px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 100%;
+    }
+
+    .navbar-collapse.collapse, .navbar-header {
+        padding: 0 100px;
+    }
+}
