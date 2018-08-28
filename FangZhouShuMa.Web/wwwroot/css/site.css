@@ -6,9 +6,11 @@
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
-    /*padding-left: 15px;
-    padding-right: 15px;*/
-    padding-top: 70px;
+    padding-top: 56px;
+}
+
+.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: #9dc816;
 }
 
 .container {
@@ -35,9 +37,19 @@
 
 /* Change nav height*/
 .navbar {
-    color: black;
+    color: #9dc816;
     background-color: white;
     min-height: 60px;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color:black;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+    color: #9dc816;
+    background-color: transparent;
 }
 
 .navbar-brand {
@@ -65,6 +77,7 @@
 
 .bar-login {
     background: #F5F5F5;
+
 }
 
 .bar-detail {
@@ -97,7 +110,7 @@
 }
 
 .login li.shopping-cart {
-    padding-top: 5px;
+    padding-top: 3px;
 }
 
 .login li.welcome {
@@ -107,15 +120,13 @@
 .navbar-header span.logo-title {
     margin-left: 5px;
     font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+    font-size: 25px;
+}
+
+.nav-menu li a {
+    color: black;
     font-size: 20px;
 }
-
-.nav.navbar-nav li a,
-.navbar-header a span {
-    color: black;
-}
-
-
 
 
 /*Quote*/
@@ -143,7 +154,7 @@
         }
 
     .baojia ul .bg66_1 {
-        background: url(../images/index55_03.png) no-repeat 41px 27px;
+        background: url(/images/index55_03.png) no-repeat 41px 27px;
     }
 
         .baojia ul .bg66_1:hover {
@@ -151,7 +162,7 @@
         }
 
     .baojia ul .bg66_2 {
-        background: url(../images/index55_06.png) no-repeat 41px 27px;
+        background: url(/images/index55_06.png) no-repeat 41px 27px;
     }
 
         .baojia ul .bg66_2:hover {
@@ -159,7 +170,7 @@
         }
 
     .baojia ul .bg66_3 {
-        background: url(../images/index55_08.png) no-repeat 41px 27px;
+        background: url(/images/index55_08.png) no-repeat 41px 27px;
     }
 
         .baojia ul .bg66_3:hover {
@@ -167,7 +178,7 @@
         }
 
     .baojia ul .bg66_4 {
-        background: url(../images/index55_10.png) no-repeat 41px 27px;
+        background: url(/images/index55_10.png) no-repeat 41px 27px;
         margin-right: 0px;
     }
 
@@ -176,7 +187,7 @@
         }
 
     .baojia ul .bg66_5 {
-        background: url(../images/index55_18.png) no-repeat 41px 27px;
+        background: url(/images/index55_18.png) no-repeat 41px 27px;
     }
 
         .baojia ul .bg66_5:hover {
@@ -184,7 +195,7 @@
         }
 
     .baojia ul .bg66_6 {
-        background: url(../images/index55_16.png) no-repeat 41px 27px;
+        background: url(/images/index55_16.png) no-repeat 41px 27px;
     }
 
         .baojia ul .bg66_6:hover {
@@ -192,7 +203,7 @@
         }
 
     .baojia ul .bg66_7 {
-        background: url(../images/index55_17.png) no-repeat 41px 27px;
+        background: url(/images/index55_17.png) no-repeat 41px 27px;
     }
 
         .baojia ul .bg66_7:hover {
@@ -200,7 +211,7 @@
         }
 
     .baojia ul .bg66_8 {
-        background: url(../images/index55_19.png) no-repeat 41px 27px;
+        background: url(/images/index55_19.png) no-repeat 41px 27px;
         margin-right: 0px;
     }
 
@@ -209,7 +220,7 @@
         }
 
     .baojia ul .bg66_9 {
-        background: url(../images/index55_24.png) no-repeat 41px 27px;
+        background: url(/images/index55_24.png) no-repeat 41px 27px;
     }
 
         .baojia ul .bg66_9:hover {
@@ -217,7 +228,7 @@
         }
 
     .baojia ul .bg66_10 {
-        background: url(../images/index55_25.png) no-repeat 41px 27px;
+        background: url(/images/index55_25.png) no-repeat 41px 27px;
     }
 
         .baojia ul .bg66_10:hover {
@@ -225,7 +236,7 @@
         }
 
     .baojia ul .bg66_11 {
-        background: url(../images/index55_26.png) no-repeat 41px 27px;
+        background: url(/images/index55_26.png) no-repeat 41px 27px;
     }
 
         .baojia ul .bg66_11:hover {
@@ -233,7 +244,7 @@
         }
 
     .baojia ul .bg66_12 {
-        background: url(../images/index55_27.png) no-repeat 41px 27px;
+        background: url(/images/index55_27.png) no-repeat 41px 27px;
         margin-right: 0px;
     }
 
@@ -623,10 +634,14 @@
         display: none;
     }
 
-    .navbar-collapse.collapse,
-    .navbar-header {
-        padding: 0 20px;
+    .bar-login {
+        max-height: 30px;
     }
+    .navbar-collapse.collapse, .navbar-header {
+        padding: 3px 20px 3px;
+    }
+
+
 }
 
 @media (min-width: 768px) {
@@ -634,17 +649,15 @@
         width: 100%;
     }
 
-    .navbar-nav > li > a {
-        /* (80px - line-height of 27px) / 2 = 26.5px */
-        padding-top: 5px;
-        padding-bottom: 5px;
-        line-height: 27px;
+    .bar-login {
+        max-height: 30px;
     }
 
     .navbar-collapse.collapse,
     .navbar-header {
-        padding: 0 20px;
+        padding: 3px 20px 3px;
     }
+
 }
 
 @media (min-width: 992px) {
@@ -652,17 +665,24 @@
         width: 100%;
     }
 
-    .navbar-collapse.collapse, .navbar-header {
-        padding: 0 50px;
+    .bar-login {
+        max-height: 30px;
     }
+    .navbar-collapse.collapse, .navbar-header {
+        padding: 3px 50px 3px;
+    }
+
 }
 
 @media (min-width: 1200px) {
     .container {
         width: 100%;
     }
-
-    .navbar-collapse.collapse, .navbar-header {
-        padding: 0 100px;
+    .bar-login {
+        max-height: 30px;
     }
+    .navbar-collapse.collapse, .navbar-header {
+        padding: 3px 100px 3px;
+    }
+
 }
