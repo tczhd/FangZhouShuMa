@@ -10,13 +10,15 @@ namespace FangZhouShuMa.Web.Models.AccountViewModels
     {
         [Required]
         [EmailAddress]
+        [Display(Name = "电子邮箱")]
         public string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
+        [Display(Name = "密码")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "记住密码?")]
         public bool RememberMe { get; set; }
     }
 }
