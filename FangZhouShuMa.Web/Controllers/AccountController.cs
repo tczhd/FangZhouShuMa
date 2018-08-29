@@ -22,17 +22,20 @@ namespace FangZhouShuMa.Web.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly RoleManager<IdentityRole> _rolesManager;
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
-            IEmailSender emailSender,
+            RoleManager<IdentityRole> roleManager,
+           IEmailSender emailSender,
             ILogger<AccountController> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _rolesManager = roleManager;
             _emailSender = emailSender;
             _logger = logger;
         }
@@ -224,6 +227,13 @@ namespace FangZhouShuMa.Web.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+
+                    var roleCheck = await _rolesManager.RoleExistsAsync("Customer");
+                    if (roleCheck)
+                    {
+                        await _userManager.AddToRoleAsync(user, "Customer");
+                    }
+
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
