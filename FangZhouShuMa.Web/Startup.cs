@@ -30,9 +30,9 @@ namespace FangZhouShuMa.Web
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")
                 , b => b.MigrationsAssembly("FangZhouShuMa.DataAccess")));
 
-            services.AddDbContext<FangZhouShuMaContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")
-                  , b => b.MigrationsAssembly("FangZhouShuMa.DataAccess")));
+            //services.AddDbContext<FangZhouShuMaContext>(options =>
+            //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")
+            //      , b => b.MigrationsAssembly("FangZhouShuMa.DataAccess")));
 
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
