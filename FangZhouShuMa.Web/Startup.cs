@@ -13,6 +13,7 @@ using FangZhouShuMa.DataAccess.Models;
 using FangZhouShuMa.Web.Services;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
+
 namespace FangZhouShuMa.Web
 {
     public class Startup
@@ -31,9 +32,9 @@ namespace FangZhouShuMa.Web
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")
                 , b => b.MigrationsAssembly("FangZhouShuMa.DataAccess")));
 
-            //services.AddDbContext<FangZhouShuMaContext>(options =>
-            //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")
-            //      , b => b.MigrationsAssembly("FangZhouShuMa.DataAccess")));
+            services.AddDbContext<FangZhouShuMaContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")
+                  , b => b.MigrationsAssembly("FangZhouShuMa.DataAccess")));
 
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
