@@ -1,17 +1,21 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace FangZhouShuMa.DataAccess.Entities
 {
-    public class Customer
+    public class Account
     {
-        public Customer()
+        public Account()
         {
-            ShippingInfos = new HashSet<ShippingInfo>();
+            Customers = new HashSet<Customer>();
         }
-        public int CustomerId { get; set; }
         public int AccountId { get; set; }
+
+        [Required]
+        [StringLength(200)]
+        public string Name { get; set; }
+
         [Required]
         [StringLength(100)]
         public string FirstName { get; set; }
@@ -19,10 +23,10 @@ namespace FangZhouShuMa.DataAccess.Entities
         [Required]
         [StringLength(100)]
         public string LastName { get; set; }
+
         [Required]
         [StringLength(100)]
         public string Email { get; set; }
-        public DateTime JoinDateUTC { get; set; }
 
         [Required]
         [StringLength(350)]
@@ -33,16 +37,11 @@ namespace FangZhouShuMa.DataAccess.Entities
 
         [Required]
         [StringLength(50)]
-        public string Zip { get; set; }
+        public string City { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string City { get; set; }
-        [Required]
-        [StringLength(100)]
-        public string StateName { get; set; }
-        [Required]
-        public int CountryId { get; set; }
+        public string Zip { get; set; }
 
         [Required]
         [StringLength(30)]
@@ -59,18 +58,28 @@ namespace FangZhouShuMa.DataAccess.Entities
 
         [StringLength(30)]
         public string CellNumber { get; set; }
-        public int? SalesPersonId { get; set; }
+
+        public int? CreditTerms { get; set; }
+
+        public decimal CreditLimit { get; set; }
+
+        public DateTime JoinDateUTC { get; set; }
+
+        public bool TaxException { get; set; }
+
+        public bool HouseAccount { get; set; }
+
         public bool Active { get; set; }
-        [StringLength(500)]
-        public string Notes { get; set; }
+
+        public int AccountGroupId { get; set; }
+
+        public int CountryId { get; set; }
+
+        [StringLength(50)]
+        public string StateName { get; set; }
         public DateTime LastUpdatedUTC { get; set; }
-        [Required]
-        [StringLength(450)]
-        public string UserId { get; set; }
-        public virtual AspNetUsers AspNetUser { get; set; }
 
-        public virtual Account Account { get; set; }
-
-        public virtual ICollection<ShippingInfo> ShippingInfos { get; set; }
+        public virtual AccountGroup AccountGroup { get; set; }
+        public virtual ICollection<Customer> Customers { get; set; }
     }
 }
