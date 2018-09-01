@@ -59,5 +59,6 @@ namespace FangZhouShuMa.DataAccess.Entities
 
         public int CustomerId { get; set; }
         public virtual Customer Customer { get; set; }
+        public virtual Order Order { get; set; }
     }
 }

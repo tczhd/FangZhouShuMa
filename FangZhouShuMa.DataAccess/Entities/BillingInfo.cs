@@ -46,5 +46,7 @@ namespace FangZhouShuMa.DataAccess.Entities
 
         [StringLength(50)]
         public string StateName { get; set; }
+
+        public virtual Order Order { get; set; }
     }
 }

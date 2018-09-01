@@ -9,6 +9,7 @@ namespace FangZhouShuMa.DataAccess.Entities
         public Customer()
         {
             ShippingInfos = new HashSet<ShippingInfo>();
+            Orders = new HashSet<Order>();
         }
         public int CustomerId { get; set; }
         public int AccountId { get; set; }
@@ -72,5 +73,6 @@ namespace FangZhouShuMa.DataAccess.Entities
         public virtual Account Account { get; set; }
 
         public virtual ICollection<ShippingInfo> ShippingInfos { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

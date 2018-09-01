@@ -6,6 +6,10 @@ namespace FangZhouShuMa.DataAccess.Entities
 {
     public class Product
     {
+        public Product()
+        {
+            ProductCustomFieldData = new HashSet<ProductCustomFieldData>();
+        }
         public int ProductId { get; set; }
 
         public int GroupId { get; set; }
@@ -27,6 +31,8 @@ namespace FangZhouShuMa.DataAccess.Entities
 
         public bool Active { get; set; }
 
+        public decimal MinumumQuantity { get; set; }
+        public bool MultipleMinumumQuantity { get; set; }
         public decimal Cost { get; set; }
 
         [StringLength(250)]
@@ -39,5 +45,6 @@ namespace FangZhouShuMa.DataAccess.Entities
         public int UpdatedBy { get; set; }
         public virtual Group Group { get; set; }
 
+        public virtual ICollection<ProductCustomFieldData> ProductCustomFieldData { get; set; }
     }
 }

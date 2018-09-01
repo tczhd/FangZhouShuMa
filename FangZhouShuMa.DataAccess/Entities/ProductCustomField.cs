@@ -10,12 +10,14 @@ namespace FangZhouShuMa.DataAccess.Entities
         public ProductCustomField()
         {
             ProductCustomFieldOptions = new HashSet<ProductCustomFieldOption>();
+            ProductCustomFieldData = new HashSet<ProductCustomFieldData>();
         }
         public int ProductCustomFieldId { get; set; }
         public int ProductCustomFieldGroupId { get; set; }
         [Required]
         [StringLength(150)]
         public string Name { get; set; }
+        public decimal Price { get; set; }
 
         public int FieldTypeId { get; set; }
 
@@ -28,5 +30,6 @@ namespace FangZhouShuMa.DataAccess.Entities
         public DateTime LastUpdateDateUTC { get; set; }
         public virtual ProductCustomFieldGroup ProductCustomFieldGroup { get; set; }
         public virtual ICollection<ProductCustomFieldOption> ProductCustomFieldOptions { get; set; }
+        public virtual ICollection<ProductCustomFieldData> ProductCustomFieldData { get; set; }
     }
 }
