@@ -9,13 +9,17 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using FangZhouShuMa.Infrastructure.Identity;
-using FangZhouShuMa.Web.Services;
 using FangZhouShuMa.Infrastructure.Data;
+using FangZhouShuMa.ApplicationCore.Interfaces;
+using FangZhouShuMa.Infrastructure.Data.Repository;
+using FangZhouShuMa.Infrastructure.Services;
 
 namespace FangZhouShuMa.Web
 {
     public class Startup
     {
+        private IServiceCollection _services;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -40,6 +44,9 @@ namespace FangZhouShuMa.Web
                 .AddDefaultTokenProviders();
 
             // Add application services.
+            services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
+            services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
+
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
@@ -78,38 +85,38 @@ namespace FangZhouShuMa.Web
             var RoleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
             var UserManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
 
-            //IdentityResult roleResult;
-            ////Adding Admin Role
-            //var roleCheck = await RoleManager.RoleExistsAsync("Admin");
-            //if (!roleCheck)
-            //{
-            //    //create the roles and seed them to the database
-            //    roleResult = await RoleManager.CreateAsync(new IdentityRole("Admin"));
-            //}
+            IdentityResult roleResult;
+            //Adding Admin Role
+            var roleCheck = await RoleManager.RoleExistsAsync("Admin");
+            if (!roleCheck)
+            {
+                //create the roles and seed them to the database
+                roleResult = await RoleManager.CreateAsync(new IdentityRole("Admin"));
+            }
 
-            //roleCheck = await RoleManager.RoleExistsAsync("Manager");
-            //// creating Creating Manager role    
-            //if (!roleCheck)
-            //{
-            //    //create the roles and seed them to the database
-            //    roleResult = await RoleManager.CreateAsync(new IdentityRole("Manager"));
-            //}
+            roleCheck = await RoleManager.RoleExistsAsync("Manager");
+            // creating Creating Manager role    
+            if (!roleCheck)
+            {
+                //create the roles and seed them to the database
+                roleResult = await RoleManager.CreateAsync(new IdentityRole("Manager"));
+            }
 
-            //roleCheck = await RoleManager.RoleExistsAsync("Employee");
-            //// creating Creating Employee role    
-            //if (!roleCheck)
-            //{
-            //    //create the roles and seed them to the database
-            //    roleResult = await RoleManager.CreateAsync(new IdentityRole("Employee"));
-            //}
+            roleCheck = await RoleManager.RoleExistsAsync("Employee");
+            // creating Creating Employee role    
+            if (!roleCheck)
+            {
+                //create the roles and seed them to the database
+                roleResult = await RoleManager.CreateAsync(new IdentityRole("Employee"));
+            }
 
-            //roleCheck = await RoleManager.RoleExistsAsync("Customer");
-            //// creating Creating Customer role    
-            //if (!roleCheck)
-            //{
-            //    //create the roles and seed them to the database
-            //    roleResult = await RoleManager.CreateAsync(new IdentityRole("Customer"));
-            //}
+            roleCheck = await RoleManager.RoleExistsAsync("Customer");
+            // creating Creating Customer role    
+            if (!roleCheck)
+            {
+                //create the roles and seed them to the database
+                roleResult = await RoleManager.CreateAsync(new IdentityRole("Customer"));
+            }
 
             //Assign Admin role to the main User here we have given our newly registered 
             //login id for Admin management

@@ -16,6 +16,8 @@
 
   <ItemGroup>
     <Compile Remove="Models\ApplicationUser.cs" />
+    <Compile Remove="Services\EmailSender.cs" />
+    <Compile Remove="Services\IEmailSender.cs" />
   </ItemGroup>
 
 
@@ -35,6 +37,10 @@
   <ItemGroup>
     <ProjectReference Include="..\FangZhouShuMa.ApplicationCore\FangZhouShuMa.ApplicationCore.csproj" />
     <ProjectReference Include="..\FangZhouShuMa.Infrastructure\FangZhouShuMa.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>

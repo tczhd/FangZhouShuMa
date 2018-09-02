@@ -13,6 +13,7 @@ using Microsoft.Extensions.Options;
 using FangZhouShuMa.Infrastructure.Identity;
 using FangZhouShuMa.Web.Models.AccountViewModels;
 using FangZhouShuMa.Web.Services;
+using FangZhouShuMa.ApplicationCore.Interfaces;
 
 namespace FangZhouShuMa.Web.Controllers
 {
