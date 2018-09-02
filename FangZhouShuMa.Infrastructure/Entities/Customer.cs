@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 
-namespace FangZhouShuMa.DataAccess.Entities
+namespace FangZhouShuMa.Infrastructure.Entities
 {
     public class Customer
     {
@@ -68,7 +68,7 @@ namespace FangZhouShuMa.DataAccess.Entities
         [Required]
         [StringLength(450)]
         public string UserId { get; set; }
-       // public virtual AspNetUsers AspNetUser { get; set; }
+        public virtual AspNetUsers AspNetUser { get; set; }
 
         public virtual Account Account { get; set; }
 

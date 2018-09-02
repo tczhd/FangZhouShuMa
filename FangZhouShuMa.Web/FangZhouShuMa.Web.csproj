@@ -33,7 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FangZhouShuMa.DataAccess\FangZhouShuMa.DataAccess.csproj" />
+    <ProjectReference Include="..\FangZhouShuMa.Infrastructure\FangZhouShuMa.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

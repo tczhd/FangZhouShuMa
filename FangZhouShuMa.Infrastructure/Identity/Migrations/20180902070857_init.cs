@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.Collections.Generic;
 
-namespace FangZhouShuMa.DataAccess.Migrations
+namespace FangZhouShuMa.Infrastructure.Identity.Migrations
 {
     public partial class init : Migration
     {
