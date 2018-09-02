@@ -5,16 +5,31 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Entities\**" />
+    <EmbeddedResource Remove="Entities\**" />
+    <None Remove="Entities\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Repository\EfRepository.cs" />
+    <Compile Remove="Data\Repository\OrderRepository.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Data\Migrations\" />
+    <Folder Include="Data\Repository\" />
     <Folder Include="Identity\Migrations\" />
     <Folder Include="Logging\" />
-    <Folder Include="Contexts\" />
     <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FangZhouShuMa.ApplicationCore\FangZhouShuMa.ApplicationCore.csproj" />
   </ItemGroup>
 
 </Project>

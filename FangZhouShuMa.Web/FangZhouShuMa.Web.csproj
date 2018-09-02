@@ -33,6 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FangZhouShuMa.ApplicationCore\FangZhouShuMa.ApplicationCore.csproj" />
     <ProjectReference Include="..\FangZhouShuMa.Infrastructure\FangZhouShuMa.Infrastructure.csproj" />
   </ItemGroup>
 

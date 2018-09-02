@@ -1,5 +1,9 @@
-﻿using FangZhouShuMa.Infrastructure.Entities;
+﻿
 using Microsoft.EntityFrameworkCore;
+using FangZhouShuMa.ApplicationCore.Entities.CustomerAggregate;
+using FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte;
+using FangZhouShuMa.ApplicationCore.Entities.ProductAggregate;
+using FangZhouShuMa.ApplicationCore.Entities.UserAggregate;
 
 namespace FangZhouShuMa.Infrastructure.Data
 {
@@ -36,49 +40,49 @@ namespace FangZhouShuMa.Infrastructure.Data
                 .HasMany(e => e.Customers)
                 .WithOne(e => e.Account)
                 .HasForeignKey(e => e.AccountId)
-                .HasPrincipalKey(e => e.AccountId)
+                .HasPrincipalKey(e => e.Id)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<AccountGroup>()
                .HasMany(e => e.Accounts)
                .WithOne(e => e.AccountGroup)
                .HasForeignKey(e => e.AccountGroupId)
-               .HasPrincipalKey(e => e.AccountGroupId)
+               .HasPrincipalKey(e => e.Id)
                .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<SalesChannel>()
            .HasMany(e => e.AccountGroups)
            .WithOne(e => e.SalesChannel)
            .HasForeignKey(e => e.SalesChannelId)
-           .HasPrincipalKey(e => e.SalesChannelId)
+           .HasPrincipalKey(e => e.Id)
            .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<Customer>()
          .HasMany(e => e.ShippingInfos)
          .WithOne(e => e.Customer)
          .HasForeignKey(e => e.CustomerId)
-         .HasPrincipalKey(e => e.CustomerId)
+         .HasPrincipalKey(e => e.Id)
          .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<Customer>()
        .HasMany(e => e.Orders)
        .WithOne(e => e.Customer)
        .HasForeignKey(e => e.CustomerId)
-       .HasPrincipalKey(e => e.CustomerId)
+       .HasPrincipalKey(e => e.Id)
        .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<Category>()
        .HasMany(e => e.Groups)
        .WithOne(e => e.Category)
        .HasForeignKey(e => e.CategoryId)
-       .HasPrincipalKey(e => e.CategoryId)
+       .HasPrincipalKey(e => e.Id)
        .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<Group>()
        .HasMany(e => e.Products)
        .WithOne(e => e.Group)
        .HasForeignKey(e => e.GroupId)
-       .HasPrincipalKey(e => e.GroupId)
+       .HasPrincipalKey(e => e.Id)
        .OnDelete(DeleteBehavior.Restrict);
 
 
@@ -86,28 +90,28 @@ namespace FangZhouShuMa.Infrastructure.Data
        .HasMany(e => e.ProductCustomFields)
        .WithOne(e => e.ProductCustomFieldGroup)
        .HasForeignKey(e => e.ProductCustomFieldGroupId)
-       .HasPrincipalKey(e => e.ProductCustomFieldGroupId)
+       .HasPrincipalKey(e => e.Id)
        .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<ProductCustomField>()
       .HasMany(e => e.ProductCustomFieldOptions)
       .WithOne(e => e.ProductCustomField)
       .HasForeignKey(e => e.ProductCustomFieldId)
-      .HasPrincipalKey(e => e.ProductCustomFieldId)
+      .HasPrincipalKey(e => e.Id)
       .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<ProductCustomFieldOption>()
     .HasMany(e => e.ProductCustomFieldOptionsDisplayByRelationshipPrimaries)
     .WithOne(e => e.ProductCustomFieldOptionPrimary)
     .HasForeignKey(e => e.ProductCustomFieldPrimaryOptionsId)
-    .HasPrincipalKey(e => e.ProductCustomFieldOptionsId)
+    .HasPrincipalKey(e => e.Id)
     .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<ProductCustomFieldOption>()
 .HasMany(e => e.ProductCustomFieldOptionsDisplayByRelationshipDisplays)
 .WithOne(e => e.ProductCustomFieldOptionDisplay)
 .HasForeignKey(e => e.ProductCustomFieldDisplayOptionsId)
-.HasPrincipalKey(e => e.ProductCustomFieldOptionsId)
+.HasPrincipalKey(e => e.Id)
 .OnDelete(DeleteBehavior.Restrict);
 
 
@@ -115,20 +119,20 @@ namespace FangZhouShuMa.Infrastructure.Data
 .HasMany(e => e.OrderProducts)
 .WithOne(e => e.Order)
 .HasForeignKey(e => e.OrderId)
-.HasPrincipalKey(e => e.OrderId)
+.HasPrincipalKey(e => e.Id)
 .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<Order>()
 .HasMany(e => e.ShippingInfos)
 .WithOne(e => e.Order)
-.HasForeignKey(e => e.ShippingInfoId)
+.HasForeignKey(e => e.Id)
 .HasPrincipalKey(e => e.ShippingInfoId)
 .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<Order>()
 .HasMany(e => e.BillingInfos)
 .WithOne(e => e.Order)
-.HasForeignKey(e => e.BillingInfoId)
+.HasForeignKey(e => e.Id)
 .HasPrincipalKey(e => e.BillingInfoId)
 .OnDelete(DeleteBehavior.Restrict);
 
@@ -136,7 +140,7 @@ namespace FangZhouShuMa.Infrastructure.Data
 .HasMany(e => e.OrderProductCustomFieldData)
 .WithOne(e => e.OrderProduct)
 .HasForeignKey(e => e.OrderProductId)
-.HasPrincipalKey(e => e.OrderProductId)
+.HasPrincipalKey(e => e.Id)
 .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<OrderProductCustomFieldData>()
@@ -150,14 +154,14 @@ namespace FangZhouShuMa.Infrastructure.Data
 .HasMany(e => e.CreatedOrders)
 .WithOne(e => e.SiteUserCreated)
 .HasForeignKey(e => e.CreatedById)
-.HasPrincipalKey(e => e.SiteUserId)
+.HasPrincipalKey(e => e.Id)
 .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<SiteUser>()
 .HasMany(e => e.EditOrders)
 .WithOne(e => e.SiteUserEdited)
 .HasForeignKey(e => e.EditedById)
-.HasPrincipalKey(e => e.SiteUserId)
+.HasPrincipalKey(e => e.Id)
 .OnDelete(DeleteBehavior.Restrict);
         }
     }
