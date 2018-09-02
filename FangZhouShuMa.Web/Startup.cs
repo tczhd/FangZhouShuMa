@@ -10,7 +10,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using FangZhouShuMa.Infrastructure.Identity;
 using FangZhouShuMa.Web.Services;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using FangZhouShuMa.Infrastructure.Data;
 
 namespace FangZhouShuMa.Web
