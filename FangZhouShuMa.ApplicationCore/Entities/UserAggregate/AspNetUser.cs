@@ -6,7 +6,7 @@ using System.Text;
 
 namespace FangZhouShuMa.ApplicationCore.Entities.UserAggregate
 {
-    public class AspNetUsers: IdentityUser
+    public class AspNetUser: IdentityUser
     {
         public virtual ICollection<Customer> Customers { get; set; }
     }

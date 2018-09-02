@@ -69,7 +69,7 @@ namespace FangZhouShuMa.ApplicationCore.Entities.CustomerAggregate
         [Required]
         [StringLength(450)]
         public string UserId { get; set; }
-        public virtual AspNetUsers AspNetUser { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
 
         public virtual Account Account { get; set; }
 

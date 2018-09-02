@@ -14,9 +14,9 @@ namespace FangZhouShuMa.Infrastructure.Data.Repository
     /// <typeparam name="T"></typeparam>
     public class EfRepository<T> : IRepository<T>, IAsyncRepository<T> where T : BaseEntity
     {
-        protected readonly CatalogContext _dbContext;
+        protected readonly FangZhouShuMaContext _dbContext;
 
-        public EfRepository(CatalogContext dbContext)
+        public EfRepository(FangZhouShuMaContext dbContext)
         {
             _dbContext = dbContext;
         }

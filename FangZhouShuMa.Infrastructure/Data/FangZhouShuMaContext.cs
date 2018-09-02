@@ -4,6 +4,7 @@ using FangZhouShuMa.ApplicationCore.Entities.CustomerAggregate;
 using FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte;
 using FangZhouShuMa.ApplicationCore.Entities.ProductAggregate;
 using FangZhouShuMa.ApplicationCore.Entities.UserAggregate;
+using FangZhouShuMa.ApplicationCore.Entities.GenericAggregate;
 
 namespace FangZhouShuMa.Infrastructure.Data
 {
@@ -16,6 +17,8 @@ namespace FangZhouShuMa.Infrastructure.Data
         {
         }
 
+        public DbSet<AspNetUser> AspNetUsers { get; set; }
+        public DbSet<SiteUser> SiteUsers { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<AccountGroup> AccountGroups { get; set; }
@@ -24,12 +27,23 @@ namespace FangZhouShuMa.Infrastructure.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Group> Groups { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<BillingInfo> BillingInfos { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderProduct> OrderProducts { get; set; }
+        public DbSet<OrderProductCustomFieldData> OrderProductCustomFieldDatas { get; set; }
+        public DbSet<OrderProductCustomFieldOptionData> OrderProductCustomFieldOptionDatas { get; set; }
+        public DbSet<ProductCustomField> ProductCustomFields { get; set; }
+        public DbSet<ProductCustomFieldData> ProductCustomFieldDatas { get; set; }
+        public DbSet<ProductCustomFieldGroup> ProductCustomFieldGroups { get; set; }
+        public DbSet<ProductCustomFieldOption> ProductCustomFieldOptions { get; set; }
+        public DbSet<ProductCustomFieldOptionsDisplayByRelationship> ProductCustomFieldOptionsDisplayByRelationships { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<AspNetUsers>()
+            builder.Entity<AspNetUser>()
                 .HasMany(e => e.Customers)
                 .WithOne(e => e.AspNetUser)
                 .HasForeignKey(e => e.UserId)
