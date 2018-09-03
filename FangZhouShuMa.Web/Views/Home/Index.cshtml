@@ -69,8 +69,28 @@
 </div>
 
 
+@if (Model.Items.Any())
+{
 
 <div class="container baojia clearfix">
+    <ul class="row">
+        @foreach (var item in Model.Items)
+        {
+            @Html.Partial("_product.cshtml", item)
+        }
+    </ul>
+</div>
+
+}
+else
+{
+    <div class="esh-catalog-items row">
+        没有报价
+    </div>
+}
+
+
+@*<div class="container baojia clearfix">
     <ul class="row">
         <li class="bg66_1 col-md-3">
             <a href="/Quote/SinglePage">
@@ -149,7 +169,7 @@
     </ul>
 
 
-    @*<div class="row liucheng clearfix">
+    <div class="row liucheng clearfix">
             <div class="liucheng_l col-md-2">下单流程</div>
             <div class="liucheng_r col-md-10">
                 <ul class="row">
@@ -161,8 +181,8 @@
                 </ul>
 
             </div>
-        </div>*@
+        </div>
 
-</div>
+</div>*@
 
 

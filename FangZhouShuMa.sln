@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FangZhouShuMa.API", "FangZh
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FangZhouShuMa.Web", "FangZhouShuMa.Web\FangZhouShuMa.Web.csproj", "{C0620CEC-DCA4-4F48-AA5D-C058608C0025}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FangZhouShuMa.Infrastructure", "FangZhouShuMa.Infrastructure\FangZhouShuMa.Infrastructure.csproj", "{4644289C-344E-4865-AD11-31A55B0149C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FangZhouShuMa.Infrastructure", "FangZhouShuMa.Infrastructure\FangZhouShuMa.Infrastructure.csproj", "{4644289C-344E-4865-AD11-31A55B0149C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FangZhouShuMa.ApplicationCore", "FangZhouShuMa.ApplicationCore\FangZhouShuMa.ApplicationCore.csproj", "{243D8CF5-A3BD-4772-B0A1-CE8E1431D3E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FangZhouShuMa.ApplicationCore", "FangZhouShuMa.ApplicationCore\FangZhouShuMa.ApplicationCore.csproj", "{243D8CF5-A3BD-4772-B0A1-CE8E1431D3E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -78,59 +78,59 @@ namespace FangZhouShuMa.Infrastructure.Data
             return new List<Product>()
             {
                 new Product() {
-                    Active =true,Cost= 10, CreateDateUTC = DateTime.UtcNow, Description = "数码单张",GroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,
-                    MinumumQuantity = 10,MultipleMinumumQuantity = true, Name= "数码单张", Price = 500, Sequence = 1,  UpdatedBy =1 
+                    Active =true,Cost= 10, CreateDateUTC = DateTime.UtcNow, Description = "宣传页/折页/海报...",GroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,
+                    MinumumQuantity = 10,MultipleMinumumQuantity = true, Name= "数码单张", Price = 500, Sequence = 1,  UpdatedBy =1 ,PictureUri = "bg66_1"
 
                 },
 
                new Product() {
-                    Active =true,Cost= 10, CreateDateUTC = DateTime.UtcNow, Description = "简单画册",GroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,
-                    MinumumQuantity = 10,MultipleMinumumQuantity = true, Name= "简单画册", Price = 500, Sequence = 1,  UpdatedBy =1
+                    Active =true,Cost= 10, CreateDateUTC = DateTime.UtcNow, Description = "书籍/画册/样本...",GroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,
+                    MinumumQuantity = 10,MultipleMinumumQuantity = true, Name= "简单画册", Price = 500, Sequence = 1,  UpdatedBy =1,PictureUri = "bg66_3"
 
                 },
                new Product() {
-                    Active =true,Cost= 10, CreateDateUTC = DateTime.UtcNow, Description = "精装画册",GroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,
-                    MinumumQuantity = 10,MultipleMinumumQuantity = true, Name= "精装画册", Price = 500, Sequence = 1,  UpdatedBy =1
+                    Active =true,Cost= 10, CreateDateUTC = DateTime.UtcNow, Description = "硬壳精装/纪念画册...",GroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,
+                    MinumumQuantity = 10,MultipleMinumumQuantity = true, Name= "精装画册", Price = 500, Sequence = 1,  UpdatedBy =1,PictureUri = "bg66_4"
 
                 },
                new Product() {
-                    Active =true,Cost= 10, CreateDateUTC = DateTime.UtcNow, Description = "数码封套",GroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,
-                    MinumumQuantity = 10,MultipleMinumumQuantity = true, Name= "数码封套", Price = 500, Sequence = 1,  UpdatedBy =1
+                    Active =true,Cost= 10, CreateDateUTC = DateTime.UtcNow, Description = "封套/卡套/信封...",GroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,
+                    MinumumQuantity = 10,MultipleMinumumQuantity = true, Name= "数码封套", Price = 500, Sequence = 1,  UpdatedBy =1,PictureUri = "bg66_6"
 
                 },
                new Product() {
-                    Active =true,Cost= 10, CreateDateUTC = DateTime.UtcNow, Description = "数码手提袋",GroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,
-                    MinumumQuantity = 10,MultipleMinumumQuantity = true, Name= "数码手提袋", Price = 500, Sequence = 1,  UpdatedBy =1
+                    Active =true,Cost= 10, CreateDateUTC = DateTime.UtcNow, Description = "手提袋包装盒...",GroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,
+                    MinumumQuantity = 10,MultipleMinumumQuantity = true, Name= "数码手提袋", Price = 500, Sequence = 1,  UpdatedBy =1,PictureUri = "bg66_5"
 
                 },
                new Product() {
-                    Active =true,Cost= 10, CreateDateUTC = DateTime.UtcNow, Description = "数码不干胶",GroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,
-                    MinumumQuantity = 10,MultipleMinumumQuantity = true, Name= "数码不干胶", Price = 500, Sequence = 1,  UpdatedBy =1
+                    Active =true,Cost= 10, CreateDateUTC = DateTime.UtcNow, Description = "铜扳/书写/透明...",GroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,
+                    MinumumQuantity = 10,MultipleMinumumQuantity = true, Name= "数码不干胶", Price = 500, Sequence = 1,  UpdatedBy =1,PictureUri = "bg66_2"
 
                 },
                new Product() {
-                    Active =true,Cost= 10, CreateDateUTC = DateTime.UtcNow, Description = "台历",GroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,
-                    MinumumQuantity = 10,MultipleMinumumQuantity = true, Name= "台历", Price = 500, Sequence = 1,  UpdatedBy =1
+                    Active =true,Cost= 10, CreateDateUTC = DateTime.UtcNow, Description = "台历/周历/日历...",GroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,
+                    MinumumQuantity = 10,MultipleMinumumQuantity = true, Name= "台历", Price = 500, Sequence = 1,  UpdatedBy =1,PictureUri = "bg66_7"
 
                 },
                new Product() {
-                    Active =true,Cost= 10, CreateDateUTC = DateTime.UtcNow, Description = "挂历",GroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,
-                    MinumumQuantity = 10,MultipleMinumumQuantity = true, Name= "挂历", Price = 500, Sequence = 1,  UpdatedBy =1
+                    Active =true,Cost= 10, CreateDateUTC = DateTime.UtcNow, Description = "挂历/月历/日历...",GroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,
+                    MinumumQuantity = 10,MultipleMinumumQuantity = true, Name= "挂历", Price = 500, Sequence = 1,  UpdatedBy =1,PictureUri = "bg66_8"
 
                 },
                  new Product() {
-                    Active =true,Cost= 10, CreateDateUTC = DateTime.UtcNow, Description = "艺术微喷",GroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,
-                    MinumumQuantity = 10,MultipleMinumumQuantity = true, Name= "艺术微喷", Price = 500, Sequence = 1,  UpdatedBy =1
+                    Active =true,Cost= 10, CreateDateUTC = DateTime.UtcNow, Description = "专业级写真打印...",GroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,
+                    MinumumQuantity = 10,MultipleMinumumQuantity = true, Name= "艺术微喷", Price = 500, Sequence = 1,  UpdatedBy =1,PictureUri = "bg66_11"
 
                 },
                    new Product() {
-                    Active =true,Cost= 10, CreateDateUTC = DateTime.UtcNow, Description = "X型展架",GroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,
-                    MinumumQuantity = 10,MultipleMinumumQuantity = true, Name= "X型展架", Price = 500, Sequence = 1,  UpdatedBy =1
+                    Active =true,Cost= 10, CreateDateUTC = DateTime.UtcNow, Description = "X型展架...",GroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,
+                    MinumumQuantity = 10,MultipleMinumumQuantity = true, Name= "X型展架", Price = 500, Sequence = 1,  UpdatedBy =1,PictureUri = "bg66_10"
 
                 },
                      new Product() {
-                    Active =true,Cost= 10, CreateDateUTC = DateTime.UtcNow, Description = "易拉宝",GroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,
-                    MinumumQuantity = 10,MultipleMinumumQuantity = true, Name= "易拉宝", Price = 500, Sequence = 1,  UpdatedBy =1
+                    Active =true,Cost= 10, CreateDateUTC = DateTime.UtcNow, Description = "铝合金易拉宝转架...",GroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,
+                    MinumumQuantity = 10,MultipleMinumumQuantity = true, Name= "易拉宝", Price = 500, Sequence = 1,  UpdatedBy =1,PictureUri = "bg66_19"
 
                 },
             };
