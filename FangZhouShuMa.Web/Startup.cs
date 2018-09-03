@@ -13,6 +13,7 @@ using FangZhouShuMa.Infrastructure.Data;
 using FangZhouShuMa.ApplicationCore.Interfaces;
 using FangZhouShuMa.Infrastructure.Data.Repository;
 using FangZhouShuMa.Infrastructure.Services;
+using FangZhouShuMa.Infrastructure.Logging;
 
 namespace FangZhouShuMa.Web
 {
@@ -47,6 +48,7 @@ namespace FangZhouShuMa.Web
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
             services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
 
+            services.AddScoped(typeof(IAppLogger<>), typeof(LoggerAdapter<>));
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
