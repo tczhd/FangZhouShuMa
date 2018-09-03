@@ -20,6 +20,7 @@ namespace FangZhouShuMa.ApplicationCore.Entities.ProductAggregate
         public string SKU { get; set; }
 
         public string Description { get; set; }
+        public string PictureUri { get; set; }
 
         public decimal Price { get; set; }
 
