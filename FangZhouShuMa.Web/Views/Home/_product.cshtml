@@ -1,16 +1,15 @@
 ﻿@using FangZhouShuMa.Web.Models.ProductViewModels
 @model ProductViewModel
 
-<form asp-controller="Basket" asp-action="AddToBasket">
+<a asp-controller="Catalog" asp-action="Index">
     <input type="hidden" asp-for="@Model.Id" name="id" />
     <input type="hidden" asp-for="@Model.Name" name="name" />
     <input type="hidden" asp-for="@Model.PictureUri" name="pictureUri" />
     <input type="hidden" asp-for="@Model.Price" name="price" />
  
+
     <li class="col-md-3">
-        <a href="/Quote/SinglePage">
             <h3 class="color66_3">@Model.Name</h3>
             <p>@Model.Description</p>
-        </a>
     </li>
-</form>
+</a>
