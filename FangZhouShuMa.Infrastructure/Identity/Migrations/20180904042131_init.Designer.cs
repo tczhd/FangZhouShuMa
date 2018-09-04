@@ -11,7 +11,7 @@ using System;
 namespace FangZhouShuMa.Infrastructure.Identity.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180902070857_init")]
+    [Migration("20180904042131_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

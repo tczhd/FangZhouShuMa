@@ -195,6 +195,7 @@ namespace FangZhouShuMa.Infrastructure.Data.Migrations
                     MinumumQuantity = table.Column<decimal>(nullable: false),
                     MultipleMinumumQuantity = table.Column<bool>(nullable: false),
                     Name = table.Column<string>(maxLength: 100, nullable: false),
+                    PictureUri = table.Column<string>(nullable: true),
                     Price = table.Column<decimal>(nullable: false),
                     SKU = table.Column<string>(maxLength: 50, nullable: true),
                     Sequence = table.Column<int>(nullable: false),

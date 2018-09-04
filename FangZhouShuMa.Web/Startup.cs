@@ -86,6 +86,7 @@ namespace FangZhouShuMa.Web
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
+            /*Need comment when you need to change to a new database*/
             CreateUserRoles(serviceProvider).Wait();
         }
 

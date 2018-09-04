@@ -15,6 +15,7 @@ namespace FangZhouShuMa.Web
         {
             var host = BuildWebHost(args);
 
+            /*Need comment when you need to change to a new database*/
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;

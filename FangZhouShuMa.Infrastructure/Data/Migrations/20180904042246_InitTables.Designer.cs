@@ -11,7 +11,7 @@ using System;
 namespace FangZhouShuMa.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(FangZhouShuMaContext))]
-    [Migration("20180902223207_InitTables")]
+    [Migration("20180904042246_InitTables")]
     partial class InitTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -551,6 +551,8 @@ namespace FangZhouShuMa.Infrastructure.Data.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100);
+
+                    b.Property<string>("PictureUri");
 
                     b.Property<decimal>("Price");
 
