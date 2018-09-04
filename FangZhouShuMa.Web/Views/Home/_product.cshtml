@@ -1,7 +1,7 @@
 ﻿@using FangZhouShuMa.Web.Models.ProductViewModels
 @model ProductViewModel
 
-<a asp-controller="Catalog" asp-action="Index">
+<a asp-controller="Quote" asp-action="Index" asp-route-id="@Model.Id">
     <input type="hidden" asp-for="@Model.Id" name="id" />
     <input type="hidden" asp-for="@Model.Name" name="name" />
     <input type="hidden" asp-for="@Model.PictureUri" name="pictureUri" />

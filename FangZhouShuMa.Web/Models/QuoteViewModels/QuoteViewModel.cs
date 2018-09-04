@@ -4,11 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FangZhouShuMa.Web.Models.CatalogViewModels
+namespace FangZhouShuMa.Web.Models.QuoteViewModels
 {
-    public class CatalogViewModel
+    public class QuoteViewModel
     {
         public IEnumerable<ProductViewModel> Items { get; set; }
-
     }
 }

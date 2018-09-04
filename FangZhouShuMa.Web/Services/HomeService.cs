@@ -61,6 +61,7 @@ namespace FangZhouShuMa.Web.Services
                     Id = i.Id,
                     Name = i.Name,
                     PictureUri = i.PictureUri,
+                    Description = i.Description,
                     Price = i.Price
                 }),
                 Categories = await GetCategories(),
