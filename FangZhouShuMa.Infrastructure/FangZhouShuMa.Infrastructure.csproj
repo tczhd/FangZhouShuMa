@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FangZhouShuMa.ApplicationCore\FangZhouShuMa.ApplicationCore.csproj" />
+    <ProjectReference Include="..\FangZhouShuMa.Framework\FangZhouShuMa.Framework.csproj" />
   </ItemGroup>
 
 </Project>

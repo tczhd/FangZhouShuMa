@@ -11,8 +11,6 @@ namespace FangZhouShuMa.ApplicationCore.Entities.ProductAggregate
             ProductCustomFieldOptionsDisplayByRelationshipPrimaries = new HashSet<ProductCustomFieldOptionsDisplayByRelationship>();
             ProductCustomFieldOptionsDisplayByRelationshipDisplays = new HashSet<ProductCustomFieldOptionsDisplayByRelationship>();
         }
-        [Key]
-
         public int ProductCustomFieldId { get; set; }
 
         [Required]

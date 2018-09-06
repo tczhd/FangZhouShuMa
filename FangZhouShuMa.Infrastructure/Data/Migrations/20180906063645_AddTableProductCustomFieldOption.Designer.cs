@@ -11,9 +11,10 @@ using System;
 namespace FangZhouShuMa.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(FangZhouShuMaContext))]
-    partial class FangZhouShuMaContextModelSnapshot : ModelSnapshot
+    [Migration("20180906063645_AddTableProductCustomFieldOption")]
+    partial class AddTableProductCustomFieldOption
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

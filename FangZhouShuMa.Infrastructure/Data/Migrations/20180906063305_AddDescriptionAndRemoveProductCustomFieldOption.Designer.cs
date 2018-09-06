@@ -11,9 +11,10 @@ using System;
 namespace FangZhouShuMa.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(FangZhouShuMaContext))]
-    partial class FangZhouShuMaContextModelSnapshot : ModelSnapshot
+    [Migration("20180906063305_AddDescriptionAndRemoveProductCustomFieldOption")]
+    partial class AddDescriptionAndRemoveProductCustomFieldOption
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -642,34 +643,6 @@ namespace FangZhouShuMa.Infrastructure.Data.Migrations
                     b.ToTable("ProductCustomFieldGroups");
                 });
 
-            modelBuilder.Entity("FangZhouShuMa.ApplicationCore.Entities.ProductAggregate.ProductCustomFieldOption", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<bool>("Active");
-
-                    b.Property<bool>("DisplayByRelationship");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100);
-
-                    b.Property<int?>("ParentOptionsId");
-
-                    b.Property<decimal>("Price");
-
-                    b.Property<int>("ProductCustomFieldId");
-
-                    b.Property<int>("Sequence");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductCustomFieldId");
-
-                    b.ToTable("ProductCustomFieldOption");
-                });
-
             modelBuilder.Entity("FangZhouShuMa.ApplicationCore.Entities.ProductAggregate.ProductCustomFieldOptionsDisplayByRelationship", b =>
                 {
                     b.Property<int>("Id")
@@ -680,10 +653,6 @@ namespace FangZhouShuMa.Infrastructure.Data.Migrations
                     b.Property<int>("ProductCustomFieldPrimaryOptionsId");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ProductCustomFieldDisplayOptionsId");
-
-                    b.HasIndex("ProductCustomFieldPrimaryOptionsId");
 
                     b.ToTable("ProductCustomFieldOptionsDisplayByRelationships");
                 });
@@ -878,27 +847,6 @@ namespace FangZhouShuMa.Infrastructure.Data.Migrations
                         .WithMany("ProductCustomFieldData")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("FangZhouShuMa.ApplicationCore.Entities.ProductAggregate.ProductCustomFieldOption", b =>
-                {
-                    b.HasOne("FangZhouShuMa.ApplicationCore.Entities.ProductAggregate.ProductCustomField", "ProductCustomField")
-                        .WithMany("ProductCustomFieldOptions")
-                        .HasForeignKey("ProductCustomFieldId")
-                        .OnDelete(DeleteBehavior.Restrict);
-                });
-
-            modelBuilder.Entity("FangZhouShuMa.ApplicationCore.Entities.ProductAggregate.ProductCustomFieldOptionsDisplayByRelationship", b =>
-                {
-                    b.HasOne("FangZhouShuMa.ApplicationCore.Entities.ProductAggregate.ProductCustomFieldOption", "ProductCustomFieldOptionDisplay")
-                        .WithMany("ProductCustomFieldOptionsDisplayByRelationshipDisplays")
-                        .HasForeignKey("ProductCustomFieldDisplayOptionsId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("FangZhouShuMa.ApplicationCore.Entities.ProductAggregate.ProductCustomFieldOption", "ProductCustomFieldOptionPrimary")
-                        .WithMany("ProductCustomFieldOptionsDisplayByRelationshipPrimaries")
-                        .HasForeignKey("ProductCustomFieldPrimaryOptionsId")
-                        .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
         }
