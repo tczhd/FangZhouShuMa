@@ -232,7 +232,7 @@ namespace FangZhouShuMa.Infrastructure.Data
                 #endregion
                   #endregion
 
-                  #region 简单画册报价
+                #region 简单画册报价
                 #region 基本参数
                 new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,Name = "成品尺寸", Active = true
                 ,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
@@ -303,7 +303,7 @@ namespace FangZhouShuMa.Infrastructure.Data
                 #endregion
                   #endregion
 
-                  #region 简单画册报价
+                #region 简单画册报价
                 #region 基本参数
               
                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "大8开", Price = 5, ProductCustomFieldId = 5, Sequence = 1},
