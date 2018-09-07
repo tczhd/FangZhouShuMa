@@ -20,4 +20,8 @@
     <ProjectReference Include="..\FangZhouShuMa.Framework\FangZhouShuMa.Framework.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\Reports\Order\" />
+  </ItemGroup>
+
 </Project>
