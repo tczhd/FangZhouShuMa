@@ -16,25 +16,25 @@ namespace FangZhouShuMa.Web
             var host = BuildWebHost(args);
 
             /*Need comment when you need to change to a new database*/
-            using (var scope = host.Services.CreateScope())
-            {
-                var services = scope.ServiceProvider;
-                var loggerFactory = services.GetRequiredService<ILoggerFactory>();
-                try
-                {
-                    var fangZhouShuMaContext = services.GetRequiredService<FangZhouShuMaContext>();
-                    FangZhouShuMaContextSeed.SeedAsync(fangZhouShuMaContext, loggerFactory)
-            .Wait();
+            //using (var scope = host.Services.CreateScope())
+            //{
+            //    var services = scope.ServiceProvider;
+            //    var loggerFactory = services.GetRequiredService<ILoggerFactory>();
+            //    try
+            //    {
+            //        var fangZhouShuMaContext = services.GetRequiredService<FangZhouShuMaContext>();
+            //        FangZhouShuMaContextSeed.SeedAsync(fangZhouShuMaContext, loggerFactory)
+            //.Wait();
 
-                    var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
-                    ApplicationDbContextSeed.SeedAsync(userManager).Wait();
-                }
-                catch (Exception ex)
-                {
-                    var logger = loggerFactory.CreateLogger<Program>();
-                    logger.LogError(ex, "An error occurred seeding the DB.");
-                }
-            }
+            //        var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+            //        ApplicationDbContextSeed.SeedAsync(userManager).Wait();
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        var logger = loggerFactory.CreateLogger<Program>();
+            //        logger.LogError(ex, "An error occurred seeding the DB.");
+            //    }
+            //}
 
             host.Run();
         }
