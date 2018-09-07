@@ -4,10 +4,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
 
-namespace FangZhouShuMa.Web.Models.ApiModels.Product
+namespace FangZhouShuMa.Web.Models.ProductViewModels
 {
     [DataContract(Name = "product_custom_field_option")]
-    public class ProductCustomFieldOption
+    public class ProductCustomFieldOptionViewModel
     {
 
         [DataMember(Name = "name")]

@@ -40,8 +40,4 @@
     <ProjectReference Include="..\FangZhouShuMa.Infrastructure\FangZhouShuMa.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\ApiModels\Order\" />
-  </ItemGroup>
-
 </Project>

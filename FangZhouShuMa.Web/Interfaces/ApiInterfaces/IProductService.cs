@@ -1,4 +1,4 @@
-﻿using FangZhouShuMa.Web.Models.ApiModels.Product;
+﻿using FangZhouShuMa.Web.Models.ProductViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +8,6 @@ namespace FangZhouShuMa.Web.Interfaces.ApiInterfaces
 {
     public interface IProductService
     {
-        Task<ProductDetail> GetProductDetail();
+        Task<ProductViewModel> GetProductDetail();
     }
 }
