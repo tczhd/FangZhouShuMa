@@ -1,4 +1,6 @@
-﻿
+﻿@using FangZhouShuMa.Web.Models.QuoteViewModels
+@model QuoteViewModel
+
 @{
     ViewData["Title"] = "估价";
 }
@@ -8,17 +10,13 @@
         <div class="tubiao"><h3>数字快印</h3></div>
         <div class="content1190_l clearfix" id="divQuoteMenu">
             <ul>
-                <li id="QuoteSinglePageT"><a href="/Quote/SinglePage">单张报价</a></li>
-                <li id="QuoteBook"><a href="/Quote/Book">普通画册报价</a></li>
-                <li id="QuoteHBook"><a href="/Quote/HBook">精装画册报价</a></li>
-                <li id="QuoteEnvelope"><a href="/Quote/Envelope">封套报价</a></li>
-                <li id="QuoteBag"><a href="/Quote/Bag">手提袋报价</a></li>
-                <li id="QuoteAdhesive"><a href="/Quote/Adhesive">不干胶</a></li>
-                <li id="QuoteDeskCalendar"><a href="/Quote/DeskCalendar">台历报价</a></li>
-                <li id="QuoteWallCalendary"><a href="/Quote/WallCalendary">挂历报价</a></li>
-                <li id="QuotePhoto"><a href="/Quote/Photo">写真报价</a></li>
-                <li id="QuoteXShelf"><a href="/Quote/XShelf">X型展架报价</a></li>
-                <li id="QuoteRollup"><a href="/Quote/Rollup">易拉宝报价</a></li>
+                @foreach (var item in Model.Items)
+                {
+                    <li>
+                        @Html.ActionLink(item.Name, "index", "Quote", new { id = item.Id }, null)
+                    </li>
+                }
+
             </ul>
         </div>
     </div>
@@ -27,8 +25,38 @@
         <div class="content1190_m  clearfix">
             <div class="title clearfix">
                 <span></span>
-                <h3>精装画册</h3>
+                <h3>@Model.Product.Name</h3>
             </div>
+
+            @foreach (var group in Model.Product.ProductCustomFieldGroupViewModels)
+            {
+                <div class="basic-parameter clearfix">
+                    <h3>@group.Name</h3>
+                    <div class="row">
+                        <div class="col-md-12"></div>
+                        @{int itemCount = 0; }
+
+                        @foreach (var productCustomField in group.ProductCustomFieldViewModels)
+                        {
+                            if (itemCount % 2 == 0)
+                            {
+                                @Html.Raw("<div class='row'>")
+
+
+                            }
+                            <div class="col-md-6">@productCustomField.Name</div>
+                            if (itemCount % 2 == 0)
+                            {
+                                @Html.Raw("</div>")
+
+                            }
+                            itemCount++;
+                        }
+                    </div>
+                </div>
+            }
+
+
             <div class="basic-parameter clearfix">
                 <h3>基本参数</h3>
                 <div>
@@ -743,7 +771,7 @@
             </div>
 
             <div class="b_tijiao">
-                <input type="button" id="btnSubmit" onclick="PopulateAddModal()" value="立即报价" class="m-btn-submitb"  data-toggle="modal" data-target="#myModal"/>
+                <input type="button" id="btnSubmit" onclick="PopulateAddModal()" value="立即报价" class="m-btn-submitb" data-toggle="modal" data-target="#myModal" />
             </div>
 
         </div>

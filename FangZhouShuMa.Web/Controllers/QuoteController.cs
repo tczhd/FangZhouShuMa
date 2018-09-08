@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FangZhouShuMa.Web.Interfaces.ApiInterfaces;
+using FangZhouShuMa.Web.Models.QuoteViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FangZhouShuMa.Web.Controllers
@@ -16,7 +17,12 @@ namespace FangZhouShuMa.Web.Controllers
         {
             var products = _productService.GetAllProducts();
             var product = products.SingleOrDefault(p => p.Id == id);
-            return View();
+
+            var quoteViewModel = new QuoteViewModel() {
+                Items = products,
+                Product = product
+            };
+            return View(quoteViewModel);
         }
     }
 }

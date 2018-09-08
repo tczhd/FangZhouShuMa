@@ -9,5 +9,6 @@ namespace FangZhouShuMa.Web.Models.QuoteViewModels
     public class QuoteViewModel
     {
         public IEnumerable<ProductViewModel> Items { get; set; }
+        public ProductViewModel Product { get; set; }
     }
 }
