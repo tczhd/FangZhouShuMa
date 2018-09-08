@@ -1,5 +1,14 @@
-﻿using FangZhouShuMa.ApplicationCore.Interfaces;
+﻿using FangZhouShuMa.ApplicationCore.Entities.ProductAggregate;
+using FangZhouShuMa.ApplicationCore.Interfaces;
+using FangZhouShuMa.ApplicationCore.Specifications;
+using FangZhouShuMa.Infrastructure.Data.Reports.Product;
+using FangZhouShuMa.Infrastructure.Data.Repository;
+using FangZhouShuMa.Infrastructure.Interfaces.Product;
 using FangZhouShuMa.Web.Interfaces.ApiInterfaces;
+using FangZhouShuMa.Web.Models;
+using FangZhouShuMa.Web.Models.HomeViewModels;
+using FangZhouShuMa.Web.Models.ProductViewModels;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -8,70 +17,61 @@ using System.Threading.Tasks;
 
 namespace FangZhouShuMa.Web.Services.ApiServices
 {
-    //public class ProductService :IProductService
-    //{
-    //    private readonly ILogger<HomeService> _logger;
-    //    private readonly IRepository<Product> _itemRepository;
-    //    private readonly IAsyncRepository<Category> _categoryRepository;
-    //    //  private readonly IUriComposer _uriComposer;
+    public class ProductService : IProductService
+    {
+        private readonly ILogger<ProductService> _logger;
+        private readonly ProductRepository _productRepository;
 
-    //    public HomeService(
-    //        ILoggerFactory loggerFactory,
-    //        IRepository<Product> itemRepository,
-    //        IAsyncRepository<Category> categoryRepository
-    //        //,IUriComposer uriComposer
-    //        )
-    //    {
-    //        _logger = loggerFactory.CreateLogger<HomeService>();
-    //        _itemRepository = itemRepository;
-    //        _categoryRepository = categoryRepository;
-    //        //_uriComposer = uriComposer;
-    //    }
+        public ProductService(
+            ILoggerFactory loggerFactory,
+            ProductRepository productRepository
+            )
+        {
+            _logger = loggerFactory.CreateLogger<ProductService>();
+            _productRepository = productRepository;
+        }
 
-    //    public async Task<HomeIndexViewModel> GetHomeItems(int pageIndex, int itemsPage, int? brandId, int? groupId)
-    //    {
-    //        _logger.LogInformation("GetHomeItems called.");
+        public ProductViewModel GetProductDetail(int productId)
+        {
+            _logger.LogInformation("GetProductDetail called.");
 
-    //        var filterSpecification = new ProductFilterSpecification(brandId, groupId);
-    //        var root = _itemRepository.List(filterSpecification);
+            return  GetAllProducts().SingleOrDefault(o => o.Id == productId);
+        }
 
-    //        var totalItems = root.Count();
+        public List<ProductViewModel> GetAllProducts()
+        {
+            _logger.LogInformation("Get all product called.");
 
-    //        var itemsOnPage = root
-    //            .Skip(itemsPage * pageIndex)
-    //            .Take(itemsPage)
-    //            .ToList();
+            var data = _productRepository.GetProductDetailReportById(null).Result;
+            var products = data.GroupBy(m => m.ProductId).Select(m => new ProductViewModel()
+            {
+                CreateDateUTC = m.First().ProductCreateDateUTC,
+                Id = m.Key,
+                LastUpdateDateUTC = m.First().ProductLastUpdateDateUTC,
+                Name = m.First().ProductName,
+                Price = m.First().ProductPrice,
+                ProductCustomFieldGroupViewModels = m.GroupBy(q => q.GroupId).Select(q => new ProductCustomFieldGroupViewModel()
+                {
+                    Id = q.Key,
+                    Name = q.First().GroupName,
+                    ProductCustomFieldViewModels = q.GroupBy(w => w.ProductCustomFieldId).Select(w => new ProductCustomFieldViewModel()
+                    {
+                        FieldTypeId = w.First().ProductCustomFieldFieldTypeId,
+                        Id = w.Key,
+                        Name = w.First().ProductCustomFieldName,
+                        Price = w.First().ProductCustomFieldPrice,
+                        ProductCustomFieldOptionViewModels = w.Select(e => new ProductCustomFieldOptionViewModel()
+                        {
+                            Name = e.OptionName,
+                            Price = e.OptionPrice,
+                            Sequence = e.OptionSequence
+                        }).ToList()
+                    }).ToList()
 
-    //        //itemsOnPage.ForEach(x =>
-    //        //{
-    //        //    //x.PictureUri = _uriComposer.ComposePicUri(x.PictureUri);
-    //        //    x.PictureUri = x.PictureUri);
-    //        //});
+                }).ToList()
+            });
 
-    //        var vm = new HomeIndexViewModel()
-    //        {
-    //            Items = itemsOnPage.Select(i => new ProductViewModel()
-    //            {
-    //                Id = i.Id,
-    //                Name = i.Name,
-    //                PictureUri = i.PictureUri,
-    //                Description = i.Description,
-    //                Price = i.Price
-    //            }),
-    //            Categories = await GetCategories(),
-    //            PaginationInfo = new PaginationInfoViewModel()
-    //            {
-    //                ActualPage = pageIndex,
-    //                ItemsPerPage = itemsOnPage.Count,
-    //                TotalItems = totalItems,
-    //                TotalPages = int.Parse(Math.Ceiling(((decimal)totalItems / itemsPage)).ToString())
-    //            }
-    //        };
-
-    //        vm.PaginationInfo.Next = (vm.PaginationInfo.ActualPage == vm.PaginationInfo.TotalPages - 1) ? "is-disabled" : "";
-    //        vm.PaginationInfo.Previous = (vm.PaginationInfo.ActualPage == 0) ? "is-disabled" : "";
-
-    //        return vm;
-    //    }
-    //}
+            return products.ToList();
+        }
+    }
 }

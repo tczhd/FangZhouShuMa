@@ -18,6 +18,11 @@ using FangZhouShuMa.ApplicationCore.Settings;
 using FangZhouShuMa.Web.Services;
 using FangZhouShuMa.Web.Interfaces;
 using FangZhouShuMa.ApplicationCore.Services;
+using FangZhouShuMa.Infrastructure.Interfaces.Product;
+using FangZhouShuMa.Infrastructure.Data.Reports.Product;
+using FangZhouShuMa.Web.Interfaces.ApiInterfaces;
+using FangZhouShuMa.ApplicationCore.Interfaces.Repository;
+using FangZhouShuMa.Web.Services.ApiServices;
 
 namespace FangZhouShuMa.Web
 {
@@ -52,6 +57,8 @@ namespace FangZhouShuMa.Web
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
             services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
 
+            services.AddScoped<ProductRepository>();
+            services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IHomeService, HomeService>();
             services.Configure<ProductSettings>(Configuration);
           //  services.AddSingleton<IUriComposer>(new UriComposer(Configuration.Get<ProductSettings>()));
