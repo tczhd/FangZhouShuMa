@@ -60,6 +60,13 @@ namespace FangZhouShuMa.Infrastructure.Data
                     await fangZhouShuMaContext.SaveChangesAsync();
                 }
 
+                if (!fangZhouShuMaContext.ProductCustomFieldDatas.Any())
+                {
+                    fangZhouShuMaContext.ProductCustomFieldDatas.AddRange(GetPreconfiguredProductCustomFieldData());
+
+                    await fangZhouShuMaContext.SaveChangesAsync();
+                }
+
                 if (!fangZhouShuMaContext.ProductCustomFieldOptions.Any())
                 {
                     fangZhouShuMaContext.ProductCustomFieldOptions.AddRange(GetPreconfiguredProductCustomFieldOptions());
@@ -271,6 +278,60 @@ namespace FangZhouShuMa.Infrastructure.Data
                     new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 3, LastUpdateDateUTC = DateTime.UtcNow,Name = "内页覆膜", Active = true
                 ,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
                 #endregion
+                  #endregion
+            };
+        }
+
+        static IEnumerable<ProductCustomFieldData> GetPreconfiguredProductCustomFieldData()
+        {
+            return new List<ProductCustomFieldData>()
+            {
+                #region 数码单张报价
+                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 1, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 2, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 3, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 4, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 9, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 20, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 21, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 22, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 23, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 24, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 25, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 26, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 27, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 28, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 29, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 30, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 31, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 32, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 33, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 34, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 35, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 36, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 37, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 38, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+
+
+                  #endregion
+
+                #region 简单画册报价
+                    new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 5, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 6, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 7, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 8, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 10, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 11, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 12, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 13, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 14, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 15, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 16, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 17, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 18, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 19, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 39, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow}
+
                   #endregion
             };
         }
