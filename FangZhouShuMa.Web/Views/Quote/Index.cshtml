@@ -1,4 +1,5 @@
 ﻿@using FangZhouShuMa.Web.Models.QuoteViewModels
+@using  FangZhouShuMa.Framework.Enums
 @model QuoteViewModel
 
 @{
@@ -21,43 +22,61 @@
         </div>
     </div>
 
-    <form id="formProduct">
-        <div class="content1190_m  clearfix">
-            <div class="title clearfix">
-                <span></span>
-                <h3>@Model.Product.Name</h3>
-            </div>
+    <div class="content1190_m  clearfix">
+        <div class="title clearfix">
+            <span></span>
+            <h3>@Model.Product.Name</h3>
+        </div>
 
-            @foreach (var group in Model.Product.ProductCustomFieldGroupViewModels)
+        @foreach (var group in Model.Product.ProductCustomFieldGroupViewModels)
+        {
+        <div class=" basic-parameter clearfix">
+            <h3>@group.Name</h3>
+
+            @{int itemCount = 0; }
+
+            @foreach (var productCustomField in group.ProductCustomFieldViewModels)
             {
-                <div class="basic-parameter clearfix">
-                    <h3>@group.Name</h3>
-                    <div class="row">
-                        <div class="col-md-12"></div>
-                        @{int itemCount = 0; }
+                if (itemCount % 2 == 0)
+                {
+                    @Html.Raw("<div class=\"row\">")
+                }
 
-                        @foreach (var productCustomField in group.ProductCustomFieldViewModels)
-                        {
-                            if (itemCount % 2 == 0)
-                            {
-                                @Html.Raw("<div class='row'>")
+                @Html.Raw("<div class=\"col-md-6\"> ")
+
+                <span style="padding-right:5px;"> @productCustomField.Name </span>
+                <span>
+                @if (productCustomField.FieldTypeId == (int)@ProductCustomFieldType.Boolean)
+                {
+                    <input type="checkbox" id="CheckBox_@productCustomField.Id" />
+                }
+                else if (productCustomField.FieldTypeId == (int)@ProductCustomFieldType.DropDown)
+                {
+                    @Html.DropDownList("DropDownList_" + @productCustomField.Id, new SelectList(
+                     productCustomField.ProductCustomFieldOptionViewModels.Select(x => new { Value = x.ProductCustomFieldOptionId, Text = x.Name }),
+                       "Value",  "Text"    ))
+                }
+
+                </span>
+
+                @Html.Raw("</div> ")
 
 
-                            }
-                            <div class="col-md-6">@productCustomField.Name</div>
-                            if (itemCount % 2 == 0)
-                            {
-                                @Html.Raw("</div>")
 
-                            }
-                            itemCount++;
-                        }
-                    </div>
-                </div>
+                itemCount++;
+
+                if (itemCount % 2 == 0)
+                {
+                    @Html.Raw("</div>")
+
+                }
+
             }
 
+        </div>
+        }
 
-            <div class="basic-parameter clearfix">
+        @*<div class="basic-parameter clearfix">
                 <h3>基本参数</h3>
                 <div>
                     <table class="table_frame">
@@ -768,56 +787,41 @@
             <div id="divMorecy" style=" clear:both;">
             </div>
             <div id="divMorely" style=" clear:both;">
-            </div>
+            </div>*@
 
             <div class="b_tijiao">
                 <input type="button" id="btnSubmit" onclick="PopulateAddModal()" value="立即报价" class="m-btn-submitb" data-toggle="modal" data-target="#myModal" />
             </div>
 
         </div>
-    </form>
 
-    <div id="priceresulte" style="display: none; width: 600px;">
-        <div id="loading">
-            报价中。。。
-            <img src="/images/loading.gif" />
-        </div>
-    </div>
-
-    <div class="fudong">
-        <div class="tel">
-            <p>服务电话</p>
-
-            <div class="fudong2"><span>025-87771717</span></div>
-        </div>
-        <div class="qq">
-            <p>企业qq</p>
-        </div>
-        <div class="mail">
-            <p>二维码</p><div class="wx66"></div>
-        </div>
-
-
-    </div>
-</div>
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">数码报价</h4>
+        <div id="priceresulte" style="display: none; width: 600px;">
+            <div id="loading">
+                报价中。。。
+                <img src="/images/loading.gif" />
             </div>
-            <div class="modal-body">
-                <p>报价， 建设中.</p>
+        </div>
+
+
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">数码报价</h4>
+                </div>
+                <div class="modal-body">
+                    <p>报价， 建设中.</p>
+                </div>
+
             </div>
 
         </div>
-
     </div>
-</div>

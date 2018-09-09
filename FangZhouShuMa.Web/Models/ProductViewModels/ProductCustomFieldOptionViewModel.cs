@@ -9,7 +9,8 @@ namespace FangZhouShuMa.Web.Models.ProductViewModels
     [DataContract(Name = "product_custom_field_option")]
     public class ProductCustomFieldOptionViewModel
     {
-
+        [DataMember(Name = "id")]
+        public int ProductCustomFieldOptionId { get; set; }
         [DataMember(Name = "name")]
         public string Name { get; set; }
         [DataMember(Name = "price")]

@@ -62,6 +62,7 @@ namespace FangZhouShuMa.Web.Services.ApiServices
                         Price = w.First().ProductCustomFieldPrice,
                         ProductCustomFieldOptionViewModels = w.Select(e => new ProductCustomFieldOptionViewModel()
                         {
+                            ProductCustomFieldOptionId = e.OptionId,
                             Name = e.OptionName,
                             Price = e.OptionPrice,
                             Sequence = e.OptionSequence
