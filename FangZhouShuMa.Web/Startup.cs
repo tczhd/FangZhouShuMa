@@ -58,6 +58,7 @@ namespace FangZhouShuMa.Web
             services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
 
             services.AddScoped<ProductRepository>();
+            services.AddScoped<IQuoteService, QuoteService>();
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IHomeService, HomeService>();
             services.Configure<ProductSettings>(Configuration);

@@ -17,38 +17,13 @@ namespace FangZhouShuMa.Web.Controllers.Api
     [Route("api/Product")]
     public class ProductController : Controller
     {
-        private readonly ProductRepository _productRepository;
+        private readonly IProductService _productService;
+        public ProductController(IProductService productService) => _productService = productService;
 
-        public ProductController(ProductRepository productRepository) => _productRepository = productRepository;
-        // GET: api/GetAllProducts
         [HttpGet]
         public IEnumerable<ProductViewModel> GetAllProducts()
         {
-            var data = _productRepository.GetProductDetailReportById(null).Result;
-            var products = data.GroupBy(m => m.ProductId).Select(m => new ProductViewModel() {
-                CreateDateUTC = m.First().ProductCreateDateUTC,
-                Id = m.Key,
-                LastUpdateDateUTC = m.First().ProductLastUpdateDateUTC,
-                Name = m.First().ProductName,
-                Price = m.First().ProductPrice,
-                ProductCustomFieldGroupViewModels = m.GroupBy(q => q.GroupId).Select(q => new ProductCustomFieldGroupViewModel() {
-                        Id =q.Key,
-                        Name = q.First().GroupName,
-                        ProductCustomFieldViewModels = q.GroupBy(w => w.ProductCustomFieldId).Select(w => new ProductCustomFieldViewModel() {
-                            FieldTypeId = w.First().ProductCustomFieldFieldTypeId,
-                            Id = w.Key,
-                            Name = w.First().ProductCustomFieldName,
-                            Price = w.First().ProductCustomFieldPrice,
-                            ProductCustomFieldOptionViewModels = w.Select(e => new ProductCustomFieldOptionViewModel() {
-                                Name = e.OptionName,
-                                Price = e.OptionPrice,
-                                Sequence = e.OptionSequence
-                            }).ToList()
-                        } ).ToList()
-
-                }).ToList()
-            }).ToList();
-
+            var products = _productService.GetAllProducts(null);
             return products; 
         }
     }

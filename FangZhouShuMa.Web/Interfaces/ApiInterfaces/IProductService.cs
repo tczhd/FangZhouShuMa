@@ -10,6 +10,7 @@ namespace FangZhouShuMa.Web.Interfaces.ApiInterfaces
     public interface IProductService
     {
         ProductViewModel GetProductDetail(int productId);
-        List<ProductViewModel> GetAllProducts();
+        List<ProductViewModel> GetAllProducts(int? productId);
+        //List<ProductViewModel> GetAllGroupedProducts();
     }
 }

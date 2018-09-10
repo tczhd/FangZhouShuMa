@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FangZhouShuMa.Web.Interfaces.ApiInterfaces;
 using FangZhouShuMa.Web.Models.ApiParameters;
 using FangZhouShuMa.Web.Models.ApiParameters.Products;
 using Microsoft.AspNetCore.Http;
@@ -13,6 +14,10 @@ namespace FangZhouShuMa.Web.Controllers.Api
     [Route("api/Quote")]
     public class QuoteController : Controller
     {
+        private readonly IQuoteService _quoteService;
+
+        public QuoteController(IQuoteService quoteService) => _quoteService = quoteService;
+
         // GET: api/Quote
         [HttpGet]
         public IEnumerable<string> Get()
@@ -30,7 +35,9 @@ namespace FangZhouShuMa.Web.Controllers.Api
         //POST: api/Quote
        [HttpPost]
         public IActionResult Post([FromBody]QuoteRequestProductData quoteRequest)
-        {
+       {
+           var data1 = _quoteService.Quote(quoteRequest);
+
             var data = Json(quoteRequest);
 
             return data;

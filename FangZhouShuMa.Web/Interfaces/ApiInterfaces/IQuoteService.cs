@@ -7,7 +7,7 @@ using FangZhouShuMa.Web.Models.QuoteViewModels;
 
 namespace FangZhouShuMa.Web.Interfaces.ApiInterfaces
 {
-    interface IQuoteService
+    public interface IQuoteService
     {
         QuoteResultViewModel Quote(QuoteRequestProductData quoteRequestProductData);
     }
