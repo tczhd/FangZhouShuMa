@@ -10,13 +10,17 @@
     background: url(../images/order.png) no-repeat #efefef 30px 18px;
 }
 
-    .tubiao h3 {
-        color: #666;
-        font-weight: normal;
-        line-height: 85px;
-        font-size: 22px;
-        margin-left: 80px;
-    }
+div.product-custom-field-row {
+    margin-top: 10px;
+}
+
+.tubiao h3 {
+    color: #666;
+    font-weight: normal;
+    line-height: 85px;
+    font-size: 22px;
+    margin-left: 80px;
+}
 
 .content1190 {
     width: 1200px;

@@ -1,10 +1,28 @@
 ﻿function PopulateAddModal() {
     // alert("Under construction....")
     var dataType = 'application/json; charset=utf-8';
+    //var jsonData = JSON.stringify({
+    //    FirstName: 'Andrew',
+    //    LastName: 'Lock',
+    //    Age: 31
+    //});
+    var modalBody = $('div.modal-body');
+    var productId = $("input[name*='productId']").val();
+    var productQuantity = $("input[name*='productQuantity']").val();
+    if (productQuantity.length === 0) {
+        modalBody.html("<span>Please input quantity</span>");
+        return;
+    }
+
+    var productInfo = $("div.product-info");
+    var basicParameters = productInfo.find("div.basic-parameter");
+
+
+
     var jsonData = JSON.stringify({
-        FirstName: 'Andrew',
-        LastName: 'Lock',
-        Age: 31
+        ProductId: productId ,
+        Quantity: productQuantity,
+        QuoteRequestProductCustomFieldData:[]
     });
 
     $.ajax({

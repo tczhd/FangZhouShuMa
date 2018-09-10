@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FangZhouShuMa.Web.Models.ApiParameters;
+using FangZhouShuMa.Web.Models.ApiParameters.Products;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,15 +27,24 @@ namespace FangZhouShuMa.Web.Controllers.Api
             return "value";
         }
 
-        // POST: api/Quote
-        [HttpPost]
-        public IActionResult Post([FromBody]Person person)
+        //POST: api/Quote
+       [HttpPost]
+        public IActionResult Post([FromBody]QuoteRequestProductData quoteRequest)
         {
-            var data = Json(person);
+            var data = Json(quoteRequest);
 
             return data;
         }
-        
+
+        // POST: api/Quote
+        //[HttpPost]
+        //public IActionResult Post([FromBody]Person person)
+        //{
+        //    var data = Json(person);
+
+        //    return data;
+        //}
+
         // PUT: api/Quote/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
