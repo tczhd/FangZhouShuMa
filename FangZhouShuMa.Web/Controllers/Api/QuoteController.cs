@@ -36,9 +36,9 @@ namespace FangZhouShuMa.Web.Controllers.Api
        [HttpPost]
         public IActionResult Post([FromBody]QuoteRequestProductData quoteRequest)
        {
-           var data1 = _quoteService.Quote(quoteRequest);
+           var quoteResult = _quoteService.Quote(quoteRequest);
 
-            var data = Json(quoteRequest);
+            var data = Json(quoteResult);
 
             return data;
         }

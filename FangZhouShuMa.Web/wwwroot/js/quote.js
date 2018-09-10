@@ -85,13 +85,18 @@
 };
 
 function GetQuoteDetail(data) {
+
+    var jsonData = JSON.stringify(data);
+
     var divHeader = "<div>Test</div>";
     var table = "<div class='table-responsive'><table class='table table-bordered'>" +
         "<thead><tr>" +
         "<th scope='col'>印品类型：</th>" +
-        "<th scope ='col' > X型展架</th>" +
+        "<th scope ='col' >" + data.productName + 
+        "</th>" +
         "<th scope='col'>报价日期：</th>" +
-        "<th scope='col'>	2018年09月11日</th>" +
+        "<th scope='col'>" + data.quoteDate +
+        "</th>" +
         "</tr></thead><tbody>" +
         "<tr>" +
         "<th scope='row' colspan='4'>印刷要求+后加工</th>" +
