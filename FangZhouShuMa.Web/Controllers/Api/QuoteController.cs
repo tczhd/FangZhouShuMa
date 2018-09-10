@@ -34,13 +34,6 @@ namespace FangZhouShuMa.Web.Controllers.Api
 
             return data;
         }
-
-        //// POST: api/Quote
-        //[HttpPost]
-        //public void PostFromBody([FromBody]string value)
-        //{
-        //    var a = 1;
-        //}
         
         // PUT: api/Quote/5
         [HttpPut("{id}")]

@@ -1,20 +1,20 @@
 ﻿function PopulateAddModal() {
-   // alert("Under construction....")
+    // alert("Under construction....")
     var dataType = 'application/json; charset=utf-8';
-    var jsonData = {
+    var jsonData = JSON.stringify({
         FirstName: 'Andrew',
         LastName: 'Lock',
         Age: 31
-    };
+    });
 
     $.ajax({
         type: "POST",
         url: "/api/Quote",
-        contentType: dataType,
+        contentType: dataType ,
         dataType: "json",
-        data: jsonData,
+        data: jsonData ,
         success: function (data) {
-            alert(JSON.stringify(data));                  
+            alert(JSON.stringify(data));
             //$("#DIV").html('');
             //var DIV = '';
             //$.each(data, function (i, item) {
@@ -38,5 +38,5 @@
             alert(data.responseText);
         } //End of AJAX error function  
 
-    });  
+    });
 }
