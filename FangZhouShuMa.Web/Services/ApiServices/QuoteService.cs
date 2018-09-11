@@ -32,12 +32,14 @@ namespace FangZhouShuMa.Web.Services.ApiServices
         {
             var productDetail = _productService.GetProductDetail(quoteRequestProductData.ProductId);
 
+            var quoteDate = DateTime.UtcNow;
             var quotePrice = productDetail.Price;
             var result = new QuoteResultViewModel()
             {
                 ProductId = productDetail.Id,
                 ProductName = productDetail.Name,
-                QuoteDate = DateTime.UtcNow,
+                QuoteDate = quoteDate,
+                QuoteDateString = quoteDate.ToString("yyyy年MM月dd日"),
                 ProductCustomFieldGroups = new List<QuoteProductCustomFieldGroupViewModel>()
             };
 

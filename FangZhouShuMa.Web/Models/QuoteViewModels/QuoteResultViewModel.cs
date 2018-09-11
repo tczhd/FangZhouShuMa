@@ -11,6 +11,7 @@ namespace FangZhouShuMa.Web.Models.QuoteViewModels
         public string ProductName { get; set; }
         public decimal QuoteTotal{ get; set; }
         public DateTime QuoteDate { get; set; }
+        public string QuoteDateString { get; set; }
         public List<QuoteProductCustomFieldGroupViewModel> ProductCustomFieldGroups { get; set; }
     }
 }

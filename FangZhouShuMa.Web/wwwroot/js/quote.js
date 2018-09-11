@@ -86,25 +86,51 @@
 
 function GetQuoteDetail(data) {
 
-    var jsonData = JSON.stringify(data);
+    var tableContent ="<h3 style='text-align:center;font-weight: bold;'>方舟标识报价单</h3>";
 
-    var divHeader = "<div>Test</div>";
+    $.each(data.productCustomFieldGroups, function (index, group) {
+        var groupRow = "<div class='row'><div class='col-md-12'><h4 style='color:Lime;'>" +
+            group.productCustomFieldGroupName + "</h4></div></div><hr style='border:1px solid;'>";
+
+        tableContent += groupRow;
+
+        var productCustomFieldRow = "";
+
+        $.each(group.productCustomFields, function (index, productCustomField) {
+
+            if (index % 2 === 0) {
+                productCustomFieldRow += "<div class='row' style='margin-bottom:10px;'>";
+            }
+
+            productCustomFieldRow += "<div class='col-sm-6'>" +
+                "<span style='display:inline-block;min-width:80px;font-weight: bold;'>" + productCustomField.productCustomFieldName + ":" + "</span>" +
+                "<span style='padding-left:10px;'>" + productCustomField.productCustomFieldDataDescription + "</span></div>";
+
+            if (index % 2 === 1) {
+                productCustomFieldRow += "</div>";
+            }
+
+        });
+
+        tableContent += productCustomFieldRow;
+    });
+
     var table = "<div class='table-responsive'><table class='table table-bordered'>" +
         "<thead><tr>" +
         "<th scope='col'>印品类型：</th>" +
         "<th scope ='col' >" + data.productName + 
         "</th>" +
         "<th scope='col'>报价日期：</th>" +
-        "<th scope='col'>" + data.quoteDate +
+        "<th scope='col'>" + data.quoteDateString +
         "</th>" +
         "</tr></thead><tbody>" +
         "<tr>" +
         "<th scope='row' colspan='4'>印刷要求+后加工</th>" +
         "</tr><tr>" +
-        "<td scope='row' colspan='2'>成品尺寸：0.6*1.6</td>" +
-        "<td scope='row' colspan='2'>后道工艺：毛品交货</td>" +
+        "<td scope='row' colspan='4'>" + tableContent +
+        "</td> " +
         "</tr><tr>" +
-        "<td colspan='4'>总金额：￥ 1152.00</td></tr>" +
+        "<td colspan='4' style='color:red;'>总金额：￥" + data.quoteTotal +"</td></tr>" +
         "</tbody></table></div>";
 
     var divButtons = "<div style='width:100%;margin:20px 10px;text-align:center'><button type='button' name='PrintQuote' class='btn btn-success'>打印报价单</button>" +
