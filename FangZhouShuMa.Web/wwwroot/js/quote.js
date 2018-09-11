@@ -1,12 +1,13 @@
 ﻿function PopulateAddModal() {
-    // alert("Under construction....")
+    var spinner = "<i class='fa fa-spinner fa-spin' style='font-size: 24px'></i>";
+
     var dataType = 'application/json; charset=utf-8';
-    //var jsonData = JSON.stringify({
-    //    FirstName: 'Andrew',
-    //    LastName: 'Lock',
-    //    Age: 31
-    //});
     var modalBody = $('div.modal-body');
+    modalBody.html(spinner);
+    var modalContent = $('modal-content');
+    var modalTitle = modalContent.find('.modal-title');
+    modalTitle.text("数码报价");
+
     var productId = $("input[name*='productId']").val();
     var productQuantity = $("input[name*='productQuantity']").val();
     if (productQuantity.length === 0) {
