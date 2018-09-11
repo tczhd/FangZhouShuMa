@@ -35,6 +35,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\css\basket\basket-status\basket-status.component.scss" />
+    <None Include="wwwroot\css\basket\basket.component.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\FangZhouShuMa.ApplicationCore\FangZhouShuMa.ApplicationCore.csproj" />
     <ProjectReference Include="..\FangZhouShuMa.Framework\FangZhouShuMa.Framework.csproj" />
     <ProjectReference Include="..\FangZhouShuMa.Infrastructure\FangZhouShuMa.Infrastructure.csproj" />

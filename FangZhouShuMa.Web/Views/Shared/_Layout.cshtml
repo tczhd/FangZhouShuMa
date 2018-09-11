@@ -17,18 +17,17 @@
         <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
         <link rel="stylesheet" href="~/css/quote.css" asp-append-version="true" />
     </environment>
+
+    <link rel="stylesheet" href="~/css/basket/basket.component.css" />
+    <link rel="stylesheet" href="~/css/basket/basket-status/basket-status.component.css" />
 </head>
 <body>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-            <div class="bar-login navbar-collapse collapse " style="">
-                <ul class="nav navbar-nav navbar-left login">
-                    <li class="welcome">
-                        <p>欢迎来到方舟标识！免费服务电话：<font class="cheng66"> 0512-88888888</font> </p>
-                    </li>
-                </ul>
-                @await Html.PartialAsync("_LoginPartial")
+            <div class="bar-login row" style="">
+                <div class="col-md-6 text-left">  <p>欢迎来到方舟标识！免费服务电话：<font class="cheng66"> 0512-88888888</font> </p></div>
+                <div class="col-md-6 text-right"> @await Html.PartialAsync("_LoginPartial")</div>
             </div>
 
             <div class="navbar-header">

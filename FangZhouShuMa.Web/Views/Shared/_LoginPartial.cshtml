@@ -24,9 +24,7 @@
 }
 else
 {
-    @*<section class="col-lg-1 col-xs-12">
-        @await Component.InvokeAsync("Basket")
-    </section>*@
+
     <section>
         <ul class="nav navbar-nav navbar-right login">
             <li class="shopping-cart">
@@ -38,5 +36,9 @@ else
             <li><a asp-area="" asp-controller="Account" asp-action="Register">注册</a></li>
             <li><a asp-area="" asp-controller="Account" asp-action="Login">登录</a></li>
         </ul>
+    </section>
+
+    <section>
+        @await Component.InvokeAsync("Basket", new { userName = "" })
     </section>
 }

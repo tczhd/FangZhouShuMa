@@ -627,11 +627,7 @@
         display: none;
     }
 
-    .bar-login {
-        max-height: 30px;
-    }
-
-    .navbar-collapse.collapse, .navbar-header {
+    .bar-login, .navbar-collapse.collapse, .navbar-header {
         padding: 3px 20px 3px;
     }
 }
@@ -641,11 +637,7 @@
         width: 100%;
     }
 
-    .bar-login {
-        max-height: 30px;
-    }
-
-    .navbar-collapse.collapse,
+    .bar-login, .navbar-collapse.collapse,
     .navbar-header {
         padding: 3px 20px 3px;
     }
@@ -656,11 +648,7 @@
         width: 100%;
     }
 
-    .bar-login {
-        max-height: 30px;
-    }
-
-    .navbar-collapse.collapse, .navbar-header {
+    .bar-login, .navbar-collapse.collapse, .navbar-header {
         padding: 3px 50px 3px;
     }
 }
@@ -670,11 +658,8 @@
         width: 100%;
     }
 
-    .bar-login {
-        max-height: 30px;
-    }
 
-    .navbar-collapse.collapse, .navbar-header {
+    .bar-login, .navbar-collapse.collapse, .navbar-header {
         padding: 3px 100px 3px;
     }
 }

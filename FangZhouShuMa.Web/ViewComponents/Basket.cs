@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace FangZhouShuMa.Web.ViewComponents
 {
+    [ViewComponent(Name = "Basket")]
     public class Basket : ViewComponent
     {
         private readonly IBasketViewModelService _basketService;
