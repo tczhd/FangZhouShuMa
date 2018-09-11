@@ -24,13 +24,19 @@
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right login">
-        <li class="shopping-cart">
-            <span>
-                <img src="~/images/cart.jpg" /><a href="/Quote/CartList?hid=0" target="_blank" class="cart613" style="color:#e5630b;">购物车</a>
-            </span>
-        </li>
-        <li><a asp-area="" asp-controller="Account" asp-action="Register">注册</a></li>
-        <li><a asp-area="" asp-controller="Account" asp-action="Login">登录</a></li>
-    </ul>
+    @*<section class="col-lg-1 col-xs-12">
+        @await Component.InvokeAsync("Basket")
+    </section>*@
+    <section>
+        <ul class="nav navbar-nav navbar-right login">
+            <li class="shopping-cart">
+                <span>
+                    @*<img src="~/images/cart.jpg" /><a href="/Quote/CartList?hid=0" target="_blank" class="cart613" style="color:#e5630b;">购物车</a>*@
+
+                </span>
+            </li>
+            <li><a asp-area="" asp-controller="Account" asp-action="Register">注册</a></li>
+            <li><a asp-area="" asp-controller="Account" asp-action="Login">登录</a></li>
+        </ul>
+    </section>
 }

@@ -7,6 +7,6 @@ namespace FangZhouShuMa.Web
 {
     public static class Constants
     {
-        public const string SHOPPING_CART_COOKIENAME = "fongZhouShuMa";
+        public const string BASKET_COOKIENAME = "fongZhouShuMa";
     }
 }
