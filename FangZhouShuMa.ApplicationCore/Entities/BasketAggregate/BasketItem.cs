@@ -6,8 +6,10 @@ namespace FangZhouShuMa.ApplicationCore.Entities.BasketAggregate
 {
     public class BasketItem : BaseEntity
     {
+        public int ProductId { get; set; }
+        public string ProductName { get; set; }
         public decimal UnitPrice { get; set; }
-        public int Quantity { get; set; }
-        public int CatalogItemId { get; set; }
+        public decimal Quantity { get; set; }
+        public DateTime UpdateDateUtc { get; set; }
     }
 }

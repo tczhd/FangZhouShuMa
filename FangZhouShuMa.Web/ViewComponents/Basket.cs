@@ -25,8 +25,10 @@ namespace FangZhouShuMa.Web.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync(string userName)
         {
-            var vm = new BasketComponentViewModel();
-            vm.ItemsCount = (await GetBasketViewModelAsync()).Items.Sum(i => i.Quantity);
+            var vm = new BasketComponentViewModel
+            {
+                ItemsCount = (int) (await GetBasketViewModelAsync()).Items.Sum(i => i.Quantity)
+            };
             return View(vm);
         }
 
@@ -36,18 +38,14 @@ namespace FangZhouShuMa.Web.ViewComponents
             {
                 return await _basketService.GetOrCreateBasketForUser(User.Identity.Name);
             }
-            string anonymousId = GetBasketIdFromCookie();
+            var anonymousId = GetBasketIdFromCookie();
             if (anonymousId == null) return new BasketViewModel();
             return await _basketService.GetOrCreateBasketForUser(anonymousId);
         }
 
         private string GetBasketIdFromCookie()
         {
-            if (Request.Cookies.ContainsKey(Constants.BASKET_COOKIENAME))
-            {
-                return Request.Cookies[Constants.BASKET_COOKIENAME];
-            }
-            return null;
+            return Request.Cookies.ContainsKey(Constants.BASKET_COOKIENAME) ? Request.Cookies[Constants.BASKET_COOKIENAME] : null;
         }
     }
 }

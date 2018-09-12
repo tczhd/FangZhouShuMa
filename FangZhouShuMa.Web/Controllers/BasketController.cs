@@ -6,6 +6,7 @@ using FangZhouShuMa.ApplicationCore.Interfaces;
 using FangZhouShuMa.Infrastructure.Identity;
 using FangZhouShuMa.Web.Interfaces;
 using FangZhouShuMa.Web.Models.BasketViewModels;
+using FangZhouShuMa.Web.Models.QuoteViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -23,8 +24,8 @@ namespace FangZhouShuMa.Web.Controllers
 
         public BasketController(IBasketService basketService,
            IBasketViewModelService basketViewModelService,
-           IOrderService orderService,
-           IUriComposer uriComposer,
+           //IOrderService orderService,
+           //IUriComposer uriComposer,
            SignInManager<ApplicationUser> signInManager,
            IAppLogger<BasketController> logger)
         {
@@ -39,9 +40,11 @@ namespace FangZhouShuMa.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var basketModel = await GetBasketViewModelAsync();
+            //var basketModel = await GetBasketViewModelAsync();
 
-            return View(basketModel);
+            //return View(basketModel);
+
+            return View();
         }
 
         [HttpPost]
@@ -53,6 +56,35 @@ namespace FangZhouShuMa.Web.Controllers
             return View(await GetBasketViewModelAsync());
         }
 
+
+        // POST: /Basket/AddToBasket
+        [HttpPost]
+        public async Task<IActionResult> AddToBasket(QuoteResultViewModel productDetails)
+        {
+            if (productDetails?.ProductId == null)
+            {
+                return RedirectToAction("Index", "Quote");
+            }
+            //var basketViewModel = await GetBasketViewModelAsync();
+
+            //await _basketService.AddItemToBasket(basketViewModel.Id, productDetails.ProductId, productDetails.Quantity, 1);
+
+            return RedirectToAction("Index");
+        }
+
+        //[HttpPost]
+        //[Authorize]
+        //public async Task<IActionResult> Checkout(Dictionary<string, int> items)
+        //{
+        //    var basketViewModel = await GetBasketViewModelAsync();
+        //    await _basketService.SetQuantities(basketViewModel.Id, items);
+
+        //    await _orderService.CreateOrderAsync(basketViewModel.Id, new Address("123 Main St.", "Kent", "OH", "United States", "44240"));
+
+        //    await _basketService.DeleteBasketAsync(basketViewModel.Id);
+
+        //    return View("Checkout");
+        //}
 
         private async Task<BasketViewModel> GetBasketViewModelAsync()
         {

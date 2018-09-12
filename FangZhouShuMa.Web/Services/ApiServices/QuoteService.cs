@@ -39,6 +39,7 @@ namespace FangZhouShuMa.Web.Services.ApiServices
                 ProductId = productDetail.Id,
                 ProductName = productDetail.Name,
                 QuoteDate = quoteDate,
+                Quantity = quoteRequestProductData.Quantity,
                 QuoteDateString = quoteDate.ToString("yyyy年MM月dd日"),
                 ProductCustomFieldGroups = new List<QuoteProductCustomFieldGroupViewModel>()
             };

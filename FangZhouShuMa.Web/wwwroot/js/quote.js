@@ -63,7 +63,25 @@
 
             var addToCart = modalBody.find("button[name='AddToCart']");
             $(addToCart).click(function () {
-                alert("建设中...");
+                post("/Basket/AddToBasket", data);
+                //$.ajax({
+                //    type: "POST",
+                //    url: "/Basket/AddToBasket",
+                //    contentType: dataType,
+                //    dataType: "json",
+                //    data: JSON.stringify(data),
+                //    success: function (data1) {
+
+                //    }, //End of AJAX Success function  
+
+                //    failure: function (data1) {
+                //        alert(data.responseText);
+                //    }, //End of AJAX failure function  
+                //    error: function (data1) {
+                //        alert(data.responseText);
+                //    } //End of AJAX error function  
+
+                //});
             });
 
 
@@ -83,6 +101,26 @@
         } //End of AJAX error function  
 
     });
+};
+
+function post(path, parameters) {
+    var form = $('<form></form>');
+
+    form.attr("method", "post");
+    form.attr("action", path);
+
+    $.each(parameters, function (key, value) {
+        var field = $('<input></input>');
+
+        field.attr("type", "hidden");
+        field.attr("name", key);
+        field.attr("value", value);
+
+        form.append(field);
+    });
+
+    $(document.body).append(form);
+    form.submit();
 };
 
 function GetQuoteDetail(data) {

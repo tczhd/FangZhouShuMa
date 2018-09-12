@@ -51,10 +51,10 @@ namespace FangZhouShuMa.Web.Services
                     Id = i.Id,
                     UnitPrice = i.UnitPrice,
                     Quantity = i.Quantity,
-                    CatalogItemId = i.CatalogItemId
+                    ProductId = i.ProductId
 
                 };
-                var item = _itemRepository.GetById(i.CatalogItemId);
+                var item = _itemRepository.GetById(i.ProductId);
               //  itemModel.PictureUrl = _uriComposer.ComposePicUri(item.PictureUri);
                 itemModel.ProductName = item.Name;
                 return itemModel;

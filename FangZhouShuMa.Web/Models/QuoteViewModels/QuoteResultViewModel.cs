@@ -9,6 +9,7 @@ namespace FangZhouShuMa.Web.Models.QuoteViewModels
     {
         public int ProductId { get; set; }
         public string ProductName { get; set; }
+        public decimal Quantity { get; set; }
         public decimal QuoteTotal{ get; set; }
         public DateTime QuoteDate { get; set; }
         public string QuoteDateString { get; set; }

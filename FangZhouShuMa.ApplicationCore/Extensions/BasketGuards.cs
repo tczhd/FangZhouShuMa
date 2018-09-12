@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 using Ardalis.GuardClauses;
+using FangZhouShuMa.ApplicationCore.Entities.BasketAggregate;
 using FangZhouShuMa.ApplicationCore.Exceptions;
 
-namespace FangZhouShuMa.ApplicationCore.Extensions
+namespace FArdalis.GuardClauses
 {
     public static class BasketGuards
     {
-        //public static void NullBasket(this IGuardClause guardClause, int basketId, Basket basket)
-        //{
-        //    if (basket == null)
-        //        throw new BasketNotFoundException(basketId);
-        //}
+        public static void NullBasket(this IGuardClause guardClause, int basketId, Basket basket)
+        {
+            if (basket == null)
+                throw new BasketNotFoundException(basketId);
+        }
     }
 }
