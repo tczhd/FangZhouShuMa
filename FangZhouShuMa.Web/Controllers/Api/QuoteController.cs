@@ -43,17 +43,17 @@ namespace FangZhouShuMa.Web.Controllers.Api
             return data;
         }
 
-        //POST: api/Quote/AddToBasket
-        [HttpPost]
-        [Route("[action]")]
-        public IActionResult AddToBasket([FromBody]QuoteRequestProductData quoteRequest)
-        {
-            var quoteResult = _quoteService.Quote(quoteRequest);
+        ////POST: api/Quote/AddToBasket
+        //[HttpPost]
+        //[Route("[action]")]
+        //public IActionResult AddToBasket([FromBody]QuoteRequestProductData quoteRequest)
+        //{
+        //    var quoteResult = _quoteService.Quote(quoteRequest);
 
-            var data = Json(quoteResult);
+        //    var data = Json(quoteResult);
 
-            return data;
-        }
+        //    return data;
+        //}
 
         // PUT: api/Quote/5
         [HttpPut("{id}")]

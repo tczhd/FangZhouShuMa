@@ -52,7 +52,6 @@ namespace FangZhouShuMa.Web.Services
                     UnitPrice = i.UnitPrice,
                     Quantity = i.Quantity,
                     ProductId = i.ProductId
-
                 };
                 var item = _itemRepository.GetById(i.ProductId);
               //  itemModel.PictureUrl = _uriComposer.ComposePicUri(item.PictureUri);

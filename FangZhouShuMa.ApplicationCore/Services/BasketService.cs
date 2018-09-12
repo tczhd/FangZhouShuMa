@@ -30,7 +30,7 @@ namespace FangZhouShuMa.ApplicationCore.Services
             _itemRepository = itemRepository;
         }
 
-        public async Task AddItemToBasket(int basketId, int productId, decimal price, int quantity)
+        public async Task AddItemToBasket(int basketId, int productId, decimal price,decimal quantity)
         {
             var basket = await _basketRepository.GetByIdAsync(basketId);
 

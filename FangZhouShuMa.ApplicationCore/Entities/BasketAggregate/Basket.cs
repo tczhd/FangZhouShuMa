@@ -9,17 +9,18 @@ namespace FangZhouShuMa.ApplicationCore.Entities.BasketAggregate
     {
         public string BuyerId { get; set; }
         private readonly List<BasketItem> _items = new List<BasketItem>();
-        public IReadOnlyCollection<BasketItem> Items => _items.AsReadOnly();
+        public IReadOnlyCollection<BasketItem> Items => _items;
 
         public void AddItem(int productId, decimal unitPrice, decimal quantity = 1)
         {
-            if (!Items.Any(i => i.ProductId == productId))
+            if (Items.All(i => i.ProductId != productId))
             {
                 _items.Add(new BasketItem()
                 {
                     ProductId = productId,
                     Quantity = quantity,
-                    UnitPrice = unitPrice
+                    UnitPrice = unitPrice,
+                    UpdateDateUtc = DateTime.UtcNow,
                 });
                 return;
             }

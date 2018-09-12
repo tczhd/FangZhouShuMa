@@ -1,4 +1,5 @@
 ﻿
+using FangZhouShuMa.ApplicationCore.Entities.BasketAggregate;
 using Microsoft.EntityFrameworkCore;
 using FangZhouShuMa.ApplicationCore.Entities.CustomerAggregate;
 using FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte;
@@ -38,6 +39,8 @@ namespace FangZhouShuMa.Infrastructure.Data
         public DbSet<ProductCustomFieldGroup> ProductCustomFieldGroups { get; set; }
         public DbSet<ProductCustomFieldOption> ProductCustomFieldOptions { get; set; }
         public DbSet<ProductCustomFieldOptionsDisplayByRelationship> ProductCustomFieldOptionsDisplayByRelationships { get; set; }
+        public DbSet<Basket> Baskets { get; set; }
+        public DbSet<BasketItem> BasketItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

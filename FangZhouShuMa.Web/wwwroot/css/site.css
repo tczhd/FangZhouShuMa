@@ -627,7 +627,7 @@
         display: none;
     }
 
-    .bar-login, .navbar-collapse.collapse, .navbar-header {
+    .check-out-container, .bar-login, .navbar-collapse.collapse, .navbar-header {
         padding: 3px 20px 3px;
     }
 }
@@ -637,7 +637,7 @@
         width: 100%;
     }
 
-    .bar-login, .navbar-collapse.collapse,
+    .check-out-container,.bar-login, .navbar-collapse.collapse,
     .navbar-header {
         padding: 3px 20px 3px;
     }
@@ -648,7 +648,7 @@
         width: 100%;
     }
 
-    .bar-login, .navbar-collapse.collapse, .navbar-header {
+    .check-out-container, .bar-login, .navbar-collapse.collapse, .navbar-header {
         padding: 3px 50px 3px;
     }
 }
@@ -659,7 +659,7 @@
     }
 
 
-    .bar-login, .navbar-collapse.collapse, .navbar-header {
+    .check-out-container, .bar-login, .navbar-collapse.collapse, .navbar-header {
         padding: 3px 100px 3px;
     }
 }

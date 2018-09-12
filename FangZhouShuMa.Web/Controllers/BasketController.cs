@@ -40,11 +40,9 @@ namespace FangZhouShuMa.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            //var basketModel = await GetBasketViewModelAsync();
+            var basketModel = await GetBasketViewModelAsync();
 
-            //return View(basketModel);
-
-            return View();
+            return View(basketModel);
         }
 
         [HttpPost]
@@ -65,9 +63,9 @@ namespace FangZhouShuMa.Web.Controllers
             {
                 return RedirectToAction("Index", "Quote");
             }
-            //var basketViewModel = await GetBasketViewModelAsync();
+            var basketViewModel = await GetBasketViewModelAsync();
 
-            //await _basketService.AddItemToBasket(basketViewModel.Id, productDetails.ProductId, productDetails.Quantity, 1);
+            await _basketService.AddItemToBasket(basketViewModel.Id, productDetails.ProductId, productDetails.QuoteUnitPrice, productDetails.Quantity);
 
             return RedirectToAction("Index");
         }

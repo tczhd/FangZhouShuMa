@@ -98,7 +98,8 @@ namespace FangZhouShuMa.Web.Services.ApiServices
                 }
             }
 
-            result.QuoteTotal = quotePrice * quoteRequestProductData.Quantity;
+            result.QuoteUnitPrice = quotePrice;
+            result.QuoteTotal = result.QuoteUnitPrice * result.Quantity;
 
             return result;
         }
