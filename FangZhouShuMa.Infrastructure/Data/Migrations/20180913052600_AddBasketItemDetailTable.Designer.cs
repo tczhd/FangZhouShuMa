@@ -11,9 +11,10 @@ using System;
 namespace FangZhouShuMa.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(FangZhouShuMaContext))]
-    partial class FangZhouShuMaContextModelSnapshot : ModelSnapshot
+    [Migration("20180913052600_AddBasketItemDetailTable")]
+    partial class AddBasketItemDetailTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

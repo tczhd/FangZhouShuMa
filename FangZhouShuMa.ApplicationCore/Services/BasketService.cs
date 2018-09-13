@@ -7,6 +7,7 @@ using Ardalis.GuardClauses;
 using FangZhouShuMa.ApplicationCore.Entities.BasketAggregate;
 using FangZhouShuMa.ApplicationCore.Entities.ProductAggregate;
 using FangZhouShuMa.ApplicationCore.Interfaces;
+using FangZhouShuMa.ApplicationCore.Models;
 using FangZhouShuMa.ApplicationCore.Specifications;
 using FArdalis.GuardClauses;
 
@@ -30,11 +31,22 @@ namespace FangZhouShuMa.ApplicationCore.Services
             _itemRepository = itemRepository;
         }
 
-        public async Task AddItemToBasket(int basketId, int productId, decimal price,decimal quantity)
+        public async Task AddItemToBasket(int basketId, int productId, decimal price, List<BasketItemDetailModel> itemDetailModels, decimal quantity)
         {
             var basket = await _basketRepository.GetByIdAsync(basketId);
 
-            basket.AddItem(productId, price, quantity);
+            var basketItemDetails = itemDetailModels.Select(p => new BasketItemDetail() {
+                ProductCustomFieldData = p.ProductCustomFieldData,
+                ProductCustomFieldDataDescription = p.ProductCustomFieldDataDescription,
+                ProductCustomFieldGroupId = p.ProductCustomFieldGroupId,
+                ProductCustomFieldGroupName = p.ProductCustomFieldGroupName,
+                ProductCustomFieldId = p.ProductCustomFieldId,
+                ProductCustomFieldName = p.ProductCustomFieldName,
+                ProductCustomFieldOptionId = p.ProductCustomFieldOptionId,
+                ProductCustomFieldTypeId = p.ProductCustomFieldTypeId
+            }).ToList();
+
+            basket.AddItem(productId, price, basketItemDetails, quantity);
 
             await _basketRepository.UpdateAsync(basket);
         }

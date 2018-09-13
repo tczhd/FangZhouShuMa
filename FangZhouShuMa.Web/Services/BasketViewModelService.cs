@@ -57,8 +57,8 @@ namespace FangZhouShuMa.Web.Services
               //  itemModel.PictureUrl = _uriComposer.ComposePicUri(item.PictureUri);
                 itemModel.ProductName = item.Name;
                 return itemModel;
-            })
-                            .ToList();
+            }).ToList();
+
             return viewModel;
         }
 

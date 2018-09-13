@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using FangZhouShuMa.ApplicationCore.Models;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace FangZhouShuMa.ApplicationCore.Interfaces
@@ -7,7 +8,7 @@ namespace FangZhouShuMa.ApplicationCore.Interfaces
     {
         Task<decimal> GetBasketItemCountAsync(string userName);
         Task TransferBasketAsync(string anonymousId, string userName);
-        Task AddItemToBasket(int basketId, int productId, decimal price, decimal quantity);
+        Task AddItemToBasket(int basketId, int productId, decimal price, List<BasketItemDetailModel> itemDetailModels, decimal quantity);
         Task SetQuantities(int basketId, Dictionary<string, int> quantities);
         Task DeleteBasketAsync(int basketId);
     }

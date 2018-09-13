@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace FangZhouShuMa.Web.Models.QuoteViewModels
+namespace FangZhouShuMa.ApplicationCore.Models
 {
-    public class QuoteProductCustomFieldViewModel
+    public class BasketItemDetailModel
     {
+        public int ProductCustomFieldGroupId { get; set; }
+        public string ProductCustomFieldGroupName { get; set; }
 
         public int ProductCustomFieldId { get; set; }
         public string ProductCustomFieldName { get; set; }

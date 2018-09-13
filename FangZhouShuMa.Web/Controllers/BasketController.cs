@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FangZhouShuMa.ApplicationCore.Interfaces;
+using FangZhouShuMa.ApplicationCore.Models;
 using FangZhouShuMa.Infrastructure.Identity;
 using FangZhouShuMa.Web.Interfaces;
 using FangZhouShuMa.Web.Models.BasketViewModels;
@@ -57,18 +58,73 @@ namespace FangZhouShuMa.Web.Controllers
 
         // POST: /Basket/AddToBasket
         [HttpPost]
-        public async Task<IActionResult> AddToBasket(QuoteResultViewModel productDetails)
+        public async Task<JsonResult> AddToBasket([FromBody]QuoteResultViewModel productDetails)
         {
             if (productDetails?.ProductId == null)
             {
-                return RedirectToAction("Index", "Quote");
+                var error = new { success = false, message = "failed. " };
+                return Json(error);
             }
+
             var basketViewModel = await GetBasketViewModelAsync();
+            var basketItemDetailModels = new List<BasketItemDetailModel>();
 
-            await _basketService.AddItemToBasket(basketViewModel.Id, productDetails.ProductId, productDetails.QuoteUnitPrice, productDetails.Quantity);
+            foreach (var group in productDetails.ProductCustomFieldGroups)
+            {
+                var productCustomDetails = group.ProductCustomFields.Select(p => new BasketItemDetailModel()
+                {
+                    ProductCustomFieldGroupId = group.ProductCustomFieldGroupId,
+                    ProductCustomFieldGroupName = group.ProductCustomFieldGroupName,
+                    ProductCustomFieldData = p.ProductCustomFieldData,
+                    ProductCustomFieldDataDescription = p.ProductCustomFieldDataDescription,
+                    ProductCustomFieldId = p.ProductCustomFieldId,
+                    ProductCustomFieldName = p.ProductCustomFieldName,
+                    ProductCustomFieldOptionId = p.ProductCustomFieldOptionId,
+                    ProductCustomFieldTypeId = p.ProductCustomFieldTypeId
+                }).ToList();
 
-            return RedirectToAction("Index");
+                basketItemDetailModels.AddRange(productCustomDetails);
+            }
+
+            await _basketService.AddItemToBasket(basketViewModel.Id, productDetails.ProductId, productDetails.QuoteUnitPrice, basketItemDetailModels, productDetails.Quantity);
+
+            var data = new {success = true, message = "Success."};
+            return Json(data);
+           // return RedirectToAction("Index");
         }
+
+        // POST: /Basket/AddToBasket
+        //[HttpPost]
+        //[Route("[action]")]
+        //public async Task<IActionResult> AddToBasket([FromBody]QuoteResultViewModel productDetails)
+        //{
+        //    if (productDetails?.ProductId == null)
+        //    {
+        //        return RedirectToAction("Index", "Quote");
+        //    }
+        //    var basketViewModel = await GetBasketViewModelAsync();
+        //    var basketItemDetailModels = new List<BasketItemDetailModel>();
+
+        //    foreach (var group in productDetails.ProductCustomFieldGroups)
+        //    {
+        //        var productCustomDetails = group.ProductCustomFields.Select(p => new BasketItemDetailModel() {
+        //            ProductCustomFieldGroupId = group.ProductCustomFieldGroupId,
+        //            ProductCustomFieldGroupName = group.ProductCustomFieldGroupName,
+        //            ProductCustomFieldData = p.ProductCustomFieldData,
+        //            ProductCustomFieldDataDescription =p.ProductCustomFieldDataDescription,
+        //            ProductCustomFieldId = p.ProductCustomFieldId,
+        //            ProductCustomFieldName = p.ProductCustomFieldName,
+        //            ProductCustomFieldOptionId = p.ProductCustomFieldOptionId,
+        //            ProductCustomFieldTypeId = p.ProductCustomFieldTypeId
+        //        }  ).ToList();
+
+        //        basketItemDetailModels.AddRange(productCustomDetails);
+        //    }
+
+        //    await _basketService.AddItemToBasket(basketViewModel.Id, productDetails.ProductId, productDetails.QuoteUnitPrice, basketItemDetailModels, productDetails.Quantity);
+
+        //    return RedirectToAction("Index");
+        //}
 
         //[HttpPost]
         //[Authorize]

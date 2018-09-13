@@ -63,25 +63,24 @@
 
             var addToCart = modalBody.find("button[name='AddToCart']");
             $(addToCart).click(function () {
-                post("/Basket/AddToBasket", data);
-                //$.ajax({
-                //    type: "POST",
-                //    url: "/Basket/AddToBasket",
-                //    contentType: dataType,
-                //    dataType: "json",
-                //    data: JSON.stringify(data),
-                //    success: function (data1) {
-
-                //    }, //End of AJAX Success function  
-
-                //    failure: function (data1) {
-                //        alert(data.responseText);
-                //    }, //End of AJAX failure function  
-                //    error: function (data1) {
-                //        alert(data.responseText);
-                //    } //End of AJAX error function  
-
-                //});
+                //post("/Basket/AddToBasket",data);
+                $.ajax({
+                    type: "POST",
+                    url: "/Basket/AddToBasket",
+                    contentType: dataType,
+                    dataType: "json",
+                    data: JSON.stringify(data),
+                    success: function (resultData) {
+                        //alert(resultData.success);
+                        window.location.href = "/Basket";
+                    }, //End of AJAX Success function  
+                    failure: function (resultData) {
+                        alert(resultData.message);
+                    }, //End of AJAX failure function  
+                    error: function (resultData) {
+                        alert(resultData.message);
+                    } //End of AJAX error function  
+                });
             });
 
 
