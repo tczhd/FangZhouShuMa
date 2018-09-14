@@ -25,6 +25,7 @@ namespace FangZhouShuMa.Web.Controllers
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly RoleManager<IdentityRole> _rolesManager;
         private readonly IEmailSender _emailSender;
+        private readonly IBasketService _basketService;
         private readonly ILogger _logger;
 
         public AccountController(
@@ -32,12 +33,14 @@ namespace FangZhouShuMa.Web.Controllers
             SignInManager<ApplicationUser> signInManager,
             RoleManager<IdentityRole> roleManager,
            IEmailSender emailSender,
+            IBasketService basketService,
             ILogger<AccountController> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _rolesManager = roleManager;
             _emailSender = emailSender;
+            _basketService = basketService;
             _logger = logger;
         }
 
@@ -69,6 +72,13 @@ namespace FangZhouShuMa.Web.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
+                    string anonymousBasketId = Request.Cookies[Constants.BASKET_COOKIENAME];
+                    if (!String.IsNullOrEmpty(anonymousBasketId))
+                    {
+                        await _basketService.TransferBasketAsync(anonymousBasketId, model.Email);
+                        Response.Cookies.Delete(Constants.BASKET_COOKIENAME);
+                    }
+
                     return RedirectToLocal(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
@@ -242,6 +252,15 @@ namespace FangZhouShuMa.Web.Controllers
                     await _emailSender.SendEmailConfirmationAsync(model.Email, callbackUrl);
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
+
+                    _logger.LogInformation("User logged in.");
+                    string anonymousBasketId = Request.Cookies[Constants.BASKET_COOKIENAME];
+                    if (!string.IsNullOrEmpty(anonymousBasketId))
+                    {
+                        await _basketService.TransferBasketAsync(anonymousBasketId, model.Email);
+                        Response.Cookies.Delete(Constants.BASKET_COOKIENAME);
+                    }
+
                     _logger.LogInformation("User created a new account with password.");
                     return RedirectToLocal(returnUrl);
                 }
