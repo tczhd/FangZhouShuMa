@@ -97,7 +97,7 @@ namespace FangZhouShuMa.Web
             });
 
             /*Need comment when you need to change to a new database*/
-           // CreateUserRoles(serviceProvider).Wait();
+            //CreateUserRoles(serviceProvider).Wait();
         }
 
         private async Task CreateUserRoles(IServiceProvider serviceProvider)
