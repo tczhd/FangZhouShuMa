@@ -8,6 +8,7 @@ using FangZhouShuMa.Infrastructure.Identity;
 using FangZhouShuMa.Web.Interfaces;
 using FangZhouShuMa.Web.Models.BasketViewModels;
 using FangZhouShuMa.Web.Models.QuoteViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -93,52 +94,19 @@ namespace FangZhouShuMa.Web.Controllers
            // return RedirectToAction("Index");
         }
 
-        // POST: /Basket/AddToBasket
-        //[HttpPost]
-        //[Route("[action]")]
-        //public async Task<IActionResult> AddToBasket([FromBody]QuoteResultViewModel productDetails)
-        //{
-        //    if (productDetails?.ProductId == null)
-        //    {
-        //        return RedirectToAction("Index", "Quote");
-        //    }
-        //    var basketViewModel = await GetBasketViewModelAsync();
-        //    var basketItemDetailModels = new List<BasketItemDetailModel>();
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Checkout(Dictionary<string, int> items)
+        {
+            var basketViewModel = await GetBasketViewModelAsync();
+            await _basketService.SetQuantities(basketViewModel.Id, items);
 
-        //    foreach (var group in productDetails.ProductCustomFieldGroups)
-        //    {
-        //        var productCustomDetails = group.ProductCustomFields.Select(p => new BasketItemDetailModel() {
-        //            ProductCustomFieldGroupId = group.ProductCustomFieldGroupId,
-        //            ProductCustomFieldGroupName = group.ProductCustomFieldGroupName,
-        //            ProductCustomFieldData = p.ProductCustomFieldData,
-        //            ProductCustomFieldDataDescription =p.ProductCustomFieldDataDescription,
-        //            ProductCustomFieldId = p.ProductCustomFieldId,
-        //            ProductCustomFieldName = p.ProductCustomFieldName,
-        //            ProductCustomFieldOptionId = p.ProductCustomFieldOptionId,
-        //            ProductCustomFieldTypeId = p.ProductCustomFieldTypeId
-        //        }  ).ToList();
+            //.await _orderService.CreateOrderAsync(basketViewModel.Id, new Address("123 Main St.", "Kent", "OH", "United States", "44240"));
 
-        //        basketItemDetailModels.AddRange(productCustomDetails);
-        //    }
+            await _basketService.DeleteBasketAsync(basketViewModel.Id);
 
-        //    await _basketService.AddItemToBasket(basketViewModel.Id, productDetails.ProductId, productDetails.QuoteUnitPrice, basketItemDetailModels, productDetails.Quantity);
-
-        //    return RedirectToAction("Index");
-        //}
-
-        //[HttpPost]
-        //[Authorize]
-        //public async Task<IActionResult> Checkout(Dictionary<string, int> items)
-        //{
-        //    var basketViewModel = await GetBasketViewModelAsync();
-        //    await _basketService.SetQuantities(basketViewModel.Id, items);
-
-        //    await _orderService.CreateOrderAsync(basketViewModel.Id, new Address("123 Main St.", "Kent", "OH", "United States", "44240"));
-
-        //    await _basketService.DeleteBasketAsync(basketViewModel.Id);
-
-        //    return View("Checkout");
-        //}
+            return View("Checkout");
+        }
 
         private async Task<BasketViewModel> GetBasketViewModelAsync()
         {
