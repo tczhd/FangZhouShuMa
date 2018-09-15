@@ -1,4 +1,5 @@
-﻿using FangZhouShuMa.ApplicationCore.Entities.CustomerAggregate;
+﻿using Ardalis.GuardClauses;
+using FangZhouShuMa.ApplicationCore.Entities.CustomerAggregate;
 using FangZhouShuMa.ApplicationCore.Entities.UserAggregate;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,17 @@ namespace FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte
         {
             OrderProducts = new HashSet<OrderProduct>();
             ShippingInfos = new HashSet<ShippingInfo>();
+        }
+
+        public Order(int customerId, List<ShippingInfo> shipToAddress,  List<OrderProduct> items)
+        {
+            Guard.Against.Null(shipToAddress, nameof(shipToAddress));
+            Guard.Against.Null(items, nameof(items));
+
+            CustomerId = customerId;
+            ShippingInfos = shipToAddress;
+            OrderProducts = items;
+            LastUpdateDateUTC = DateTime.UtcNow;
         }
 
         public DateTime OrderDate { get; set; }
