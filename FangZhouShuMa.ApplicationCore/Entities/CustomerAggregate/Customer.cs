@@ -10,7 +10,6 @@ namespace FangZhouShuMa.ApplicationCore.Entities.CustomerAggregate
     {
         public Customer()
         {
-            ShippingInfos = new HashSet<ShippingInfo>();
             Orders = new HashSet<Order>();
         }
         public int AccountId { get; set; }
@@ -73,7 +72,6 @@ namespace FangZhouShuMa.ApplicationCore.Entities.CustomerAggregate
 
         public virtual Account Account { get; set; }
 
-        public virtual ICollection<ShippingInfo> ShippingInfos { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
     }
 }

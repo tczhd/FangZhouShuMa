@@ -11,9 +11,10 @@ using System;
 namespace FangZhouShuMa.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(FangZhouShuMaContext))]
-    partial class FangZhouShuMaContextModelSnapshot : ModelSnapshot
+    [Migration("20180915061321_ChangeOrderTablesDropShippingInfo")]
+    partial class ChangeOrderTablesDropShippingInfo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -319,54 +320,6 @@ namespace FangZhouShuMa.Infrastructure.Data.Migrations
                     b.ToTable("Countries");
                 });
 
-            modelBuilder.Entity("FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte.BillingInfo", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasMaxLength(250);
-
-                    b.Property<string>("Address2")
-                        .HasMaxLength(100);
-
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<string>("CompanyName")
-                        .HasMaxLength(200);
-
-                    b.Property<int>("CountryId");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(100);
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(100);
-
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<string>("PhoneExt")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("StateName")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("Zip")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("BillingInfos");
-                });
-
             modelBuilder.Entity("FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte.Order", b =>
                 {
                     b.Property<int>("Id")
@@ -412,8 +365,6 @@ namespace FangZhouShuMa.Infrastructure.Data.Migrations
                     b.Property<decimal?>("Total");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("BillingInfoId");
 
                     b.HasIndex("CreatedById");
 
@@ -492,74 +443,6 @@ namespace FangZhouShuMa.Infrastructure.Data.Migrations
                     b.HasIndex("ProductCustomFieldId");
 
                     b.ToTable("OrderProductCustomFieldOptionDatas");
-                });
-
-            modelBuilder.Entity("FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte.ShippingInfo", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasMaxLength(250);
-
-                    b.Property<string>("Address2")
-                        .HasMaxLength(100);
-
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<string>("Company")
-                        .HasMaxLength(200);
-
-                    b.Property<int>("CountryId");
-
-                    b.Property<decimal>("Discount");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(100);
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(100);
-
-                    b.Property<DateTime?>("LastUpdateDate");
-
-                    b.Property<string>("Notes");
-
-                    b.Property<int>("OrderId");
-
-                    b.Property<string>("PhoneExt")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<int>("ShippingMethodId");
-
-                    b.Property<string>("StateName")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("StoreName")
-                        .HasMaxLength(200);
-
-                    b.Property<decimal>("SubTotal");
-
-                    b.Property<string>("Title")
-                        .HasMaxLength(100);
-
-                    b.Property<string>("Zip")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("OrderId");
-
-                    b.ToTable("ShippingInfos");
                 });
 
             modelBuilder.Entity("FangZhouShuMa.ApplicationCore.Entities.ProductAggregate.Category", b =>
@@ -889,11 +772,6 @@ namespace FangZhouShuMa.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte.Order", b =>
                 {
-                    b.HasOne("FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte.BillingInfo", "BillingInfo")
-                        .WithMany("Orders")
-                        .HasForeignKey("BillingInfoId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.HasOne("FangZhouShuMa.ApplicationCore.Entities.UserAggregate.SiteUser", "SiteUserCreated")
                         .WithMany("CreatedOrders")
                         .HasForeignKey("CreatedById")
@@ -932,14 +810,6 @@ namespace FangZhouShuMa.Infrastructure.Data.Migrations
                         .WithMany("OrderProductCustomFieldOptionData")
                         .HasForeignKey("ProductCustomFieldId")
                         .HasPrincipalKey("ProductCustomFieldId")
-                        .OnDelete(DeleteBehavior.Restrict);
-                });
-
-            modelBuilder.Entity("FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte.ShippingInfo", b =>
-                {
-                    b.HasOne("FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte.Order", "Order")
-                        .WithMany("ShippingInfos")
-                        .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

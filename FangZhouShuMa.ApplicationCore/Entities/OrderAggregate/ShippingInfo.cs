@@ -7,6 +7,8 @@ namespace FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte
 {
     public class ShippingInfo : BaseEntity
     {
+        public int OrderId { get; set; }
+
         [Required]
         [StringLength(100)]
         public string FirstName { get; set; }
@@ -40,8 +42,6 @@ namespace FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte
         [StringLength(50)]
         public string PhoneExt { get; set; }
 
-        public bool IsRecipient { get; set; }
-
         public int CountryId { get; set; }
 
         [StringLength(50)]
@@ -57,8 +57,10 @@ namespace FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte
 
         public DateTime? LastUpdateDate { get; set; }
 
-        public int CustomerId { get; set; }
-        public virtual Customer Customer { get; set; }
+        public int ShippingMethodId { get; set; }
+        public decimal Discount { get; set; }
+        public decimal SubTotal { get; set; }
+
         public virtual Order Order { get; set; }
     }
 }

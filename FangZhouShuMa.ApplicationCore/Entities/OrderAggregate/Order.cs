@@ -12,7 +12,6 @@ namespace FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte
         {
             OrderProducts = new HashSet<OrderProduct>();
             ShippingInfos = new HashSet<ShippingInfo>();
-            BillingInfos = new HashSet<BillingInfo>();
         }
 
         public DateTime OrderDate { get; set; }
@@ -36,8 +35,6 @@ namespace FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte
 
         public int OrderStatus { get; set; }
 
-        public int ShippingInfoId { get; set; }
-
         public int BillingInfoId { get; set; }
 
         public decimal ShippingSubTotal { get; set; }
@@ -57,8 +54,8 @@ namespace FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte
         public virtual Customer Customer { get; set; }
         public virtual SiteUser SiteUserCreated { get; set; }
         public virtual SiteUser SiteUserEdited { get; set; }
+        public virtual BillingInfo BillingInfo { get; set; }
         public virtual ICollection<OrderProduct> OrderProducts { get; set; }
         public virtual ICollection<ShippingInfo> ShippingInfos { get; set; }
-        public virtual ICollection<BillingInfo> BillingInfos { get; set; }
     }
 }

@@ -5,6 +5,6 @@ namespace FangZhouShuMa.ApplicationCore.Interfaces
 {
     public interface IOrderService
     {
-        Task CreateOrderAsync(int basketId, ShippingInfo shippingInfo);
+       // Task CreateOrderAsync(int basketId, ShippingInfo shippingInfo);
     }
 }

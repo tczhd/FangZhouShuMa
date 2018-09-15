@@ -11,7 +11,7 @@ namespace FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte
             OrderProductCustomFieldOptionData = new HashSet<OrderProductCustomFieldOptionData>();
         }
         public int OrderProductId { get; set; }
-        public int OrderProductCustomFieldId { get; set; }
+        public int ProductCustomFieldId { get; set; }
         public string FieldData { get; set; }
         public decimal Price { get; set; }
 

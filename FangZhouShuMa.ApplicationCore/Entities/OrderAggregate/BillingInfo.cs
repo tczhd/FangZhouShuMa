@@ -7,6 +7,10 @@ namespace FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte
 {
     public class BillingInfo : BaseEntity
     {
+        public BillingInfo()
+        {
+            Orders = new HashSet<Order>();
+        }
 
         [Required]
         [StringLength(100)]
@@ -46,6 +50,7 @@ namespace FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte
         [StringLength(50)]
         public string StateName { get; set; }
 
-        public virtual Order Order { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
+
     }
 }
