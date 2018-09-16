@@ -23,5 +23,8 @@ namespace FangZhouShuMa.Web.Models.AccountViewModels
         [Display(Name = "确认密码")]
         [Compare("Password", ErrorMessage = "密码和确认密码必须匹配.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        public CustomerViewModel Customer { get; set; }
     }
 }

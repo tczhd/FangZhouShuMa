@@ -14,6 +14,8 @@ using FangZhouShuMa.Infrastructure.Identity;
 using FangZhouShuMa.Web.Models.AccountViewModels;
 using FangZhouShuMa.Web.Services;
 using FangZhouShuMa.ApplicationCore.Interfaces;
+using FangZhouShuMa.ApplicationCore.Interfaces.Services;
+using FangZhouShuMa.ApplicationCore.Entities.CustomerAggregate;
 
 namespace FangZhouShuMa.Web.Controllers
 {
@@ -26,6 +28,7 @@ namespace FangZhouShuMa.Web.Controllers
         private readonly RoleManager<IdentityRole> _rolesManager;
         private readonly IEmailSender _emailSender;
         private readonly IBasketService _basketService;
+        private readonly ICustomerService _customerService;
         private readonly ILogger _logger;
 
         public AccountController(
@@ -34,6 +37,7 @@ namespace FangZhouShuMa.Web.Controllers
             RoleManager<IdentityRole> roleManager,
            IEmailSender emailSender,
             IBasketService basketService,
+            ICustomerService customerService,
             ILogger<AccountController> logger)
         {
             _userManager = userManager;
@@ -41,6 +45,7 @@ namespace FangZhouShuMa.Web.Controllers
             _rolesManager = roleManager;
             _emailSender = emailSender;
             _basketService = basketService;
+            _customerService = customerService;
             _logger = logger;
         }
 
@@ -238,30 +243,56 @@ namespace FangZhouShuMa.Web.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    var utcDate = DateTime.UtcNow;
 
-                    var roleCheck = await _rolesManager.RoleExistsAsync("Customer");
-                    if (roleCheck)
+                    var customer = new Customer() {
+                        Active = true,
+                        Address = model.Customer.Address,
+                        City = model.Customer.City,
+                        CountryId = 1,
+                        Email = model.Email,
+                        FirstName = model.Customer.FirstName,
+                        JoinDateUTC = utcDate,
+                        LastUpdatedUTC = utcDate,
+                        LastName = string.Empty,
+                        PhoneNumber = model.Customer.PhoneNumber,
+                        StateName = model.Customer.StateName,
+                        Zip = model.Customer.Zip,
+                        UserId = user.Id
+                    };
+
+                    var account = await  _customerService.CreateCustomerAccountAsync(model.Customer.Company, customer);
+                    if (account != null)
                     {
-                        await _userManager.AddToRoleAsync(user, "Customer");
+                        var roleCheck = await _rolesManager.RoleExistsAsync("Customer");
+                        if (roleCheck)
+                        {
+                            await _userManager.AddToRoleAsync(user, "Customer");
+                        }
+
+                        _logger.LogInformation("User created a new account with password.");
+
+                        var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                        var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
+                        await _emailSender.SendEmailConfirmationAsync(model.Email, callbackUrl);
+
+                        await _signInManager.SignInAsync(user, isPersistent: false);
+
+                        _logger.LogInformation("User logged in.");
+                        string anonymousBasketId = Request.Cookies[Constants.BASKET_COOKIENAME];
+                        if (!string.IsNullOrEmpty(anonymousBasketId))
+                        {
+                            await _basketService.TransferBasketAsync(anonymousBasketId, model.Email);
+                            Response.Cookies.Delete(Constants.BASKET_COOKIENAME);
+                        }
+
+                        _logger.LogInformation("User created a new account with password.");
                     }
-
-                    _logger.LogInformation("User created a new account with password.");
-
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
-                    await _emailSender.SendEmailConfirmationAsync(model.Email, callbackUrl);
-
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-
-                    _logger.LogInformation("User logged in.");
-                    string anonymousBasketId = Request.Cookies[Constants.BASKET_COOKIENAME];
-                    if (!string.IsNullOrEmpty(anonymousBasketId))
+                    else
                     {
-                        await _basketService.TransferBasketAsync(anonymousBasketId, model.Email);
-                        Response.Cookies.Delete(Constants.BASKET_COOKIENAME);
+                       await  _userManager.DeleteAsync(user);
+                        _logger.LogInformation("Customer created failed, user deleted. ");
                     }
-
-                    _logger.LogInformation("User created a new account with password.");
                     return RedirectToLocal(returnUrl);
                 }
                 AddErrors(result);

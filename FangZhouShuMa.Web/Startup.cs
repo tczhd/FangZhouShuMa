@@ -23,6 +23,7 @@ using FangZhouShuMa.Infrastructure.Data.Reports.Product;
 using FangZhouShuMa.Web.Interfaces.ApiInterfaces;
 using FangZhouShuMa.ApplicationCore.Interfaces.Repository;
 using FangZhouShuMa.Web.Services.ApiServices;
+using FangZhouShuMa.ApplicationCore.Interfaces.Services;
 
 namespace FangZhouShuMa.Web
 {
@@ -58,6 +59,7 @@ namespace FangZhouShuMa.Web
             services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
 
             services.AddScoped<ProductRepository>();
+            services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<IBasketService, BasketService>();
             services.AddScoped<IBasketViewModelService, BasketViewModelService>();
             services.AddScoped<IQuoteService, QuoteService>();

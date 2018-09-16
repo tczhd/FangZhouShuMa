@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using FangZhouShuMa.ApplicationCore.Entities.ProductAggregate;
 using FangZhouShuMa.Framework.Enums;
+using FangZhouShuMa.ApplicationCore.Entities.CustomerAggregate;
 
 namespace FangZhouShuMa.Infrastructure.Data
 {
@@ -19,6 +20,21 @@ namespace FangZhouShuMa.Infrastructure.Data
             {
                 // TODO: Only run this if using a real database
                 // context.Database.Migrate();
+                if (!fangZhouShuMaContext.SalesChannels.Any())
+                {
+                    fangZhouShuMaContext.SalesChannels.AddRange(
+                        GetPreconfiguredSalesChannels());
+
+                    await fangZhouShuMaContext.SaveChangesAsync();
+                }
+
+                if (!fangZhouShuMaContext.AccountGroups.Any())
+                {
+                    fangZhouShuMaContext.AccountGroups.AddRange(
+                        GetPreconfiguredAccountGroups());
+
+                    await fangZhouShuMaContext.SaveChangesAsync();
+                }
 
                 if (!fangZhouShuMaContext.Categories.Any())
                 {
@@ -84,6 +100,24 @@ namespace FangZhouShuMa.Infrastructure.Data
                     // await SeedAsync(fangZhouShuMaContext, loggerFactory, retryForAvailability);
                 }
             }
+        }
+
+        static IEnumerable<SalesChannel> GetPreconfiguredSalesChannels()
+        {
+            return new List<SalesChannel>()
+            {
+                new SalesChannel() { Name = "零售"},
+                new SalesChannel() { Name = "批发"},
+            };
+        }
+
+        static IEnumerable<AccountGroup> GetPreconfiguredAccountGroups()
+        {
+            return new List<AccountGroup>()
+            {
+                new AccountGroup() {SalesChannelId= 1,  Name = "默认组",Active = true},
+                new AccountGroup() {SalesChannelId = 2, Name = "默认组",Active = true}
+            };
         }
 
         static IEnumerable<Category> GetPreconfiguredCategories()

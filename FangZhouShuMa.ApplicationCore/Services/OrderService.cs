@@ -26,7 +26,7 @@ namespace FangZhouShuMa.ApplicationCore.Services
             _itemRepository = itemRepository;
         }
 
-        public async Task CreateOrderAsync(int basketId, BillingInfo billingInfo, List<ShippingInfo> shippingAddress)
+        public async Task<Order> CreateOrderAsync(int basketId, BillingInfo billingInfo, List<ShippingInfo> shippingAddress)
         {
             var basket = await _basketRepository.GetByIdAsync(basketId);
             Guard.Against.NullBasket(basketId, basket);
@@ -40,7 +40,7 @@ namespace FangZhouShuMa.ApplicationCore.Services
             }
             var order = new Order(1, shippingAddress, items);
 
-            await _orderRepository.AddAsync(order);
+            return  await _orderRepository.AddAsync(order);
         }
     }
 }
