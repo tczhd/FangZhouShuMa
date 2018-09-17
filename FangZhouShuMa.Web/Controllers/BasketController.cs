@@ -21,12 +21,12 @@ namespace FangZhouShuMa.Web.Controllers
         //private readonly IUriComposer _uriComposer;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IAppLogger<BasketController> _logger;
-       // private readonly IOrderService _orderService;
+        private readonly IOrderService _orderService;
         private readonly IBasketViewModelService _basketViewModelService;
 
         public BasketController(IBasketService basketService,
            IBasketViewModelService basketViewModelService,
-           //IOrderService orderService,
+           IOrderService orderService,
            //IUriComposer uriComposer,
            SignInManager<ApplicationUser> signInManager,
            IAppLogger<BasketController> logger)
@@ -35,7 +35,7 @@ namespace FangZhouShuMa.Web.Controllers
           //  _uriComposer = uriComposer;
             _signInManager = signInManager;
             _logger = logger;
-            //_orderService = orderService;
+            _orderService = orderService;
             _basketViewModelService = basketViewModelService;
         }
 
@@ -99,9 +99,11 @@ namespace FangZhouShuMa.Web.Controllers
         public async Task<IActionResult> Checkout(Dictionary<string, int> items)
         {
             var basketViewModel = await GetBasketViewModelAsync();
-            await _basketService.SetQuantities(basketViewModel.Id, items);
+            //await _basketService.SetQuantities(basketViewModel.Id, items);
 
-            //.await _orderService.CreateOrderAsync(basketViewModel.Id, new Address("123 Main St.", "Kent", "OH", "United States", "44240"));
+            var user = await _signInManager.UserManager.FindByNameAsync(User.Identity.Name);
+            
+            await _orderService.CreateOrderAsync(basketViewModel.Id, user.Id);
 
             await _basketService.DeleteBasketAsync(basketViewModel.Id);
 

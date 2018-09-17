@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FangZhouShuMa.ApplicationCore.Interfaces.Services
 {
-    public interface ISiteUserServoce
+    public interface ISiteUserService
     {
         Task<SiteUser> CreateSiteUserAsync(string userId, string firstName, string lastName);
     }

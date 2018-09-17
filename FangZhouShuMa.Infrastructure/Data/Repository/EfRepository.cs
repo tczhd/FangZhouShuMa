@@ -31,7 +31,6 @@ namespace FangZhouShuMa.Infrastructure.Data.Repository
             return List(spec).FirstOrDefault();
         }
 
-
         public virtual async Task<T> GetByIdAsync(int id)
         {
             return await _dbContext.Set<T>().FindAsync(id);
