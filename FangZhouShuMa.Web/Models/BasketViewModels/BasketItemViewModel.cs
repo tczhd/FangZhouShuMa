@@ -14,5 +14,6 @@ namespace FangZhouShuMa.Web.Models.BasketViewModels
         public decimal OldUnitPrice { get; set; }
         public decimal Quantity { get; set; }
         public string PictureUrl { get; set; }
+        public List<BasketItemDetailViewModel> BasketItemDetails { get; set; }
     }
 }

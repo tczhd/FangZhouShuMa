@@ -4,6 +4,7 @@ using FangZhouShuMa.ApplicationCore.Entities.UserAggregate;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte
 {
@@ -15,15 +16,24 @@ namespace FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte
             ShippingInfos = new HashSet<ShippingInfo>();
         }
 
-        public Order(int customerId, List<ShippingInfo> shipToAddress,  List<OrderProduct> items)
+        public Order(int createdById, int customerId,BillingInfo billingInfo, List<ShippingInfo> shipToAddress,  List<OrderProduct> items)
         {
             Guard.Against.Null(shipToAddress, nameof(shipToAddress));
             Guard.Against.Null(items, nameof(items));
 
+            var orderDate = DateTime.UtcNow;
+
             CustomerId = customerId;
+            BillingInfo = billingInfo;
             ShippingInfos = shipToAddress;
             OrderProducts = items;
-            LastUpdateDateUTC = DateTime.UtcNow;
+            LastUpdateDateUTC = orderDate;
+            OrderDate = orderDate;
+            AmountPaid = 0;
+            CreatedById = createdById;
+            OrderStatus = 1;
+            SubTotal = items.Sum(p => p.Quantity * p.Price);
+            Total = SubTotal;
         }
 
         public DateTime OrderDate { get; set; }

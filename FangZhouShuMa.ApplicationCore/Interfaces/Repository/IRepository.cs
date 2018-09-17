@@ -9,8 +9,10 @@ namespace FangZhouShuMa.ApplicationCore.Interfaces
         T GetSingleBySpec(ISpecification<T> spec);
         IEnumerable<T> ListAll();
         IEnumerable<T> List(ISpecification<T> spec);
+        void AddOnly(T entity);
         T Add(T entity);
         void Update(T entity);
         void Delete(T entity);
+        void  SaveAll();
     }
 }

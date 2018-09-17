@@ -245,7 +245,8 @@ namespace FangZhouShuMa.Web.Controllers
                 {
                     var utcDate = DateTime.UtcNow;
 
-                    var customer = new Customer() {
+                    var customer = new Customer()
+                    {
                         Active = true,
                         Address = model.Customer.Address,
                         City = model.Customer.City,
@@ -261,7 +262,8 @@ namespace FangZhouShuMa.Web.Controllers
                         UserId = user.Id
                     };
 
-                    var account = await  _customerService.CreateCustomerAccountAsync(model.Customer.Company, customer);
+
+                    var account = await _customerService.CreateCustomerAccountAsync(model.Customer.Company, customer);
                     if (account != null)
                     {
                         var roleCheck = await _rolesManager.RoleExistsAsync("Customer");
@@ -290,9 +292,10 @@ namespace FangZhouShuMa.Web.Controllers
                     }
                     else
                     {
-                       await  _userManager.DeleteAsync(user);
+                        await _userManager.DeleteAsync(user);
                         _logger.LogInformation("Customer created failed, user deleted. ");
                     }
+
                     return RedirectToLocal(returnUrl);
                 }
                 AddErrors(result);

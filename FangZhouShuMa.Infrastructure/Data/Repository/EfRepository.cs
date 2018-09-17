@@ -82,6 +82,16 @@ namespace FangZhouShuMa.Infrastructure.Data.Repository
                             .ToListAsync();
         }
 
+        public void AddOnly(T entity)
+        {
+            _dbContext.Set<T>().Add(entity);
+        }
+
+        public void AddOnlyAsync(T entity)
+        {
+            _dbContext.Set<T>().Add(entity);
+        }
+
         public T Add(T entity)
         {
             _dbContext.Set<T>().Add(entity);
@@ -118,6 +128,16 @@ namespace FangZhouShuMa.Infrastructure.Data.Repository
         {
             _dbContext.Set<T>().Remove(entity);
             await _dbContext.SaveChangesAsync();
+        }
+
+        public void SaveAll()
+        {
+            _dbContext.SaveChanges();
+        }
+
+        public async Task SaveAllAsync()
+        {
+           await  _dbContext.SaveChangesAsync();
         }
     }
 }

@@ -51,7 +51,12 @@ namespace FangZhouShuMa.Web.Services
                     Id = i.Id,
                     UnitPrice = i.UnitPrice,
                     Quantity = i.Quantity,
-                    ProductId = i.ProductId
+                    ProductId = i.ProductId,
+                    BasketItemDetails = i.ItemDetails.Select(j => new BasketItemDetailViewModel() {
+                        Id = j.Id,
+                        ProductCustomFieldData = j.ProductCustomFieldData,
+                        ProductCustomFieldId = j.ProductCustomFieldId
+                    }).ToList()
                 };
                 var item = _itemRepository.GetById(i.ProductId);
               //  itemModel.PictureUrl = _uriComposer.ComposePicUri(item.PictureUri);
