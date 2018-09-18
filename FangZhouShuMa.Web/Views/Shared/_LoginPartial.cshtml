@@ -10,6 +10,23 @@
         <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
             <ul class="nav navbar-nav navbar-right login">
                 <li>
+                    <a class="esh-identity-item"
+                       asp-controller="Order"
+                       asp-action="Index">
+                        <div class="esh-identity-name esh-identity-name--upper">订单管理</div>
+                    </a>
+
+                </li>
+                <li>
+
+                    <a class="esh-identity-item"
+                       asp-controller="Manage"
+                       asp-action="Index">
+                        <div class="esh-identity-name esh-identity-name--upper">帐户管理</div>
+                    </a>
+
+                </li>
+                <li>
                     <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">你好 @UserManager.GetUserName(User)!</a>
                 </li>
                 <li>

@@ -65,6 +65,7 @@ namespace FangZhouShuMa.Web
             services.AddScoped<IBasketViewModelService, BasketViewModelService>();
             services.AddScoped<IQuoteService, QuoteService>();
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IHomeService, HomeService>();
             services.Configure<ProductSettings>(Configuration);
           //  services.AddSingleton<IUriComposer>(new UriComposer(Configuration.Get<ProductSettings>()));
