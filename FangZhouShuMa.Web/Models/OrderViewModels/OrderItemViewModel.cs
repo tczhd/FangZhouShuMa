@@ -18,5 +18,6 @@ namespace FangZhouShuMa.Web.Models.OrderViewModels
         public int Units { get; set; }
 
         public string PictureUrl { get; set; }
+        public List<OrderItemDetailViewModel> OrderItemDetails { get; set; }
     }
 }

@@ -7,6 +7,9 @@ namespace FangZhouShuMa.ApplicationCore.Specifications
 {
     public abstract class BaseSpecification<T> : ISpecification<T>
     {
+        protected BaseSpecification()
+        {          
+        }
         protected BaseSpecification(Expression<Func<T, bool>> criteria)
         {
             Criteria = criteria;

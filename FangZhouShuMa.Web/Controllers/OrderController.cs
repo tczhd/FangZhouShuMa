@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Identity;
 using FangZhouShuMa.Infrastructure.Identity;
 using FangZhouShuMa.ApplicationCore.Entities.CustomerAggregate;
 using FangZhouShuMa.Web.Models.OrderViewModels;
+using FangZhouShuMa.Web.Interfaces.ApiInterfaces;
+using FangZhouShuMa.Web.Models.ProductViewModels;
 
 namespace FangZhouShuMa.Web.Controllers
 {
@@ -20,6 +22,7 @@ namespace FangZhouShuMa.Web.Controllers
         private readonly IOrderRepository _orderRepository;
         private readonly IAsyncRepository<Customer> _customerRepository;
         private readonly SignInManager<ApplicationUser> _signInManager;
+
         public OrderController(IOrderRepository orderRepository,
               SignInManager<ApplicationUser> signInManager,
                  IAsyncRepository<Customer> customerRepository)
@@ -52,7 +55,24 @@ namespace FangZhouShuMa.Web.Controllers
                             UnitPrice = oi.Price
                         }).ToList(),
                         OrderNumber = o.Id,
-                        ShippingAddresses = o.ShippingInfos.ToList(),
+                        ShippingInfos = o.ShippingInfos.Select(p => new ShippingInfoViewModel()
+                        {
+                            Address = p.Address,
+                            Address2 = p.Address2,
+                            City = p.City,
+                            Company = p.Company,
+                            CountryId = p.CountryId,
+                            Discount = p.Discount,
+                            FirstName = p.FirstName,
+                            LastName = p.LastName,
+                            LastUpdateDate = p.LastUpdateDate,
+                            Notes = p.Notes,
+                            PhoneNumber = p.PhoneNumber,
+                            StateName = p.StateName,
+                            StoreName = p.StoreName,
+                            Title = p.Title,
+                            Zip = p.Zip
+                        }).ToList(),
                         Status = "Pending",
                         Total = o.Total??0
 
@@ -91,7 +111,24 @@ namespace FangZhouShuMa.Web.Controllers
                         UnitPrice = oi.Price
                     }).ToList(),
                     OrderNumber = order.Id,
-                    ShippingAddresses = order.ShippingInfos.ToList(),
+                    ShippingInfos = order.ShippingInfos.Select(p => new ShippingInfoViewModel()
+                    {
+                        Address = p.Address,
+                        Address2 = p.Address2,
+                        City = p.City,
+                        Company = p.Company,
+                        CountryId = p.CountryId,
+                        Discount = p.Discount,
+                        FirstName = p.FirstName,
+                        LastName = p.LastName,
+                        LastUpdateDate = p.LastUpdateDate,
+                        Notes = p.Notes,
+                        PhoneNumber = p.PhoneNumber,
+                        StateName = p.StateName,
+                        StoreName = p.StoreName,
+                        Title = p.Title,
+                        Zip = p.Zip
+                    }).ToList(),
                     Status = "Pending",
                     Total = order.Total??0
                 };
@@ -100,5 +137,6 @@ namespace FangZhouShuMa.Web.Controllers
 
             return View(null);
         }
+
     }
 }

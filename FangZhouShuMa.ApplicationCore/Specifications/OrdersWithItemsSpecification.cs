@@ -5,10 +5,9 @@ using System.Text;
 
 namespace FangZhouShuMa.ApplicationCore.Specifications
 {
-    public class CustomerOrdersWithItemsSpecification : BaseSpecification<Order>
+    public class OrdersWithItemsSpecification : BaseSpecification<Order>
     {
-        public CustomerOrdersWithItemsSpecification(int customerId)
-            : base(o => o.CustomerId == customerId)
+        public OrdersWithItemsSpecification(): base(o => o.Deleted == false)
         {
             AddInclude(o => o.OrderProducts);
             AddInclude(o => o.ShippingInfos);

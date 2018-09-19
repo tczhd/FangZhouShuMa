@@ -13,7 +13,7 @@ namespace FangZhouShuMa.Web.Models.OrderViewModels
         public decimal Total { get; set; }
         public string Status { get; set; }
 
-        public List<ShippingInfo> ShippingAddresses { get; set; }
+        public List<ShippingInfoViewModel> ShippingInfos { get; set; }
 
         public List<OrderItemViewModel> OrderItems { get; set; } = new List<OrderItemViewModel>();
     }
