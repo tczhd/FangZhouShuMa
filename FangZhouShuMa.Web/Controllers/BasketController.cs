@@ -94,20 +94,49 @@ namespace FangZhouShuMa.Web.Controllers
            // return RedirectToAction("Index");
         }
 
+        [Authorize]
+        public async Task<IActionResult> RedirectCheckout()
+        {
+            if (TempData["CheckOut"] == null || !(bool) TempData["CheckOut"])
+                return RedirectToAction("Index", "Home");
+
+            TempData.Remove("CheckOut");
+            var items = new Dictionary<string, int>();
+            var result = await CreateOrder(items);
+
+            return View("Checkout");
+        }
+
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> Checkout(Dictionary<string, int> items)
         {
-            var basketViewModel = await GetBasketViewModelAsync();
-            //await _basketService.SetQuantities(basketViewModel.Id, items);
-
-            var user = await _signInManager.UserManager.FindByNameAsync(User.Identity.Name);
-            
-            await _orderService.CreateOrderAsync(basketViewModel.Id, user.Id);
-
-            await _basketService.DeleteBasketAsync(basketViewModel.Id);
+            var result = await CreateOrder(items);
 
             return View("Checkout");
+        }
+
+        private async Task<bool> CreateOrder(Dictionary<string, int> items)
+        {
+            try
+            {
+                var basketViewModel = await GetBasketViewModelAsync();
+                if (basketViewModel.Items.Any())
+                {
+
+                    var user = await _signInManager.UserManager.FindByNameAsync(User.Identity.Name);
+
+                    await _orderService.CreateOrderAsync(basketViewModel.Id, user.Id);
+
+                    await _basketService.DeleteBasketAsync(basketViewModel.Id);
+
+                    return true;
+                }
+            }
+            catch (Exception wx)
+            {}
+
+            return false;
         }
 
         private async Task<BasketViewModel> GetBasketViewModelAsync()

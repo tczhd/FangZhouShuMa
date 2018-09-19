@@ -6,6 +6,9 @@ using FangZhouShuMa.Web.Interfaces.ApiInterfaces;
 using FangZhouShuMa.Web.Models.QuoteViewModels;
 using Microsoft.AspNetCore.Mvc;
 
+
+using Microsoft.AspNetCore.Http.Internal;
+
 namespace FangZhouShuMa.Web.Controllers
 {
     public class QuoteController : Controller
@@ -22,6 +25,7 @@ namespace FangZhouShuMa.Web.Controllers
                 Items = products,
                 Product = product
             };
+
             return View(quoteViewModel);
         }
     }

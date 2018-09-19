@@ -296,6 +296,12 @@ namespace FangZhouShuMa.Web.Controllers
                         _logger.LogInformation("Customer created failed, user deleted. ");
                     }
 
+                    if (returnUrl.Contains("/Basket/Checkout"))
+                    {
+                        TempData["CheckOut"] = true;
+                        return RedirectToAction(nameof(BasketController.RedirectCheckout), "Basket");
+                    }
+
                     return RedirectToLocal(returnUrl);
                 }
                 AddErrors(result);
