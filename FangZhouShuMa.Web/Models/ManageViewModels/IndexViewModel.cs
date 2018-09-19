@@ -17,7 +17,7 @@ namespace FangZhouShuMa.Web.Models.ManageViewModels
         public string Email { get; set; }
 
         [Phone]
-        [Display(Name = "Phone number")]
+        [Display(Name = "电话号码")]
         public string PhoneNumber { get; set; }
 
         public string StatusMessage { get; set; }
