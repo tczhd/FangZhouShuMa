@@ -5,19 +5,11 @@
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-top: 56px;
-}
+
 
 .navbar-inverse .navbar-toggle .icon-bar {
     background-color: #9dc816;
 }
-
-.container {
-    padding-right: 0;
-    padding-left: 0;
-}
-
 
 /* Carousel */
 .carousel-caption p {
@@ -35,11 +27,12 @@
     margin: 15px;
 }
 
+
 /* Change nav height*/
 .navbar {
     color: #9dc816;
-    background-color: white;
-    min-height: 60px;
+    background-color: #fff;
+    min-height: 105px;
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -76,7 +69,9 @@
 }
 
 .bar-login {
-    background: #F5F5F5;
+    background-color: #F5F5F5;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .bar-detail {
@@ -127,6 +122,10 @@
     font-size: 20px;
 }
 
+
+.fz-navbar {
+    border-bottom: 3px solid #28d80b;
+}
 
 /*Quote*/
 .baojia {
@@ -617,8 +616,13 @@
             font-weight: bold;
         }
 
+ul.account-bar {
+    margin-bottom:0;
+}
 
-
+    ul.account-bar li {
+        vertical-align:middle;
+    }
 
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
@@ -627,39 +631,51 @@
         display: none;
     }
 
-    .check-out-container, .bar-login, .navbar-collapse.collapse, .navbar-header {
-        padding: 3px 20px 3px;
+    .container {
+        width: 100%;
     }
+
+    /*.check-out-container, .bar-login, .navbar-collapse.collapse, .navbar-header {
+        padding: 3px 20px 3px;
+    }*/
 }
 
 @media (min-width: 768px) {
     .container {
         width: 100%;
+        padding:0 20px;
     }
 
-    .check-out-container,.bar-login, .navbar-collapse.collapse,
+     /*.check-out-container,.bar-login, .navbar-collapse.collapse,
     .navbar-header {
         padding: 3px 20px 3px;
-    }
+    }*/
 }
 
 @media (min-width: 992px) {
     .container {
         width: 100%;
+        padding: 0 50px;
     }
 
-    .check-out-container, .bar-login, .navbar-collapse.collapse, .navbar-header {
+    /*.check-out-container, .bar-login, .navbar-collapse.collapse, .navbar-header {
         padding: 3px 50px 3px;
-    }
+    }*/
 }
 
 @media (min-width: 1200px) {
     .container {
         width: 100%;
+        padding: 0 100px;
     }
 
 
-    .check-out-container, .bar-login, .navbar-collapse.collapse, .navbar-header {
+    /*.check-out-container, .bar-login, .navbar-collapse.collapse, .navbar-header {
         padding: 3px 100px 3px;
-    }
+    }*/
+}
+
+
+.body-content {
+    padding-top: 60px;
 }

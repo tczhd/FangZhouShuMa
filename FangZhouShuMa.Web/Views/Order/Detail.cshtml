@@ -32,9 +32,9 @@
                 </article>
             </section>*@
 
-        @for (int i = 0; i < Model.ShippingAddresses.Count; i++)
+        @for (int i = 0; i < Model.ShippingInfos.Count; i++)
         {
-            var shippingAddress = Model.ShippingAddresses[i];
+            var shippingAddress = Model.ShippingInfos[i];
             <section class="esh-orders_detail-section">
                 <article class="esh-orders_detail-titles row">
                     <section class="esh-orders_detail-title col-xs-12">发货地址：</section>
