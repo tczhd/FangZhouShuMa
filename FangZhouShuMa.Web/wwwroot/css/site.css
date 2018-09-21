@@ -635,6 +635,10 @@ ul.account-bar {
         width: 100%;
     }
 
+    .body-content {
+        padding-top: 70px;
+    }
+
     /*.check-out-container, .bar-login, .navbar-collapse.collapse, .navbar-header {
         padding: 3px 20px 3px;
     }*/
@@ -646,6 +650,9 @@ ul.account-bar {
         padding:0 20px;
     }
 
+    .body-content {
+        padding-top: 70px;
+    }
      /*.check-out-container,.bar-login, .navbar-collapse.collapse,
     .navbar-header {
         padding: 3px 20px 3px;
@@ -658,6 +665,9 @@ ul.account-bar {
         padding: 0 50px;
     }
 
+    .body-content {
+        padding-top: 60px;
+    }
     /*.check-out-container, .bar-login, .navbar-collapse.collapse, .navbar-header {
         padding: 3px 50px 3px;
     }*/
@@ -669,13 +679,12 @@ ul.account-bar {
         padding: 0 100px;
     }
 
-
+    .body-content {
+        padding-top: 60px;
+    }
     /*.check-out-container, .bar-login, .navbar-collapse.collapse, .navbar-header {
         padding: 3px 100px 3px;
     }*/
 }
 
 
-.body-content {
-    padding-top: 60px;
-}
