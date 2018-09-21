@@ -30,7 +30,7 @@
     <nav class="fz-navbar navbar navbar-inverse navbar-fixed-top">
         <div class="bar-login row" style="">
             <div class="col-md-6 text-left">  <span>欢迎来到方舟标识！</span><span>免费服务电话：</span><span><font class="cheng66"> 0512-88888888</font> </span></div>
-            <div class="col-md-6 text-right"> @await Html.PartialAsync("_LoginPartial")</div>
+            <div class="col-md-6 text-right"> </div>
         </div>
         <div class="container">
             <div class="navbar-header">
@@ -45,81 +45,81 @@
                 </a>
 
             </div>
-            <div id="navbar" class="navbar-collapse collapse">
+            <div id="navbar" class=" navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#" class="">Home</a></li>
+                    <li class="active"><a asp-area="" asp-controller="Home" asp-action="Index">主页</a></li>
+                    <li ><a asp-area="" asp-controller="Home" asp-action="Index">公司简介</a></li>
                     <li class=" dropdown">
-                        <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Departments <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">产品介绍<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li class=" dropdown">
-                                <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">View Departments</a>
+                                <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">织标</a>
                             </li>
-                            <li><a href="#">Add New</a></li>
+                            <li><a href="#">印标</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Add New</a></li>
+
                     <li class=" dropdown">
-                        <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Managers <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">产品报价 <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">View Managers</a></li>
-                            <li><a href="#">Add New</a></li>
+                            <li><a href="#">数码报价</a></li>
+                            <li><a href="#">传统报价</a></li>
                         </ul>
                     </li>
-                    <li class=" dropdown">
-                        <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Staff <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">View Staff</a></li>
-                            <li><a href="#">Add New</a></li>
-                            <li><a href="#">Bulk Upload</a></li>
-                        </ul>
-                    </li>
-                    <li class=" down">
-                        <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HR <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Change Time Entry</a></li>
-                            <li><a href="#">Report</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="#">联系方式</a></li>
                 </ul>
-                <ul class="nav navbar-nav pull-right">
-                    <li class=" dropdown">
-                        <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as  <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Change Password</a></li>
-                            <li><a href="#">My Profile</a></li>
-                        </ul>
-                    </li>
-                    <li class=""><a href="#">Logout</a></li>
-                </ul>
+                @await Html.PartialAsync("_LoginPartial")
+                @*<ul class="nav navbar-nav pull-right">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class=" dropdown">
+                                <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的信息  <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="esh-identity-item"
+                                           asp-controller="Manage"
+                                           asp-action="Index">
+                                            帐户管理
+                                        </a>
+
+                                    </li>
+                                    <li>
+                                        <a class="esh-identity-item" asp-controller="Order" asp-action="Index">        订单管理    </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                        <li class=""><a href="#">Logout</a></li>
+                    </ul>*@
             </div>
             @*<div class="fz-menu-navbar navbar-collapse collapse  ">
-            <ul class="nav navbar-nav  nav-menu">
-                <li><a asp-area="" asp-controller="Home" asp-action="Index">主页</a></li>
-                <li><a asp-area="" asp-controller="Home" asp-action="About">关于</a></li>
-                <li><a asp-area="" asp-controller="Home" asp-action="Contact">联系</a></li>
-                <li><a href="/Quote/SinglePage" id="QuoteSinglePage">数码报价</a></li>
-                <li><a href="/Trade/KCalendar" id="TradeKCalendar">传统报价</a></li>
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <li>
-                        <a class="esh-identity-item"
-                           asp-controller="Order"
-                           asp-action="Index">
-                            订单管理
-                        </a>
+                    <ul class="nav navbar-nav  nav-menu">
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index">主页</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="About">关于</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">联系</a></li>
+                        <li><a href="/Quote/SinglePage" id="QuoteSinglePage">数码报价</a></li>
+                        <li><a href="/Trade/KCalendar" id="TradeKCalendar">传统报价</a></li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li>
+                                <a class="esh-identity-item"
+                                   asp-controller="Order"
+                                   asp-action="Index">
+                                    订单管理
+                                </a>
 
-                    </li>
-                    <li>
-                        <a class="esh-identity-item"
-                           asp-controller="Manage"
-                           asp-action="Index">
-                           帐户管理
-                        </a>
+                            </li>
+                            <li>
+                                <a class="esh-identity-item"
+                                   asp-controller="Manage"
+                                   asp-action="Index">
+                                   帐户管理
+                                </a>
 
-                    </li>
-                }
-            </ul>
-        </div>*@
+                            </li>
+                        }
+                    </ul>
+                </div>*@
         </div>
     </nav>
 

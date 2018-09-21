@@ -18,7 +18,7 @@
     }
 
     &-badge {
-        $size: 1.8rem;
+        $size: 2.5rem;
         background-color: $color-secondary;
         border-radius: 50%;
         color: $color-foreground-brighter;
@@ -31,10 +31,11 @@
         transform: translateX(-38%);
         transition: all $animation-speed-default;
         width: $size;
+        font-size: 12px;
     }
 
     &-badge-inoperative {
-        $size: 1.5rem;
+        $size: 2.5rem;
         background-color: $color-warning;
         border-radius: 50%;
         color: $color-foreground-brighter;
@@ -47,6 +48,7 @@
         transform: translateX(-38%);
         transition: all $animation-speed-default;
         width: $size;
+        font-size: 12px;
     }
 
     &:hover &-badge {
