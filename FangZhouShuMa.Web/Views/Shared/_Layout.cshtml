@@ -29,10 +29,17 @@
 
     <nav class="fz-navbar navbar navbar-inverse navbar-fixed-top">
         <div class="bar-login row" style="">
-            <div class="col-md-6 text-left">  <span>欢迎来到方舟标识！</span><span>免费服务电话：</span><span><font class="cheng66"> 0512-88888888</font> </span></div>
-            <div class="col-md-6 text-right"> </div>
+            <div class="col-md-6 text-left head-bar-left">  <span>欢迎来到方舟标识！</span><span>免费服务电话：</span><span><font class="cheng66"> 0512-88888888</font> </span></div>
+            <div class="col-md-6 text-right head-bar-right">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <span><img src="~/images/customer.png"  width="20" height="20"/></span> <span> VIP 客户</span>
+                }
+                else
+                { <span><img src="~/images/guest.png" width="20" height="20"/></span> <span> 普通游客</span>}
+            </div>
         </div>
-        <div class="container">
+        <div class="container navbar-container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
                     <span class="sr-only">Toggle navigation</span>
@@ -69,57 +76,7 @@
                     <li><a href="#">联系方式</a></li>
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
-                @*<ul class="nav navbar-nav pull-right">
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <li class=" dropdown">
-                                <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的信息  <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a class="esh-identity-item"
-                                           asp-controller="Manage"
-                                           asp-action="Index">
-                                            帐户管理
-                                        </a>
-
-                                    </li>
-                                    <li>
-                                        <a class="esh-identity-item" asp-controller="Order" asp-action="Index">        订单管理    </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        }
-                        <li class=""><a href="#">Logout</a></li>
-                    </ul>*@
             </div>
-            @*<div class="fz-menu-navbar navbar-collapse collapse  ">
-                    <ul class="nav navbar-nav  nav-menu">
-                        <li><a asp-area="" asp-controller="Home" asp-action="Index">主页</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="About">关于</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">联系</a></li>
-                        <li><a href="/Quote/SinglePage" id="QuoteSinglePage">数码报价</a></li>
-                        <li><a href="/Trade/KCalendar" id="TradeKCalendar">传统报价</a></li>
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <li>
-                                <a class="esh-identity-item"
-                                   asp-controller="Order"
-                                   asp-action="Index">
-                                    订单管理
-                                </a>
-
-                            </li>
-                            <li>
-                                <a class="esh-identity-item"
-                                   asp-controller="Manage"
-                                   asp-action="Index">
-                                   帐户管理
-                                </a>
-
-                            </li>
-                        }
-                    </ul>
-                </div>*@
         </div>
     </nav>
 
@@ -128,7 +85,7 @@
 
     </div>
     <hr />
-    <footer class="text-center">
+    <footer class="container text-center">
         <ul class="foot1 row">
             <li class="col-md-4"><img src="/images/index_30.png" width="57" height="60" /><h3>商务印刷&nbsp;&nbsp;引导品牌</h3></li>
             <li class="col-md-4"><img src="/images/index_32.png" width="90" height="60" /><h3>本地印刷 极速送达</h3></li>

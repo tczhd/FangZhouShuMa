@@ -4,11 +4,13 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-@if (SignInManager.IsSignedIn(User))
-{
+<ul class="nav navbar-nav pull-right">
+    <li> @await Component.InvokeAsync("Basket", new { userName = "" })</li>
 
-    <ul class="nav navbar-nav pull-right">
-        <li> @await Component.InvokeAsync("Basket", new { userName = "" })</li>
+    @if (SignInManager.IsSignedIn(User))
+    {
+
+        @*<li> @await Component.InvokeAsync("Basket", new { userName = "" })</li>*@
         <li class=" dropdown">
             <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的信息  <span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -29,15 +31,17 @@
                 <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">你好 @UserManager.GetUserName(User)!</a>
             </li>*@
         <li>
-            <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" >  <button type="submit" class="btn btn-link">退出</button></form>
+            <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm">  <button type="submit" class="btn btn-link">退出</button></form>
         </li>
-    </ul>
 
-}
-else
-{
-    <ul class="nav navbar-nav pull-right">
-        <li> @await Component.InvokeAsync("Basket", new { userName = "" })</li>
+
+    }
+    else
+    {
+        @*<ul class="nav navbar-nav pull-right">*@
+        @*<li> @await Component.InvokeAsync("Basket", new { userName = "" })</li>*@
         <li><a asp-area="" asp-controller="Account" asp-action="Login">登录</a></li>
-    </ul>
-}
+        @*</ul>*@
+    }
+
+</ul>

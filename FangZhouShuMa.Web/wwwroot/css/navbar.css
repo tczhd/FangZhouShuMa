@@ -1,4 +1,20 @@
-﻿.navbar, .dropdown-menu{
+﻿.navbar-header span.logo-title {
+    margin-left: 5px;
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+    font-size: 25px;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #000000;
+    font-family:'Baskerville Old Face';
+}
+
+    .navbar-inverse a.navbar-brand:hover,
+    .navbar-inverse a.navbar-brand:focus {
+        color: #9dc816;
+    }
+
+.navbar, .dropdown-menu{
     background: #dedbdb;
     border: none;
     font-size:20px;
@@ -8,7 +24,7 @@
 .navbar {
     color: #9dc816;
     background-color: #fff;
-    min-height: 105px;
+    min-height: 100px;
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -141,4 +157,8 @@ font-size:22px;
 
 .navbar-inverse .navbar-toggle .icon-bar {
     background-color: #9dc816;
+}
+
+.navbar-container {
+    padding-top:5px;
 }
