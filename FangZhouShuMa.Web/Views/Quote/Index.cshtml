@@ -6,99 +6,110 @@
     ViewData["Title"] = "估价";
 }
 
-<div class="content1190 clearfix">
-    <div class="content1190_left">
-        <div class="tubiao"><h3>数字快印</h3></div>
-        <div class="content1190_l clearfix" id="divQuoteMenu">
-            <ul>
-                @foreach (var item in Model.Items)
-                {
-                    <li>
-                        @Html.ActionLink(item.Name, "index", "Quote", new { id = item.Id }, null)
-                    </li>
-                }
+<div class="row">
+    <div class="col-md-3">
+        <section class="product-menu-section">
+            <div class="tubiao"><h3>数字快印</h3></div>
 
-            </ul>
-        </div>
+            <nav class="nav-sidebar">
+                <ul class="nav">
+                    @foreach (var item in Model.Items)
+                    {
+                        <li>
+                            @Html.ActionLink(item.Name, "index", "Quote", new { id = item.Id }, null)
+                        </li>
+                    }
+                </ul>
+            </nav>
+
+        </section>
     </div>
 
-    <div class="product-info content1190_m  clearfix">
-        <div class="title clearfix">
-            <span> <input type="hidden" asp-for="@Model.Product.Id" name="productId" id="ProductId" /></span>
-            <h3 style="line-height: 10px;">@Model.Product.Name</h3>
-        </div>
-
-        <div class="row clearfix" >
-            <div class="col-md-12" >
-                <div style="padding: 10px 20px;">
-                <span >印刷数量 </span>
-                <span> <input type="text" id="productQuantity" name="productQuantity"/></span>
+    <div class="product-info col-md-9">
+        <section class="quote-section">
+            <div class="row">
+                <div class="col-md-12 title clearfix">
+                    <span> <input type="hidden" asp-for="@Model.Product.Id" name="productId" id="ProductId" /></span>
+                    <h3 style="line-height: 10px;">@Model.Product.Name</h3>
                 </div>
             </div>
-        </div>
-
-        @foreach (var group in Model.Product.ProductCustomFieldGroupViewModels)
-        {
-            <div class=" basic-parameter clearfix">
-                <h3>@group.Name</h3>
-
-                @{int itemCount = 0; }
-
-                @foreach (var productCustomField in group.ProductCustomFieldViewModels)
-                {
-                    if (itemCount % 2 == 0)
-                    {
-                        @Html.Raw("<div class='row product-custom-field-row' style='margin-top: 10px; '>")
-                    }
-
-                    @Html.Raw("<div class='col-md-6 product-custom-field-col'> ")
-
-                <span style="padding-right:5px; display:inline-block; min-width:80px;font-weight: bold;"> @productCustomField.Name 
-                     @Html.Raw(":")  <input type="hidden" asp-for="@productCustomField.Id" name="productCustomFieldId" id="productCustomFieldId" /></span>
-                    <span>
-                        @if (productCustomField.FieldTypeId == (int)@ProductCustomFieldType.Boolean)
-                        {
-                            <input type="checkbox" id="CheckBox_@productCustomField.Id" />
-                        }
-                        else if (productCustomField.FieldTypeId == (int)@ProductCustomFieldType.DropDown)
-                        {
-                            @Html.DropDownList("DropDownList_" + @productCustomField.Id, new SelectList(
-                             productCustomField.ProductCustomFieldOptionViewModels.Select(x => new { Value = x.ProductCustomFieldOptionId, Text = x.Name }),
-                               "Value",  "Text"    ))
-                        }
-
-                        <input type="hidden" asp-for="@productCustomField.FieldTypeId" name="fieldTypeId" id="fieldTypeId" />
-                    </span>
-
-                    @Html.Raw("</div> ")
-
-
-
-                    itemCount++;
-
-                    if (itemCount % 2 == 0)
-                    {
-                        @Html.Raw("</div>")
-
-                    }
-
-                }
-
+            <div class="row">
+                <div class="col-md-12">
+                    <div style="padding: 10px 20px;">
+                        <span>印刷数量 </span>
+                        <span> <input type="text" id="productQuantity" name="productQuantity" /></span>
+                    </div>
+                </div>
             </div>
-        }
 
-        <div class="b_tijiao">
-            <input type="button" id="btnSubmit" onclick="PopulateAddModal()" value="立即报价" class="m-btn-submitb" data-toggle="modal" data-target="#myModal" />
-        </div>
+            @foreach (var group in Model.Product.ProductCustomFieldGroupViewModels)
+            {
+                <div class="basic-parameter row">
+                    <div class="col-md-9">
+                        <h3>@group.Name</h3>
 
+                        @{int itemCount = 0; }
+
+                        @foreach (var productCustomField in group.ProductCustomFieldViewModels)
+                        {
+                            if (itemCount % 2 == 0)
+                            {
+                                @Html.Raw("<div class='row product-custom-field-row' style='margin-top: 10px; '>")
+                            }
+
+                            @Html.Raw("<div class='col-md-6 product-custom-field-col'> ")
+
+                            <span style="padding-right:5px; display:inline-block; min-width:80px;font-weight: bold;">
+                                @productCustomField.Name
+                                @Html.Raw(":")  <input type="hidden" asp-for="@productCustomField.Id" name="productCustomFieldId" id="productCustomFieldId" />
+                            </span>
+                            <span>
+                                @if (productCustomField.FieldTypeId == (int)@ProductCustomFieldType.Boolean)
+                                {
+                                    <input type="checkbox" id="CheckBox_@productCustomField.Id" />
+                                }
+                                else if (productCustomField.FieldTypeId == (int)@ProductCustomFieldType.DropDown)
+                                {
+                                    @Html.DropDownList("DropDownList_" + @productCustomField.Id, new SelectList(
+                                     productCustomField.ProductCustomFieldOptionViewModels.Select(x => new { Value = x.ProductCustomFieldOptionId, Text = x.Name }),
+                                       "Value",  "Text"    ))
+                                }
+
+                                <input type="hidden" asp-for="@productCustomField.FieldTypeId" name="fieldTypeId" id="fieldTypeId" />
+                            </span>
+
+                            @Html.Raw("</div> ")
+
+
+
+                            itemCount++;
+
+                            if (itemCount % 2 == 0)
+                            {
+                                @Html.Raw("</div>")
+
+                            }
+
+                        }
+
+                    </div>
+                </div>
+            }
+
+            <div class="row submit-quote-row">
+                <div class="col-md-12 ">
+                    <input type="button" id="btnSubmit" onclick="PopulateAddModal()" value="立即报价" class="m-btn-submitb" data-toggle="modal" data-target="#myModal" />
+                </div>
+            </div>
+        </section>
     </div>
 
-    <div id="priceresulte" style="display: none; width: 600px;">
-        <div id="loading">
-            报价中。。。
-            <img src="/images/loading.gif" />
-        </div>
-    </div>
+    @*<div id="priceresulte" style="display: none;">
+            <div id="loading">
+                报价中。。。
+                <img src="/images/loading.gif" />
+            </div>
+        </div>*@
 
 
 </div>
