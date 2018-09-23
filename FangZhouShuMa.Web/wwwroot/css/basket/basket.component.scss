@@ -10,6 +10,7 @@
     &-titles {
         padding-bottom: 1rem;
         padding-top: 2rem;
+        background-color:lightgray;
 
         &--clean {
             padding-bottom: 0;
@@ -39,7 +40,7 @@
     $item-height: 8rem;
 
     &-item {
-        font-size: $font-size-m;
+        font-size: 1rem;
         font-weight: $font-weight-semilight;
 
         &--middle {

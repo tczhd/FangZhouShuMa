@@ -37,6 +37,7 @@
   <ItemGroup>
     <None Include="wwwroot\css\basket\basket-status\basket-status.component.scss" />
     <None Include="wwwroot\css\basket\basket.component.scss" />
+    <None Include="wwwroot\css\orders\orders.component.scss" />
   </ItemGroup>
 
   <ItemGroup>

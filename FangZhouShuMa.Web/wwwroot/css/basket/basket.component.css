@@ -2,7 +2,9 @@
   min-height: 80vh; }
   .esh-basket-titles {
     padding-bottom: 1rem;
-    padding-top: 2rem; }
+    padding-top: 2rem;
+    background-color:lightgray;
+  }
     .esh-basket-titles--clean {
       padding-bottom: 0;
       padding-top: 0; }
@@ -15,9 +17,17 @@
       border-color: transparent; }
   .esh-basket-items-margin-left1 {
     margin-left: 1px; }
-  .esh-basket-item {
-    font-size: 1rem;
-    font-weight: 300; }
+
+esh-basket-items {
+    margin-left: 0;
+    margin-right: 0;
+}
+.esh-basket-item {
+    /*font-size: 1rem;*/
+    font-weight: 300;
+    margin-left: 0;
+    margin-right: 0;
+}
     .esh-basket-item--middle {
       line-height: 8rem; }
       @media screen and (max-width: 1024px) {
@@ -36,7 +46,6 @@
     border-radius: 0;
     color: #FFFFFF;
     display: inline-block;
-    font-size: 1rem;
     font-weight: 400;
     margin-top: 1rem;
     padding: 1rem 1.5rem;
