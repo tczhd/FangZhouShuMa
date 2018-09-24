@@ -59,6 +59,7 @@ namespace FangZhouShuMa.Web.Controllers
                         {
                             Address = p.Address,
                             Address2 = p.Address2,
+
                             City = p.City,
                             Company = p.Company,
                             CountryId = p.CountryId,
@@ -107,8 +108,15 @@ namespace FangZhouShuMa.Web.Controllers
                     {
                         Discount = 0,
                         ProductId = oi.ProductId,
-                        //ProductName = oi.,
-                        UnitPrice = oi.Price
+                        ProductName = oi.Product.Name,
+                        UnitPrice = oi.Price,
+                        OrderItemDetails = oi.OrderProductCustomFieldData.Select(p => new OrderItemDetailViewModel() {
+                            FieldData = p.FieldData,
+                            FieldDataDescription = p.FieldDataDescription,
+                            Price = p.Price,
+                            ProductCustomFieldId = p.ProductCustomFieldId,
+                            ProductCustomFieldName = p.ProductCustomFieldName
+                        }).ToList()
                     }).ToList(),
                     OrderNumber = order.Id,
                     ShippingInfos = order.ShippingInfos.Select(p => new ShippingInfoViewModel()
@@ -137,6 +145,5 @@ namespace FangZhouShuMa.Web.Controllers
 
             return View(null);
         }
-
     }
 }

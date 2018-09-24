@@ -7,6 +7,9 @@ using FangZhouShuMa.ApplicationCore.Specifications;
 using FangZhouShuMa.Web.Models.OrderViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Logging;
+
 
 namespace FangZhouShuMa.Web.Controllers.Api
 {
@@ -30,11 +33,15 @@ namespace FangZhouShuMa.Web.Controllers.Api
                 {
                     Discount = 0,
                     ProductId = oi.ProductId,
+                    ProductName = oi.Product.Name,
                     UnitPrice = oi.Price,
-                    OrderItemDetails =oi.OrderProductCustomFieldData.Select(m => new OrderItemDetailViewModel() {
-                        FieldData = m.FieldData,
-                        Price = m.Price,
-                        ProductCustomFieldId = m.ProductCustomFieldId
+                    OrderItemDetails = oi.OrderProductCustomFieldData?.Select(p => new OrderItemDetailViewModel()
+                    {
+                        FieldData = p.FieldData,
+                        FieldDataDescription = p.FieldDataDescription,
+                        Price = p.Price,
+                        ProductCustomFieldId = p.ProductCustomFieldId,
+                        ProductCustomFieldName = p.ProductCustomFieldName
                     }).ToList()
                 }).ToList(),
                 OrderNumber = order.Id,

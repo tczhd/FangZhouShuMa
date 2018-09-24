@@ -11,9 +11,10 @@ using System;
 namespace FangZhouShuMa.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(FangZhouShuMaContext))]
-    partial class FangZhouShuMaContextModelSnapshot : ModelSnapshot
+    [Migration("20180924052456_AddNewFieldsTOTableOrderProductDetail")]
+    partial class AddNewFieldsTOTableOrderProductDetail
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -452,8 +453,6 @@ namespace FangZhouShuMa.Infrastructure.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("OrderId");
-
-                    b.HasIndex("ProductId");
 
                     b.ToTable("OrderProducts");
                 });
@@ -922,11 +921,6 @@ namespace FangZhouShuMa.Infrastructure.Data.Migrations
                         .WithMany("OrderProducts")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("FangZhouShuMa.ApplicationCore.Entities.ProductAggregate.Product", "Product")
-                        .WithMany("OrderProducts")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte.OrderProductCustomFieldData", b =>
@@ -934,11 +928,6 @@ namespace FangZhouShuMa.Infrastructure.Data.Migrations
                     b.HasOne("FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte.OrderProduct", "OrderProduct")
                         .WithMany("OrderProductCustomFieldData")
                         .HasForeignKey("OrderProductId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("FangZhouShuMa.ApplicationCore.Entities.ProductAggregate.ProductCustomField", "ProductCustomField")
-                        .WithMany("OrderProductCustomFieldData")
-                        .HasForeignKey("ProductCustomFieldId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

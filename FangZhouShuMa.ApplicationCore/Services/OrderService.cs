@@ -45,14 +45,22 @@ namespace FangZhouShuMa.ApplicationCore.Services
             var items = new List<OrderProduct>();
             foreach (var item in basket.Items)
             {
-               // var product = await _itemRepository.GetByIdAsync(item.ProductId);
+                // var product = await _itemRepository.GetByIdAsync(item.ProductId);
+                var itemDetails = item.ItemDetails;
 
                 var orderItem = new OrderProduct() {
                     ProductId = item.ProductId,
                     Quantity = item.Quantity,
                     Price = item.UnitPrice,
                     SubTotal = item.Quantity * item.UnitPrice,
-                    Total = item.Quantity * item.UnitPrice
+                    Total = item.Quantity * item.UnitPrice,
+                    OrderProductCustomFieldData = itemDetails.Select(q => new OrderProductCustomFieldData {
+                       ProductCustomFieldId = q.ProductCustomFieldId,
+                       ProductCustomFieldName = q.ProductCustomFieldName,
+                       FieldData = q.ProductCustomFieldData,
+                       FieldDataDescription = q.ProductCustomFieldDataDescription,
+                       Price = 0
+                    }).ToList()
                 };
                 items.Add(orderItem);
             }

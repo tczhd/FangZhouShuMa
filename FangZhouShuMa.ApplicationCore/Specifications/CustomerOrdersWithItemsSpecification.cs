@@ -13,6 +13,7 @@ namespace FangZhouShuMa.ApplicationCore.Specifications
             AddInclude(o => o.OrderProducts);
             AddInclude(o => o.ShippingInfos);
             AddInclude($"{nameof(Order.OrderProducts)}.{nameof(OrderProduct.OrderProductCustomFieldData)}");
+            AddInclude($"{nameof(Order.OrderProducts)}.{nameof(OrderProduct.Product)}");
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -9,6 +10,7 @@ namespace FangZhouShuMa.ApplicationCore.Entities.ProductAggregate
         public Product()
         {
             ProductCustomFieldData = new HashSet<ProductCustomFieldData>();
+            OrderProducts = new HashSet<OrderProduct>();
         }
         public int GroupId { get; set; }
 
@@ -45,5 +47,6 @@ namespace FangZhouShuMa.ApplicationCore.Entities.ProductAggregate
         public virtual Group Group { get; set; }
 
         public virtual ICollection<ProductCustomFieldData> ProductCustomFieldData { get; set; }
+        public virtual ICollection<OrderProduct> OrderProducts { get; set; }
     }
 }

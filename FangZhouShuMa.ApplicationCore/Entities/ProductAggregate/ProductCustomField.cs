@@ -1,4 +1,5 @@
 ﻿using FangZhouShuMa.ApplicationCore.Entities.BasketAggregate;
+using FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -13,6 +14,7 @@ namespace FangZhouShuMa.ApplicationCore.Entities.ProductAggregate
             ProductCustomFieldOptions = new HashSet<ProductCustomFieldOption>();
             ProductCustomFieldData = new HashSet<ProductCustomFieldData>();
             BasketItemDetails = new HashSet<BasketItemDetail>();
+            OrderProductCustomFieldData = new HashSet<OrderProductCustomFieldData>();
         }
         public int ProductCustomFieldGroupId { get; set; }
         [Required]
@@ -35,5 +37,6 @@ namespace FangZhouShuMa.ApplicationCore.Entities.ProductAggregate
         public virtual ICollection<ProductCustomFieldOption> ProductCustomFieldOptions { get; set; }
         public virtual ICollection<ProductCustomFieldData> ProductCustomFieldData { get; set; }
         public virtual ICollection<BasketItemDetail> BasketItemDetails { get; set; }
+        public virtual ICollection<OrderProductCustomFieldData> OrderProductCustomFieldData { get; set; }
     }
 }

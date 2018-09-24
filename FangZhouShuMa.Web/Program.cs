@@ -16,7 +16,7 @@ namespace FangZhouShuMa.Web
             var host = BuildWebHost(args);
 
             /*Need comment when you need to change to a new database*/
-            initData(host);
+            //initData(host);
 
             host.Run();
         }

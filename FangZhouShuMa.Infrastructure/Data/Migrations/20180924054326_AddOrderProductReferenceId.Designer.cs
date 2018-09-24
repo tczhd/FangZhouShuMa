@@ -11,9 +11,10 @@ using System;
 namespace FangZhouShuMa.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(FangZhouShuMaContext))]
-    partial class FangZhouShuMaContextModelSnapshot : ModelSnapshot
+    [Migration("20180924054326_AddOrderProductReferenceId")]
+    partial class AddOrderProductReferenceId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -934,11 +935,6 @@ namespace FangZhouShuMa.Infrastructure.Data.Migrations
                     b.HasOne("FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte.OrderProduct", "OrderProduct")
                         .WithMany("OrderProductCustomFieldData")
                         .HasForeignKey("OrderProductId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("FangZhouShuMa.ApplicationCore.Entities.ProductAggregate.ProductCustomField", "ProductCustomField")
-                        .WithMany("OrderProductCustomFieldData")
-                        .HasForeignKey("ProductCustomFieldId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

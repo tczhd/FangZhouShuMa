@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FangZhouShuMa.ApplicationCore.Entities.ProductAggregate;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -33,6 +34,7 @@ namespace FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte
         public decimal DiscountTotal { get; set; }
 
         public virtual Order Order { get; set; }
+        public virtual Product Product { get; set; }
         public virtual ICollection<OrderProductCustomFieldData> OrderProductCustomFieldData { get; set; }
     }
 }

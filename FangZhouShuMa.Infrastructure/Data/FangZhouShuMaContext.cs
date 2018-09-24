@@ -112,6 +112,14 @@ namespace FangZhouShuMa.Infrastructure.Data
       .HasPrincipalKey(e => e.Id)
       .OnDelete(DeleteBehavior.Restrict);
 
+            builder.Entity<ProductCustomField>()
+.HasMany(e => e.OrderProductCustomFieldData)
+.WithOne(e => e.ProductCustomField)
+.HasForeignKey(e => e.ProductCustomFieldId)
+.HasPrincipalKey(e => e.Id)
+.OnDelete(DeleteBehavior.Restrict);
+
+
             builder.Entity<ProductCustomFieldOption>()
     .HasMany(e => e.ProductCustomFieldOptionsDisplayByRelationshipPrimaries)
     .WithOne(e => e.ProductCustomFieldOptionPrimary)
