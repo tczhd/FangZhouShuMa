@@ -55,6 +55,8 @@ namespace FangZhouShuMa.Web.Services
                     BasketItemDetails = i.ItemDetails.Select(j => new BasketItemDetailViewModel() {
                         Id = j.Id,
                         ProductCustomFieldData = j.ProductCustomFieldData,
+                        ProductCustomFieldDataDescription = j.ProductCustomFieldDataDescription,
+                        ProductCustomFieldName = j.ProductCustomFieldName,
                         ProductCustomFieldId = j.ProductCustomFieldId
                     }).ToList()
                 };

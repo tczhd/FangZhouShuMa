@@ -11,8 +11,8 @@
         <form method="post">
             <article class="esh-basket-titles row">
                 <br />
-                <section class="esh-basket-title col-xs-3">产品名称</section>
-                <section class="esh-basket-title col-xs-3 hidden-lg-down"></section>
+                <section class="esh-basket-title col-xs-2">产品名称</section>
+                <section class="esh-basket-title col-xs-4 ">明细</section>
                 <section class="esh-basket-title col-xs-2">价格</section>
                 <section class="esh-basket-title col-xs-2">数量</section>
                 <section class="esh-basket-title col-xs-2">小计</section>
@@ -23,11 +23,18 @@
                     var item = Model.Items[i];
                     <article class="esh-basket-items row">
                         <div>
-                            <section class="esh-basket-item esh-basket-item--middle col-xs-3">@item.ProductName</section>
-                            <section class="esh-basket-item esh-basket-item--middle col-lg-3 hidden-lg-down">
-                                <img class="esh-basket-image" src="@item.PictureUrl" />
+                            <section class="esh-basket-item esh-basket-item--middle col-xs-2">@item.ProductName</section>
+                            <section class="esh-basket-item esh-basket-item--middle col-xs-4">
+                                @for (int j = 0; j < item.BasketItemDetails.Count; j++)
+                                {
+                                    var itemDetail = item.BasketItemDetails[j];
+                                    <div style="float:left;padding-left:15px;line-height:25px;">
+                                        <span style="font-weight:bold; display:inline-block;min-width:80px; padding-right: 5px;">@($"{itemDetail.ProductCustomFieldName}:") </span>
+                                        <span style="display:inline-block;min-width:80px;">@itemDetail.ProductCustomFieldDataDescription </span>
+                                    </div>
+                                }
+                               
                             </section>
-
                             <section class="esh-basket-item esh-basket-item--middle col-xs-2">￥ @item.UnitPrice.ToString("N2")</section>
                             <section class="esh-basket-item esh-basket-item--middle col-xs-2">
                                 <input type="hidden" name="@("Items[" + i + "].Key")" value="@item.Id" />
