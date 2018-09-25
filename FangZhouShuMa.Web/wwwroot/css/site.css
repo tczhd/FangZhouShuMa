@@ -29,6 +29,8 @@
 
 .bar-login {
     background-color: #F5F5F5;
+    font-size: 14px;
+    color: #666666;
     margin-left: 0;
     margin-right: 0;
 }
@@ -587,7 +589,9 @@ ul.account-bar {
         padding-top: 70px;
     }
 
-
+    .head-bar-phone {
+        display: none;
+    }
 }
 
 @media (min-width: 768px) {
@@ -599,7 +603,9 @@ ul.account-bar {
     .body-content {
         padding-top: 70px;
     }
-
+    .head-bar-phone {
+        display: none;
+    }
 }
 
 @media (min-width: 992px) {
@@ -611,6 +617,10 @@ ul.account-bar {
     .body-content {
         padding-top: 60px;
     }
+
+    .head-bar-phone {
+        display:inline-block;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -621,6 +631,10 @@ ul.account-bar {
 
     .body-content {
         padding-top: 60px;
+    }
+
+    .head-bar-phone {
+        display:inline-block;
     }
 }
 

@@ -26,12 +26,12 @@
     <link rel="stylesheet" href="~/css/orders/orders.component.css" />
     <link rel="stylesheet" href="~/css/navbar.css" />
 </head>
-<body>
+<body style="background-image: url(/images/background.jpeg); background-repeat: no-repeat; background-size: cover;" >
 
-    <nav class="fz-navbar navbar navbar-inverse navbar-fixed-top">
+    <nav class="fz-navbar navbar navbar-inverse navbar-fixed-top" >
         <div class="bar-login row" style="">
-            <div class="col-md-6 text-left head-bar-left">  <span>欢迎来到方舟标识！</span><span>免费服务电话：</span><span><font class="cheng66"> 0512-88888888</font> </span></div>
-            <div class="col-md-6 text-right head-bar-right">
+            <div class="col-xs-6 col-md-6 text-left head-bar-left">  <span>欢迎来到方舟标识！</span><span class="head-bar-phone">免费服务电话：<font class="cheng66"> 0512-88888888</font> </span></div>
+            <div class="col-xs-6 col-md-6 text-right head-bar-right">
                 @if (User.Identity.IsAuthenticated)
                 {
                     <span><img src="~/images/customer.png"  width="20" height="20"/></span> <span> VIP 客户</span>
@@ -95,7 +95,6 @@
         <ul class="row foot2 foot739">
             <li class="col-md-2">
 
-                <img src="/images/fzbs-logo.png" width="191" height="60" />
                 <h4>0512-88888888</h4>
                 <p>客服9点-24点</p>
             </li>
@@ -172,7 +171,6 @@
             <div class="col-md-12 text-center">
                 大仓方舟标识有限公司
                 <span>电子信箱：<a href="mailto:fzbs@vip.163.com" target="_blank">fzbs@vip.163.com</a></span>
-                <script type="text/javascript">var cnzz_protocol = (("https:" === document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cspan id='cnzz_stat_icon_1262220485'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1262220485%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
             </div>
         </p>
     </footer>

@@ -19,7 +19,7 @@ div.product-custom-field-row {
     font-weight: normal;
     line-height: 85px;
     font-size: 22px;
-    margin-left: 80px;
+    text-align: center;
 }
 
 .content1190 {
@@ -1243,6 +1243,6 @@ section.quote-section {
    font-size:18px;
 }
 
-.nav > li {
+/*.nav > li {
     border-bottom: 1px solid #e6e6e6;
-}
+}*/
