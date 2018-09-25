@@ -16,7 +16,7 @@
                     @foreach (var item in Model.Items)
                     {
                         <li>
-                            @Html.ActionLink(item.Name, "index", "Quote", new { id = item.Id }, null)
+                            @Html.ActionLink(item.Name, "Index", "Quote", new { id = item.Id }, null)
                         </li>
                     }
                 </ul>
@@ -37,7 +37,8 @@
                 <div class="col-md-12">
                     <div style="padding: 10px 20px;">
                         <span>印刷数量 </span>
-                        <span> <input type="text" id="productQuantity" name="productQuantity" value="1" /></span>
+                        <span class="product-quantity quantity-minus">-</span> <span> <input type="text" id="productQuantity" name="productQuantity" value="1" /></span>
+                        <span class="product-quantity  quantity-plus">+</span>
                     </div>
                 </div>
             </div>
@@ -104,12 +105,8 @@
         </section>
     </div>
 
-    @*<div id="priceresulte" style="display: none;">
-            <div id="loading">
-                报价中。。。
-                <img src="/images/loading.gif" />
-            </div>
-        </div>*@
-
-
 </div>
+
+@section Scripts {
+    <script src="~/js/quote.js" asp-append-version="true"></script>
+}

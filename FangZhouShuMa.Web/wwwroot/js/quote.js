@@ -1,4 +1,40 @@
-﻿function PopulateAddModal() {
+﻿$(document).ready(function () {
+
+    var removeActive = function () {
+        $(".product-menu-section .nav-sidebar a").parents("li, ul").removeClass("active");
+    };
+
+    $(".product-menu-section .nav-sidebar li").click(function () {
+        removeActive();
+        $(this).addClass("active");
+    });
+
+    removeActive();
+    var parent = $(".nav-sidebar a[href='" + location.pathname + "']").parent("li");
+    parent.addClass("active");
+
+    $("span.product-quantity").on("click", function () {
+
+        var $button = $(this);
+        var input = $button.parent('div').find("input");
+        var oldValue = input.val();
+
+        if ($button.text() === "+") {
+            var newVal = parseFloat(oldValue) + 1;
+        } else {
+            if (oldValue > 0) {
+                newVal = parseFloat(oldValue) - 1;
+            } else {
+                newVal = 0;
+            }
+        }
+
+        input.val(newVal);
+    });
+
+});
+
+function PopulateAddModal() {
     var spinner = "<i class='fa fa-spinner fa-spin' style='font-size: 24px'></i>";
 
     var dataType = 'application/json; charset=utf-8';
