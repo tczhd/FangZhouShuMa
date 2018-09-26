@@ -1,0 +1,81 @@
+﻿.esh-orders_detail-section {
+    margin: 0 0 15px;
+}
+
+.esh-orders_detail {
+    min-height: 80vh;
+    overflow-x: hidden;
+}
+
+.esh-orders_detail-header {
+    background-color: #00A69C;
+    height: 4rem;
+}
+
+.esh-orders_detail-back {
+    color: rgba(255, 255, 255, 0.4);
+    line-height: 4rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.35s;
+}
+
+    .esh-orders_detail-back:hover {
+        color: #FFFFFF;
+        transition: color 0.35s;
+    }
+
+.esh-orders_detail-titles {
+    padding-bottom: 1rem;
+    padding-top: 2rem;
+    background-color: lightgray;
+    font-weight:bold;
+    font-size:16px;
+}
+
+.esh-orders_detail-title {
+    text-transform: uppercase;
+}
+
+.esh-orders_detail-items {
+    height: 2rem;
+    line-height: 2rem;
+    position: relative;
+}
+
+    .esh-orders_detail-items:nth-of-type(2n + 1):before {
+        background-color: #EEEEFF;
+        content: '';
+        height: 100%;
+        left: 0;
+        margin-left: -100vw;
+        position: absolute;
+        top: 0;
+        width: 200vw;
+        z-index: -1;
+    }
+
+.esh-orders_detail-item {
+    font-weight: 300;
+}
+
+.esh-orders_detail-item--hover {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.esh-orders_detail-items:hover .esh-orders_detail-item--hover {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.esh-orders_detail-link {
+    color: #83D01B;
+    text-decoration: none;
+    transition: color 0.35s;
+}
+
+    .esh-orders_detail-link:hover {
+        color: #75b918;
+        transition: color 0.35s;
+    }

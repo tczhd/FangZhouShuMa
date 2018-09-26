@@ -6,6 +6,10 @@
     ViewData["Title"] = "订单明细";
 }
 
+@*@section Styles {
+    <link href="@Url.Content("~/css/orders/order-detail.component.css")" rel="stylesheet" type="text/css" />
+}*@
+
 <div class="esh-orders_detail">
     <div class="container">
         <section class="esh-orders_detail-section">
@@ -48,34 +52,41 @@
 
             </section>
         }
-        <section class="esh-orders_detail-section">
-            <article class="esh-orders_detail-titles row">
-                <section class="esh-orders_detail-title col-xs-12">订单明细</section>
-            </article>
-            @for (int i = 0; i < Model.OrderItems.Count; i++)
-            {
-                var item = Model.OrderItems[i];
-            <article class="esh-orders_detail-items esh-orders_detail-items--border row">
-                <section class="esh-orders_detail-item esh-orders_detail-item--middle col-xs-2">@item.ProductName</section>
+            <section class="esh-orders_detail-section">
+                <article class="esh-orders_detail-titles row">
+                    <section class="esh-orders_detail-title col-xs-12">订单明细</section>
+                </article>
+                <article class="esh-orders_detail-titles row">
+                    <section class="esh-orders_detail-title col-xs-2">产品名称</section>
+                    <section class="esh-orders_detail-title col-xs-6">产品明细</section>
+                    <section class="esh-orders_detail-title col-xs-1">单价</section>
+                    <section class="esh-orders_detail-title col-xs-1">数量</section>
+                    <section class="esh-orders_detail-title col-xs-2">小计</section>
+                </article>
+                @for (int i = 0; i < Model.OrderItems.Count; i++)
+                {
+                    var item = Model.OrderItems[i];
+                    <article class="esh-orders_detail-items esh-orders_detail-items--border row">
+                        <section class="esh-orders_detail-item esh-orders_detail-item--middle col-xs-2">@item.ProductName</section>
 
-                <section class="esh-orders_detail-item col-md-8">
-                    @for (int j = 0; j < item.OrderItemDetails.Count; j++)
-                    {
-                        var itemDetail = item.OrderItemDetails[j];
-                        <div style="float:left;padding-left:15px;line-height:25px;">
-                            <span style="font-weight:bold; display:inline-block;min-width:80px; padding-right: 5px;">@($"{itemDetail.ProductCustomFieldName}:") </span>
-                            <span style="display:inline-block;min-width:80px;">@itemDetail.FieldDataDescription </span>
-                        </div>
-                    }
+                        <section class="esh-orders_detail-item col-xs-6">
+                            @for (int j = 0; j < item.OrderItemDetails.Count; j++)
+                            {
+                                var itemDetail = item.OrderItemDetails[j];
+                                <div style="float:left;line-height:25px;">
+                                    <span style="font-weight:bold; display:inline-block;min-width:80px; padding-right: 5px;">@($"{itemDetail.ProductCustomFieldName}:") </span>
+                                    <span style="display:inline-block;min-width:80px;">@itemDetail.FieldDataDescription </span>
+                                </div>
+                            }
 
-                </section>
+                        </section>
 
-                <section class="esh-orders_detail-item esh-orders_detail-item--middle col-xs-1">$ @item.UnitPrice.ToString("N2")</section>
-                <section class="esh-orders_detail-item esh-orders_detail-item--middle col-xs-1">@item.Units</section>
-                <section class="esh-orders_detail-item esh-orders_detail-item--middle col-xs-2">$ @Math.Round(item.Units * item.UnitPrice, 2).ToString("N2")</section>
-            </article>
-            }
-        </section>
+                        <section class="esh-orders_detail-item esh-orders_detail-item--middle col-xs-1">$ @item.UnitPrice.ToString("N2")</section>
+                        <section class="esh-orders_detail-item esh-orders_detail-item--middle col-xs-1">@item.Units</section>
+                        <section class="esh-orders_detail-item esh-orders_detail-item--middle col-xs-2">$ @Math.Round(item.Units * item.UnitPrice, 2).ToString("N2")</section>
+                    </article>
+                }
+            </section>
         <section class="esh-orders_detail-section esh-orders_detail-section--right">
             <article class="esh-orders_detail-titles esh-basket-titles--clean row">
                 <section class="esh-orders_detail-title col-xs-9"></section>

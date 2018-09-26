@@ -74,7 +74,7 @@ namespace FangZhouShuMa.Web.Controllers
                             Title = p.Title,
                             Zip = p.Zip
                         }).ToList(),
-                        Status = "Pending",
+                        Status = "等待确认",
                         Total = o.Total??0
 
                     });
