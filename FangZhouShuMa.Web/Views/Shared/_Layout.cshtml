@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>@ViewData["Title"] - 方舟数码</title>
 
     <environment include="Development">
@@ -41,7 +41,7 @@
                 { <span><img src="~/images/guest.png" width="20" height="20"/></span> <span> 普通游客</span>}
             </div>
         </div>
-        <div class="container navbar-container">
+        <div class="container-fluid navbar-container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
                     <span class="sr-only">Toggle navigation</span>
@@ -82,12 +82,12 @@
         </div>
     </nav>
 
-    <div class="container body-content">
+    <div class="container-fluid body-content">
         @RenderBody()
 
     </div>
     <hr />
-    <footer class="container text-center">
+    <footer class="container-fluid text-center">
         <ul class="foot1 row">
             <li class="col-md-4"><img src="/images/index_30.png" width="57" height="60" /><h3>商务印刷&nbsp;&nbsp;引导品牌</h3></li>
             <li class="col-md-4"><img src="/images/index_32.png" width="90" height="60" /><h3>本地印刷 极速送达</h3></li>

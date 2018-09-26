@@ -10,7 +10,7 @@ namespace FangZhouShuMa.Web.Models.ManageViewModels
     {
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "当前密雄霸")]
+        [Display(Name = "当前密码")]
         public string OldPassword { get; set; }
 
         [Required]

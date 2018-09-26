@@ -8,12 +8,14 @@ namespace FangZhouShuMa.Web.Models.ManageViewModels
 {
     public class IndexViewModel
     {
+        [Display(Name = "用户名")]
         public string Username { get; set; }
 
         public bool IsEmailConfirmed { get; set; }
 
         [Required]
         [EmailAddress]
+        [Display(Name = "电子邮箱")]
         public string Email { get; set; }
 
         [Phone]

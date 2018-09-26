@@ -10,6 +10,7 @@ namespace FangZhouShuMa.Web.Models.AccountViewModels
     {
         [Required]
         [EmailAddress]
+        [Display(Name = "电子邮箱")]
         public string Email { get; set; }
 
         [Required]

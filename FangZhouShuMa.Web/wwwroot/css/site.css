@@ -581,7 +581,7 @@ ul.account-bar {
         display: none;
     }
 
-    .container {
+    .container, .container-fluid {
         width: 100%;
     }
 
@@ -595,7 +595,7 @@ ul.account-bar {
 }
 
 @media (min-width: 768px) {
-    .container, .bar-login {
+    .container, .container-fluid, .bar-login {
         width: 100%;
         padding: 0 30px;
     }
@@ -609,7 +609,7 @@ ul.account-bar {
 }
 
 @media (min-width: 992px) {
-    .container, .bar-login {
+    .container, .container-fluid, .bar-login {
         width: 100%;
         padding: 0 80px;
     }
@@ -624,7 +624,7 @@ ul.account-bar {
 }
 
 @media (min-width: 1200px) {
-    .container , .bar-login {
+    .container, .container-fluid, .bar-login {
         width: 100%;
         padding: 0 150px;
     }
