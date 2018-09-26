@@ -167,8 +167,8 @@ namespace FangZhouShuMa.Infrastructure.Data
             builder.Entity<OrderProductCustomFieldData>()
 .HasMany(e => e.OrderProductCustomFieldOptionData)
 .WithOne(e => e.OrderProductCustomFieldData)
-.HasForeignKey(e => e.ProductCustomFieldId)
-.HasPrincipalKey(e => e.ProductCustomFieldId)
+.HasForeignKey(e => e.OrderProductCustomFieldDataId)
+.HasPrincipalKey(e => e.Id)
 .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<SiteUser>()

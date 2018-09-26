@@ -6,6 +6,7 @@ namespace FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte
 {
     public class OrderProductCustomFieldOptionData : BaseEntity
     {
+        public int OrderProductCustomFieldDataId { get; set; }
         public int ProductCustomFieldId { get; set; }
         public int ProductCustomFieldOptionsId { get; set; }
         public decimal Price { get; set; }
