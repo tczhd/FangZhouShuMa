@@ -18,4 +18,21 @@
         secondParent.addClass("active");
     }
 
+    var changeLoginPosition = function () {
+        var navLoginSection = $('#navLoginSection');
+
+        if ($(window).width() <= 767) {
+
+            navLoginSection.removeClass('pull-right');
+        }
+        else {
+            navLoginSection.addClass('pull-right');
+        }
+    };
+
+    $(window).resize(function () {
+        changeLoginPosition();
+    });
+
+    changeLoginPosition();
 });

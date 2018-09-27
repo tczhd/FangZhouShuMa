@@ -1256,11 +1256,7 @@ section.quote-section {
     padding: 10px;
 }
 
-.nav > li > a{
-   text-align:center;
-   font-size:18px;
+.nav-sidebar .nav > li > a {
+    text-align: center;
+    font-size: 18px;
 }
-
-/*.nav > li {
-    border-bottom: 1px solid #e6e6e6;
-}*/

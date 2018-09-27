@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace FangZhouShuMa.Web.Models.ProductViewModels
 {
+    [DataContract(Name = "product")]
     public class ProductViewModel
     {
 

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace FangZhouShuMa.Web.Models.OrderViewModels
 {
+    [DataContract(Name = "order_product_detail")]
     public class OrderItemDetailViewModel
     {
         [DataMember(Name = "product_custom_field_data")]

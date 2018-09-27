@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace FangZhouShuMa.Web.Models.OrderViewModels
 {
+    [DataContract(Name = "order_product")]
     public class OrderItemViewModel
     {
         [DataMember(Name = "product_id")]
         public int ProductId { get; set; }
-        [DataMember(Name = "product_id")]
+        [DataMember(Name = "product_name")]
         public string ProductName { get; set; }
         [DataMember(Name = "price")]
         public decimal UnitPrice { get; set; }

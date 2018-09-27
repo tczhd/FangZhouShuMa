@@ -57,7 +57,7 @@
             <div id="navbar" class=" navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a asp-area="" asp-controller="Home" asp-action="Index">主页</a></li>
-                    <li ><a asp-area="" asp-controller="Home" asp-action="About">公司简介</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About">公司简介</a></li>
                     <li class=" dropdown">
                         <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">产品介绍<span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -78,7 +78,11 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">联系方式</a></li>
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
+                <div style="float:right;">
+                    @await Component.InvokeAsync("Basket", new { userName = "" })
+                </div>
             </div>
+           
         </div>
     </nav>
 

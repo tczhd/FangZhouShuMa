@@ -15,14 +15,17 @@
     border-radius: 50%;
     color: #FFFFFF;
     display: block;
-    height: 1.5rem;
+    height: 2rem;
     left: 50%;
     position: absolute;
     text-align: center;
     top: 0;
     transform: translateX(-38%);
     transition: all 0.35s;
-    width: 1.5rem; }
+    width: 2rem; 
+    font-size:11px;
+    padding-top:2px;
+  }
   .esh-basketstatus-badge-inoperative {
     background-color: #ff0000;
     border-radius: 50%;
