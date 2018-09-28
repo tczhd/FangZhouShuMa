@@ -11,6 +11,7 @@ namespace FangZhouShuMa.Web.Interfaces.ApiInterfaces
     {
         ProductViewModel GetProductDetail(int productId);
         List<ProductViewModel> GetAllProducts(int? productId);
-        //List<ProductViewModel> GetAllGroupedProducts();
+
+        List<ProductViewModel> GetProductsOnly ();
     }
 }

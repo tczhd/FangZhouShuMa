@@ -31,6 +31,22 @@ namespace FangZhouShuMa.Web.Services.ApiServices
             _productRepository = productRepository;
         }
 
+        public List<ProductViewModel> GetProductsOnly()
+        {
+            _logger.LogInformation("Get all products only called.");
+
+            var data = _productRepository.ListAll();
+            var products = data.Select(m => new ProductViewModel()
+            {
+                CreateDateUTC = m.CreateDateUTC,
+                Id = m.Id,
+                Name = m.Name,
+                Price = m.Price
+            });
+
+            return products.ToList();
+        }
+
         public ProductViewModel GetProductDetail(int productId)
         {
             _logger.LogInformation("GetProductDetail called.");
@@ -60,7 +76,7 @@ namespace FangZhouShuMa.Web.Services.ApiServices
                         Id = w.Key,
                         Name = w.First().ProductCustomFieldName,
                         Price = w.First().ProductCustomFieldPrice,
-                        ProductCustomFieldOptionViewModels = w.Select(e => new ProductCustomFieldOptionViewModel()
+                        ProductCustomFieldOptionViewModels = w.Where(e => e.OptionId > 0).Select(e => new ProductCustomFieldOptionViewModel()
                         {
                             ProductCustomFieldOptionId = e.OptionId,
                             Name = e.OptionName,

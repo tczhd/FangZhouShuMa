@@ -44,7 +44,8 @@ namespace FangZhouShuMa.Infrastructure.Data.Repository
                         join productCustomFieldGroup in _dbContext.ProductCustomFieldGroups on productCustomField
                             .ProductCustomFieldGroupId equals productCustomFieldGroup.Id
                         join productCustomFieldOption in _dbContext.ProductCustomFieldOptions on productCustomField.Id equals
-                            productCustomFieldOption.ProductCustomFieldId
+                            productCustomFieldOption.ProductCustomFieldId into productCustomFieldOptionTemp
+                            from productCustomFieldOption in productCustomFieldOptionTemp.DefaultIfEmpty()
                         select new { product, productCustomField, productCustomFieldGroup, productCustomFieldOption };
 
             var result = query.Select(m => new ProductReportModel
@@ -53,10 +54,10 @@ namespace FangZhouShuMa.Infrastructure.Data.Repository
                 ProductCustomFieldId = m.productCustomField.Id,
                 GroupId = m.productCustomFieldGroup.Id,
                 GroupName = m.productCustomFieldGroup.Name,
-                OptionId = m.productCustomFieldOption.Id,
-                OptionName = m.productCustomFieldOption.Name,
-                OptionPrice = m.productCustomFieldOption.Price,
-                OptionSequence = m.productCustomFieldOption.Sequence,
+                OptionId = (m.productCustomFieldOption != null) ?m.productCustomFieldOption.Id:0,
+                OptionName = (m.productCustomFieldOption != null) ? m.productCustomFieldOption.Name:string.Empty,
+                OptionPrice = (m.productCustomFieldOption != null) ? m.productCustomFieldOption.Price:0,
+                OptionSequence = (m.productCustomFieldOption != null) ? m.productCustomFieldOption.Sequence:0,
                 ProductCreateDateUTC = m.product.CreateDateUTC,
                 ProductCustomFieldFieldTypeId = m.productCustomField.FieldTypeId,
                 ProductCustomFieldName = m.productCustomField.Name,

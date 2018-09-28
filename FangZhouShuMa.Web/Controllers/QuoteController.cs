@@ -18,8 +18,9 @@ namespace FangZhouShuMa.Web.Controllers
         public QuoteController(IProductService productService) => _productService = productService;
         public IActionResult Index(int? id)
         {
-            var products = _productService.GetAllProducts(null);
-            var product = products.SingleOrDefault(p => p.Id == id);
+            var products = _productService.GetProductsOnly();
+            var productDetails = _productService.GetAllProducts(id);
+            var product = productDetails.FirstOrDefault();
 
             if (product != null)
             {
