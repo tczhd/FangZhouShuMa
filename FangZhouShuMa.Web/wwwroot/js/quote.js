@@ -34,8 +34,16 @@
 
 });
 
+function printData(divToPrint) {
+    newWin = window.open("");
+    newWin.document.write(divToPrint);
+    newWin.print();
+    newWin.close();
+}
+
+
 function PopulateAddModal() {
-    var spinner = "<i class='fa fa-spinner fa-spin' style='font-size: 24px'></i>";
+    var spinner = "<img src='/images/loading.gif' width='30' height='30' ></img>";
 
     var dataType = 'application/json; charset=utf-8';
     var modalBody = $('div.modal-body');
@@ -89,17 +97,20 @@ function PopulateAddModal() {
         dataType: "json",
         data: jsonData ,
         success: function (data) {
-            //alert(JSON.stringify(data));
-            modalBody.html(GetQuoteDetail(data));
+
+            var bodyContent = GetQuoteDetail(data);
+            modalBody.html(bodyContent);
 
             var printQuote = modalBody.find("button[name='PrintQuote']");
             $(printQuote).click(function () {
-                alert("建设中...");
+                var buttonSection = modalBody.find('div.button-section');
+                buttonSection.hide();
+                printData(modalBody.html());
+                buttonSection.show();
             });
 
             var addToCart = modalBody.find("button[name='AddToCart']");
             $(addToCart).click(function () {
-                //post("/Basket/AddToBasket",data);
                 $.ajax({
                     type: "POST",
                     url: "/Basket/AddToBasket",
@@ -107,7 +118,6 @@ function PopulateAddModal() {
                     dataType: "json",
                     data: JSON.stringify(data),
                     success: function (resultData) {
-                        //alert(resultData.success);
                         window.location.href = "/Basket";
                     }, //End of AJAX Success function  
                     failure: function (resultData) {
@@ -121,6 +131,7 @@ function PopulateAddModal() {
 
 
             var checkOut = modalBody.find("button[name='CheckOut']");
+            checkOut.hide();
             $(checkOut).click(function () {
                 alert("建设中...");
             });
@@ -138,25 +149,25 @@ function PopulateAddModal() {
     });
 };
 
-function post(path, parameters) {
-    var form = $('<form></form>');
+//function post(path, parameters) {
+//    var form = $('<form></form>');
 
-    form.attr("method", "post");
-    form.attr("action", path);
+//    form.attr("method", "post");
+//    form.attr("action", path);
 
-    $.each(parameters, function (key, value) {
-        var field = $('<input></input>');
+//    $.each(parameters, function (key, value) {
+//        var field = $('<input></input>');
 
-        field.attr("type", "hidden");
-        field.attr("name", key);
-        field.attr("value", value);
+//        field.attr("type", "hidden");
+//        field.attr("name", key);
+//        field.attr("value", value);
 
-        form.append(field);
-    });
+//        form.append(field);
+//    });
 
-    $(document.body).append(form);
-    form.submit();
-};
+//    $(document.body).append(form);
+//    form.submit();
+//};
 
 function GetQuoteDetail(data) {
 
@@ -207,7 +218,7 @@ function GetQuoteDetail(data) {
         "<td colspan='4' style='color:red;'>总金额：￥" + data.quoteTotal +"</td></tr>" +
         "</tbody></table></div>";
 
-    var divButtons = "<div style='width:100%;margin:20px 10px;text-align:center'><button type='button' name='PrintQuote' class='btn btn-success'>打印报价单</button>" +
+    var divButtons = "<div class='button-section' style='width:100%;margin:20px 10px;text-align:center'><button type='button' name='PrintQuote' class='btn btn-success'>打印报价单</button>" +
         "<span style='padding-left:5px;'><button type='button' name='AddToCart' class='btn btn-success'>加入购物车</button></span>" +
         "<span style='padding-left:5px;'><button type='button' name='CheckOut' class='btn btn-success'>立即购买</button></span></div>";
 
@@ -219,7 +230,7 @@ function GetQuoteDetail(data) {
         "<li>3、此报价不含运费，可替客户代发快递和物流（收取6元/件打包费）默认顺丰和德邦到付。</li>" +
         "<li>4、自带纸/艺术纸大额报价（2千元以上）请致电业务经理争取更多优惠。</li>" +
         "<li>5、充值会员可获取更多优惠。</li>" +
-        "<li>6、自提地址：南京市栖霞区马群街33号紫金工坊产业园12栋。</li>" +
+        "<li>6、自提地址：太仓方舟标识有限公司。</li>" +
     "</ul></div >";
 
     table = table + divButtons + divInfo;

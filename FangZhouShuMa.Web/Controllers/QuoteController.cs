@@ -21,12 +21,18 @@ namespace FangZhouShuMa.Web.Controllers
             var products = _productService.GetAllProducts(null);
             var product = products.SingleOrDefault(p => p.Id == id);
 
-            var quoteViewModel = new QuoteViewModel() {
-                Items = products,
-                Product = product
-            };
+            if (product != null)
+            {
+                var quoteViewModel = new QuoteViewModel()
+                {
+                    Items = products,
+                    Product = product
+                };
 
-            return View(quoteViewModel);
+                return View(quoteViewModel);
+            }
+
+            return RedirectToAction("Error", "Home");
         }
     }
 }
