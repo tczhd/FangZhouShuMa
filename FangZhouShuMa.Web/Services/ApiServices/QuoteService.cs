@@ -12,7 +12,7 @@ using Microsoft.Extensions.Logging;
 
 namespace FangZhouShuMa.Web.Services.ApiServices
 {
-    public class QuoteService :IQuoteService
+    public class QuoteService : IQuoteService
     {
         private readonly ILogger<QuoteService> _logger;
         private readonly ProductRepository _productRepository;
@@ -58,7 +58,7 @@ namespace FangZhouShuMa.Web.Services.ApiServices
                 foreach (var productCustomField in productCustomFieldGroup.ProductCustomFieldViewModels)
                 {
                     var productCustomFieldRequest =
-                        quoteRequestProductData.QuoteRequestProductCustomFieldData.SingleOrDefault(p =>p.ProductCustomFieldId == productCustomField.Id);
+                        quoteRequestProductData.QuoteRequestProductCustomFieldData.SingleOrDefault(p => p.ProductCustomFieldId == productCustomField.Id);
 
                     if (productCustomFieldRequest != null)
                     {
@@ -68,7 +68,7 @@ namespace FangZhouShuMa.Web.Services.ApiServices
                         {
                             ProductCustomFieldId = productCustomField.Id,
                             ProductCustomFieldName = productCustomField.Name,
-                            
+
                         };
 
                         switch (productCustomField.FieldTypeId)
@@ -86,6 +86,20 @@ namespace FangZhouShuMa.Web.Services.ApiServices
                                     quoteProductCustomFieldViewModel.ProductCustomFieldData =
                                         productCustomFieldRequest.ProductCustomFieldData;
                                     quoteProductCustomFieldViewModel.ProductCustomFieldDataDescription = option.Name;
+                                    quoteProductCustomFieldViewModel.ProductCustomFieldTypeId =
+                                        productCustomField.FieldTypeId;
+
+                                    group.ProductCustomFields.Add(quoteProductCustomFieldViewModel);
+                                }
+
+                                break;
+                            case (int)ProductCustomFieldType.Boolean:
+
+                                if (productCustomFieldRequest.ProductCustomFieldData == "true")
+                                {
+                                    quotePrice += productCustomField.Price;
+                                    quoteProductCustomFieldViewModel.ProductCustomFieldData = productCustomFieldRequest.ProductCustomFieldData;
+                                    quoteProductCustomFieldViewModel.ProductCustomFieldDataDescription = "选中";
                                     quoteProductCustomFieldViewModel.ProductCustomFieldTypeId =
                                         productCustomField.FieldTypeId;
 

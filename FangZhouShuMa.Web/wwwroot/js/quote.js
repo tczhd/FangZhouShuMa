@@ -77,6 +77,14 @@ function PopulateAddModal() {
                     var productCustomFieldOptionId = $(customFieldCol).find("select").val();
                     productCustomFieldRequestData.ProductCustomFieldData = productCustomFieldOptionId;
                 }
+                else if (parseInt(fieldTypeId) === 5) {
+                    var checkBox = $(customFieldCol).find("input[type='checkbox']");
+                    if ($(checkBox ).prop('checked') === true) {
+                        productCustomFieldRequestData.ProductCustomFieldData = "true";
+                    } else {
+                        productCustomFieldRequestData.ProductCustomFieldData = "false";
+                    }
+                }
 
                 quoteRequestProductCustomFieldData.push(productCustomFieldRequestData);
             });
