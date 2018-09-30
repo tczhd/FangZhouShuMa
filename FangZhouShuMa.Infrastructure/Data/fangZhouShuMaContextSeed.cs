@@ -218,100 +218,148 @@ namespace FangZhouShuMa.Infrastructure.Data
             return new List<ProductCustomField>()
             {
                 #region 数码单张报价
-                #region 基本参数
-                new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,Name = "自带纸", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
-                new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 1,LastUpdateDateUTC = DateTime.UtcNow,Name = "成品尺寸", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
-                new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 1,LastUpdateDateUTC = DateTime.UtcNow,Name = "单双面", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
-                new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 1,LastUpdateDateUTC = DateTime.UtcNow,Name = "纸张", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
-                new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 1,LastUpdateDateUTC = DateTime.UtcNow,Name = "颜色", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
-                new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 1,LastUpdateDateUTC = DateTime.UtcNow,Name = "品种", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.Numerical,MaxLength = 100, Price = 10,Sequence = 1},
-                #endregion
+                //#region 基本参数
+                //new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,Name = "自带纸", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                //new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 1,LastUpdateDateUTC = DateTime.UtcNow,Name = "成品尺寸", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
+                //new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 1,LastUpdateDateUTC = DateTime.UtcNow,Name = "单双面", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
+                //new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 1,LastUpdateDateUTC = DateTime.UtcNow,Name = "纸张", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
+                //new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 1,LastUpdateDateUTC = DateTime.UtcNow,Name = "颜色", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
+                //new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 1,LastUpdateDateUTC = DateTime.UtcNow,Name = "品种", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Numerical,MaxLength = 100, Price = 10,Sequence = 1},
+                //#endregion
 
-                  #region 后道设置
-                new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "毛品交货", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
-                new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "单面光膜", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
-                 new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "双面光膜", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
-                 new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "单面哑膜", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
-                  new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "双面哑膜", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
-                 new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "打孔", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
-                new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "异形模切", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
-                 new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "画刀版文件", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
-                 new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "单面局部UV", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
-                new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "双面局部UV", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
-                 new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "过塑", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
-                  new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "压痕", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
-                   new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "折页", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
-                    new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "压齿线", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
-                new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "打号码", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
-                new ProductCustomField() {Description= "数码单张报价",  ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "烫印", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
-                 new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "击凸", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
-                 new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "凹凸", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
-                #endregion
+                //  #region 后道设置
+                //new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "毛品交货", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                //new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "单面光膜", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                // new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "双面光膜", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                // new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "单面哑膜", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                //  new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "双面哑膜", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                // new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "打孔", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                //new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "异形模切", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                // new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "画刀版文件", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                // new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "单面局部UV", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                //new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "双面局部UV", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                // new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "过塑", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                //  new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "压痕", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                //   new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "折页", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                //    new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "压齿线", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                //new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "打号码", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                //new ProductCustomField() {Description= "数码单张报价",  ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "烫印", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                // new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "击凸", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                // new ProductCustomField() {Description= "数码单张报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "凹凸", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                //#endregion
                   #endregion
 
                 #region 简单画册报价
-                #region 基本参数
-                new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,Name = "成品尺寸", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
-                new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,Name = "装订方式", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
-                 #endregion
+                //#region 基本参数
+                //new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,Name = "成品尺寸", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
+                //new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,Name = "装订方式", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
+                // #endregion
 
-                 #region 封面设置
-                new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 2, LastUpdateDateUTC = DateTime.UtcNow,Name = "自带纸", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
-                new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 2, LastUpdateDateUTC = DateTime.UtcNow,Name = "封面颜色", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
-                 new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 2, LastUpdateDateUTC = DateTime.UtcNow,Name = "封面单双面", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
-                  new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 2, LastUpdateDateUTC = DateTime.UtcNow,Name = "特殊封面设置", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
-                   new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 2, LastUpdateDateUTC = DateTime.UtcNow,Name = "封面纸张", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
-                    new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId =2, LastUpdateDateUTC = DateTime.UtcNow,Name = "封面P数", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
-                         new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId =2, LastUpdateDateUTC = DateTime.UtcNow,Name = "封面覆膜", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
-                #endregion
+                // #region 封面设置
+                //new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 2, LastUpdateDateUTC = DateTime.UtcNow,Name = "自带纸", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
+                //new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 2, LastUpdateDateUTC = DateTime.UtcNow,Name = "封面颜色", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
+                // new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 2, LastUpdateDateUTC = DateTime.UtcNow,Name = "封面单双面", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
+                //  new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 2, LastUpdateDateUTC = DateTime.UtcNow,Name = "特殊封面设置", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
+                //   new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 2, LastUpdateDateUTC = DateTime.UtcNow,Name = "封面纸张", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
+                //    new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId =2, LastUpdateDateUTC = DateTime.UtcNow,Name = "封面P数", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
+                //         new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId =2, LastUpdateDateUTC = DateTime.UtcNow,Name = "封面覆膜", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
+                //#endregion
 
-                  #region 内页设置
-                new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 3, LastUpdateDateUTC = DateTime.UtcNow,Name = "自带纸", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
-                new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 3, LastUpdateDateUTC = DateTime.UtcNow,Name = "内页颜色", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
-                 new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 3, LastUpdateDateUTC = DateTime.UtcNow,Name = "内页单双面", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
-                  new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 3, LastUpdateDateUTC = DateTime.UtcNow,Name = "内页纸张", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
-                   new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 3 , LastUpdateDateUTC = DateTime.UtcNow,Name = "内页P数", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
-                    new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 3, LastUpdateDateUTC = DateTime.UtcNow,Name = "内页覆膜", Active = true
-                ,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
-                #endregion
+                //  #region 内页设置
+                //new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 3, LastUpdateDateUTC = DateTime.UtcNow,Name = "自带纸", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
+                //new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 3, LastUpdateDateUTC = DateTime.UtcNow,Name = "内页颜色", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
+                // new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 3, LastUpdateDateUTC = DateTime.UtcNow,Name = "内页单双面", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
+                //  new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 3, LastUpdateDateUTC = DateTime.UtcNow,Name = "内页纸张", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
+                //   new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 3 , LastUpdateDateUTC = DateTime.UtcNow,Name = "内页P数", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
+                //    new ProductCustomField() {Description= "简单画册报价", ProductCustomFieldGroupId = 3, LastUpdateDateUTC = DateTime.UtcNow,Name = "内页覆膜", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
+                //#endregion
+                  #endregion
+
+                #region 数码手提袋报价
+                //#region 基本参数
+                //new ProductCustomField() {Description= "数码手提袋报价", ProductCustomFieldGroupId = 1, LastUpdateDateUTC = DateTime.UtcNow,Name = "自带纸", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                //new ProductCustomField() {Description= "数码手提袋报价", ProductCustomFieldGroupId = 1,LastUpdateDateUTC = DateTime.UtcNow,Name = "成品尺寸", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
+                //new ProductCustomField() {Description= "数码手提袋报价", ProductCustomFieldGroupId = 1,LastUpdateDateUTC = DateTime.UtcNow,Name = "单双面", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
+                //new ProductCustomField() {Description= "数码手提袋报价", ProductCustomFieldGroupId = 1,LastUpdateDateUTC = DateTime.UtcNow,Name = "纸张", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
+                //new ProductCustomField() {Description= "数码手提袋报价", ProductCustomFieldGroupId = 1,LastUpdateDateUTC = DateTime.UtcNow,Name = "颜色", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.DropDown,MaxLength = 100, Price = 10,Sequence = 1},
+                //#endregion
+
+                //  #region 后道设置
+                //new ProductCustomField() {Description= "数码手提袋报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "毛品交货", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                //new ProductCustomField() {Description= "数码手提袋报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "单面光膜", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                // new ProductCustomField() {Description= "数码手提袋报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "双面光膜", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                // new ProductCustomField() {Description= "数码手提袋报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "单面哑膜", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                //  new ProductCustomField() {Description= "数码手提袋报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "双面哑膜", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                //new ProductCustomField() {Description= "数码手提袋报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "异形模切", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                // new ProductCustomField() {Description= "数码手提袋报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "画刀版文件", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                // new ProductCustomField() {Description= "数码手提袋报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "单面局部UV", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                //new ProductCustomField() {Description= "数码手提袋报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "双面局部UV", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                // new ProductCustomField() {Description= "数码手提袋报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "手工粘贴", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                //  new ProductCustomField() {Description= "数码手提袋报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "放垫片", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                //   new ProductCustomField() {Description= "数码手提袋报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "手袋手工", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                //new ProductCustomField() {Description= "数码手提袋报价",  ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "烫印", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                // new ProductCustomField() {Description= "数码手提袋报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "击凸", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                // new ProductCustomField() {Description= "数码手提袋报价", ProductCustomFieldGroupId = 5, LastUpdateDateUTC = DateTime.UtcNow,Name = "凹凸", Active = true
+                //,FieldTypeId = (int)ProductCustomFieldType.Boolean,MaxLength = 100, Price = 10,Sequence = 1},
+                //#endregion
                   #endregion
             };
         }
@@ -321,51 +369,72 @@ namespace FangZhouShuMa.Infrastructure.Data
             return new List<ProductCustomFieldData>()
             {
                 #region 数码单张报价
-                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 1, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 2, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 3, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 4, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 9, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 20, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 21, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 22, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 23, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 24, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 25, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 26, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 27, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 28, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 29, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 30, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 31, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 32, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 33, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 34, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 35, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 36, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 37, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 38, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-
-
-                  #endregion
+                //new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 1, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 2, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 3, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 4, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 9, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 20, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 21, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 22, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 23, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 24, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 25, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 26, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 27, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 28, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 29, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 30, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 31, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 32, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 33, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 34, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 35, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 36, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 37, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 1, ProductCustomFieldId = 38, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                #endregion
 
                 #region 简单画册报价
-                    new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 5, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 6, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 7, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 8, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 10, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 11, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 12, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 13, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 14, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 15, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 16, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 17, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 18, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 19, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
-                new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 39, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow}
+                //    new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 5, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 6, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 7, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 8, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 10, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 11, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 12, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 13, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 14, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 15, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 16, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 17, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 18, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 19, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 2, ProductCustomFieldId = 39, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow}
 
+                #endregion
+
+                #region 数码手提袋报价
+                //new ProductCustomFieldData(){  ProductId = 5, ProductCustomFieldId = 40, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 5, ProductCustomFieldId = 41, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 5, ProductCustomFieldId = 42, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 5, ProductCustomFieldId = 43, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 5, ProductCustomFieldId = 44, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 5, ProductCustomFieldId = 45, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 5, ProductCustomFieldId = 46, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 5, ProductCustomFieldId = 47, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 5, ProductCustomFieldId = 48, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 5, ProductCustomFieldId = 49, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 5, ProductCustomFieldId = 50, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 5, ProductCustomFieldId = 51, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 5, ProductCustomFieldId = 52, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 5, ProductCustomFieldId = 53, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 5, ProductCustomFieldId = 54, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 5, ProductCustomFieldId = 55, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 5, ProductCustomFieldId = 56, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 5, ProductCustomFieldId = 57, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 5, ProductCustomFieldId = 58, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
+                //new ProductCustomFieldData(){  ProductId = 5, ProductCustomFieldId = 59, FieldData = "", LastUpdateDateUtc = DateTime.UtcNow},
                   #endregion
             };
         }
@@ -375,80 +444,99 @@ namespace FangZhouShuMa.Infrastructure.Data
             return new List<ProductCustomFieldOption>()
             {
                 #region 数码单张报价
-                #region 基本参数
-                new ProductCustomFieldOption(){  DisplayByRelationship = false, Active= true,Name = "大4开", Price = 5, ProductCustomFieldId = 22, Sequence = 1},
-                new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "大8开", Price = 5, ProductCustomFieldId = 22, Sequence = 1},
-                new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "大16开", Price = 5, ProductCustomFieldId = 22, Sequence = 1},
-                new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "大32开", Price = 5, ProductCustomFieldId = 22, Sequence = 1},
+                //#region 基本参数
+                //new ProductCustomFieldOption(){  DisplayByRelationship = false, Active= true,Name = "大4开", Price = 5, ProductCustomFieldId = 22, Sequence = 1},
+                //new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "大8开", Price = 5, ProductCustomFieldId = 22, Sequence = 1},
+                //new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "大16开", Price = 5, ProductCustomFieldId = 22, Sequence = 1},
+                //new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "大32开", Price = 5, ProductCustomFieldId = 22, Sequence = 1},
 
-                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "单面", Price = 5, ProductCustomFieldId = 23, Sequence = 1},
-                  new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "双面", Price = 5, ProductCustomFieldId = 23, Sequence = 1},
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "单面", Price = 5, ProductCustomFieldId = 23, Sequence = 1},
+                //  new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "双面", Price = 5, ProductCustomFieldId = 23, Sequence = 1},
 
-                    new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "轻质纸", Price = 5, ProductCustomFieldId = 24, Sequence = 1},
-                      new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "道林纸", Price = 5, ProductCustomFieldId = 24, Sequence = 1},
-                        new ProductCustomFieldOption(){ DisplayByRelationship = false, Active= true,Name = "铜版纸", Price = 5, ProductCustomFieldId = 24, Sequence = 1},
+                //    new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "轻质纸", Price = 5, ProductCustomFieldId = 24, Sequence = 1},
+                //      new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "道林纸", Price = 5, ProductCustomFieldId = 24, Sequence = 1},
+                //        new ProductCustomFieldOption(){ DisplayByRelationship = false, Active= true,Name = "铜版纸", Price = 5, ProductCustomFieldId = 24, Sequence = 1},
 
-                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "单色", Price = 5, ProductCustomFieldId = 25, Sequence = 1},
-                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "彩色", Price = 5, ProductCustomFieldId = 25, Sequence = 1},
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "单色", Price = 5, ProductCustomFieldId = 25, Sequence = 1},
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "彩色", Price = 5, ProductCustomFieldId = 25, Sequence = 1},
 
+                //#endregion
+
+                //#region 后道设置
+
+                //#endregion
                 #endregion
-
-                  #region 后道设置
-             
-                #endregion
-                  #endregion
 
                 #region 简单画册报价
-                #region 基本参数
-              
-                new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "大8开", Price = 5, ProductCustomFieldId = 5, Sequence = 1},
-                new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "大16开", Price = 5, ProductCustomFieldId = 5, Sequence = 1},
-                new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "大32开", Price = 5, ProductCustomFieldId = 5, Sequence = 1},
-                new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "A4", Price = 5, ProductCustomFieldId = 5, Sequence = 1},
+                //#region 基本参数
 
-                new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "不装订", Price = 5, ProductCustomFieldId = 6, Sequence = 1},
-                new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "无线装", Price = 5, ProductCustomFieldId = 6, Sequence = 1},
-                new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "铁丝装", Price = 5, ProductCustomFieldId = 6, Sequence = 1},
-                 #endregion
+                //new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "大8开", Price = 5, ProductCustomFieldId = 5, Sequence = 1},
+                //new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "大16开", Price = 5, ProductCustomFieldId = 5, Sequence = 1},
+                //new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "大32开", Price = 5, ProductCustomFieldId = 5, Sequence = 1},
+                //new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "A4", Price = 5, ProductCustomFieldId = 5, Sequence = 1},
 
-                 #region 封面设置
-                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "单色", Price = 5, ProductCustomFieldId = 8, Sequence = 1},
-                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "彩色", Price = 5, ProductCustomFieldId = 8, Sequence = 1},
-                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "单面", Price = 5, ProductCustomFieldId = 10, Sequence = 1},
-                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "双面", Price = 5, ProductCustomFieldId = 10, Sequence = 1},
+                //new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "不装订", Price = 5, ProductCustomFieldId = 6, Sequence = 1},
+                //new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "无线装", Price = 5, ProductCustomFieldId = 6, Sequence = 1},
+                //new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "铁丝装", Price = 5, ProductCustomFieldId = 6, Sequence = 1},
+                // #endregion
 
-                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "增加勒口", Price = 5, ProductCustomFieldId = 18, Sequence = 1},
-                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "增加拉页", Price = 5, ProductCustomFieldId = 18, Sequence = 1},
+                // #region 封面设置
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "单色", Price = 5, ProductCustomFieldId = 8, Sequence = 1},
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "彩色", Price = 5, ProductCustomFieldId = 8, Sequence = 1},
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "单面", Price = 5, ProductCustomFieldId = 10, Sequence = 1},
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "双面", Price = 5, ProductCustomFieldId = 10, Sequence = 1},
 
-                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "轻质纸", Price = 5, ProductCustomFieldId = 11, Sequence = 1},
-                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "道林纸", Price = 5, ProductCustomFieldId = 11, Sequence = 1},
-                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "铜版纸", Price = 5, ProductCustomFieldId = 11, Sequence = 1},
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "增加勒口", Price = 5, ProductCustomFieldId = 18, Sequence = 1},
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "增加拉页", Price = 5, ProductCustomFieldId = 18, Sequence = 1},
 
-                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "4P", Price = 5, ProductCustomFieldId = 12, Sequence = 1},
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "轻质纸", Price = 5, ProductCustomFieldId = 11, Sequence = 1},
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "道林纸", Price = 5, ProductCustomFieldId = 11, Sequence = 1},
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "铜版纸", Price = 5, ProductCustomFieldId = 11, Sequence = 1},
 
-                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "不覆膜", Price = 5, ProductCustomFieldId = 13, Sequence = 1},
-                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "单面光膜", Price = 5, ProductCustomFieldId = 13, Sequence = 1},
-                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "双面光膜", Price = 5, ProductCustomFieldId = 13, Sequence = 1},
-                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "单面亚膜", Price = 5, ProductCustomFieldId = 13, Sequence = 1},
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "4P", Price = 5, ProductCustomFieldId = 12, Sequence = 1},
+
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "不覆膜", Price = 5, ProductCustomFieldId = 13, Sequence = 1},
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "单面光膜", Price = 5, ProductCustomFieldId = 13, Sequence = 1},
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "双面光膜", Price = 5, ProductCustomFieldId = 13, Sequence = 1},
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "单面亚膜", Price = 5, ProductCustomFieldId = 13, Sequence = 1},
+                //#endregion
+
+                //  #region 内页设置
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "单色", Price = 5, ProductCustomFieldId = 15, Sequence = 1},
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "彩色", Price = 5, ProductCustomFieldId = 15, Sequence = 1},
+
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "单面", Price = 5, ProductCustomFieldId = 16, Sequence = 1},
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "双面", Price = 5, ProductCustomFieldId = 16, Sequence = 1},
+
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "轻质纸", Price = 5, ProductCustomFieldId = 17, Sequence = 1},
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "道林纸", Price = 5, ProductCustomFieldId = 17, Sequence = 1},
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "铜版纸", Price = 5, ProductCustomFieldId = 17, Sequence = 1},
+
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "不覆膜", Price = 5, ProductCustomFieldId = 39, Sequence = 1},
+                // new ProductCustomFieldOption(){ DisplayByRelationship = false, Active= true,Name = "单面光膜", Price = 5, ProductCustomFieldId = 39, Sequence = 1},
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "双面光膜", Price = 5, ProductCustomFieldId = 39, Sequence = 1},
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "单面亚膜", Price = 5, ProductCustomFieldId = 39, Sequence = 1},
+                //#endregion
                 #endregion
 
-                  #region 内页设置
-                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "单色", Price = 5, ProductCustomFieldId = 15, Sequence = 1},
-                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "彩色", Price = 5, ProductCustomFieldId = 15, Sequence = 1},
+                #region 数码手提袋报价
+                //#region 基本参数
+                //new ProductCustomFieldOption(){  DisplayByRelationship = false, Active= true,Name = "360*280*80", Price = 15, ProductCustomFieldId = 57, Sequence = 1},
+                //new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "400*280*80", Price = 15, ProductCustomFieldId = 57, Sequence = 1},
+                //new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "400*260*100", Price = 15, ProductCustomFieldId = 57, Sequence = 1},
 
-                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "单面", Price = 5, ProductCustomFieldId = 16, Sequence = 1},
-                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "双面", Price = 5, ProductCustomFieldId = 16, Sequence = 1},
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "单面", Price = 25, ProductCustomFieldId = 56, Sequence = 1},
+                //  new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "双面", Price = 25, ProductCustomFieldId = 56, Sequence = 1},
 
-                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "轻质纸", Price = 5, ProductCustomFieldId = 17, Sequence = 1},
-                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "道林纸", Price = 5, ProductCustomFieldId = 17, Sequence = 1},
-                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "铜版纸", Price = 5, ProductCustomFieldId = 17, Sequence = 1},
+                //    new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "宣纸", Price = 5, ProductCustomFieldId = 55, Sequence = 1},
+                //      new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "哑粉纸", Price = 5, ProductCustomFieldId = 55, Sequence = 1},
+                //        new ProductCustomFieldOption(){ DisplayByRelationship = false, Active= true,Name = "铜版纸", Price = 5, ProductCustomFieldId = 55, Sequence = 1},
 
-                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "不覆膜", Price = 5, ProductCustomFieldId = 39, Sequence = 1},
-                 new ProductCustomFieldOption(){ DisplayByRelationship = false, Active= true,Name = "单面光膜", Price = 5, ProductCustomFieldId = 39, Sequence = 1},
-                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "双面光膜", Price = 5, ProductCustomFieldId = 39, Sequence = 1},
-                 new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "单面亚膜", Price = 5, ProductCustomFieldId = 39, Sequence = 1},
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "单色", Price = 5, ProductCustomFieldId = 54, Sequence = 1},
+                // new ProductCustomFieldOption(){  DisplayByRelationship = false,Active= true,Name = "彩色", Price = 5, ProductCustomFieldId = 54, Sequence = 1},
+
+                //#endregion
                 #endregion
-                  #endregion
             };
         }
     }
