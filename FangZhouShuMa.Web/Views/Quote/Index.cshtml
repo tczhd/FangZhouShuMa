@@ -7,7 +7,7 @@
 }
 
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-xs-3 col-md-3">
         <section class="product-menu-section">
             <div class="tubiao"><h3>数字快印</h3></div>
 
@@ -25,7 +25,7 @@
         </section>
     </div>
 
-    <div class="product-info col-md-9">
+    <div class="product-info col-xs-9 col-md-9">
         <section class="quote-section">
             <div class="row">
                 <div class="col-md-12 title clearfix">
@@ -46,7 +46,7 @@
             @foreach (var group in Model.Product.ProductCustomFieldGroupViewModels)
             {
                 <div class="basic-parameter row">
-                    <div class="col-md-9">
+                    <div class="col-md-12">
                         <h3>@group.Name</h3>
 
                         @{int itemCount = 0; }
@@ -58,37 +58,40 @@
                                 @Html.Raw("<div class='row product-custom-field-row' style='margin-top: 10px; '>")
                             }
 
-                            @Html.Raw("<div class='col-md-6 product-custom-field-col'> ")
+                            <div class='col-md-6 product-custom-field-col'>
 
-                            <span style="padding-right:5px; display:inline-block; min-width:80px;font-weight: bold;">
-                                @productCustomField.Name
-                                @Html.Raw(":")  <input type="hidden" asp-for="@productCustomField.Id" name="productCustomFieldId" id="productCustomFieldId" />
-                            </span>
-                            <span>
-                                @if (productCustomField.FieldTypeId == (int)@ProductCustomFieldType.Boolean)
-                                {
-                                    <input type="checkbox" id="CheckBox_@productCustomField.Id" />
-                                }
-                                else if (productCustomField.FieldTypeId == (int)@ProductCustomFieldType.DropDown)
-                                {
-                                    @Html.DropDownList("DropDownList_" + @productCustomField.Id, new SelectList(
-                                     productCustomField.ProductCustomFieldOptionViewModels.Select(x => new { Value = x.ProductCustomFieldOptionId, Text = x.Name }),
-                                       "Value",  "Text"    ))
-                                }
+                                <span style="padding-right:5px; display:inline-block; min-width:80px;font-weight: bold;">
+                                    @productCustomField.Name
+                                    @Html.Raw(":")  <input type="hidden" asp-for="@productCustomField.Id" name="productCustomFieldId" id="productCustomFieldId" />
+                                </span>
+                                <span>
+                                    @if (productCustomField.FieldTypeId == (int)@ProductCustomFieldType.Boolean)
+                                    {
+                                        <input type="checkbox" id="CheckBox_@productCustomField.Id" />
+                                    }
+                                    else if (productCustomField.FieldTypeId == (int)@ProductCustomFieldType.DropDown)
+                                    {
+                                        @Html.DropDownList("DropDownList_" + @productCustomField.Id, new SelectList(
+                                         productCustomField.ProductCustomFieldOptionViewModels.Select(x => new { Value = x.ProductCustomFieldOptionId, Text = x.Name }),
+                                           "Value",  "Text"    ))
+                                    }
 
-                                <input type="hidden" asp-for="@productCustomField.FieldTypeId" name="fieldTypeId" id="fieldTypeId" />
-                            </span>
+                                    <input type="hidden" asp-for="@productCustomField.FieldTypeId" name="fieldTypeId" id="fieldTypeId" />
+                                </span>
 
-                            @Html.Raw("</div> ")
+                            </div>
+
+                            itemCount++;
 
                             if (itemCount % 2 == 0)
                             {
                                 @Html.Raw("</div>")
-
                             }
+                        }
 
-                            itemCount++;
-
+                        @if (itemCount % 2 == 1)
+                        {
+                             @Html.Raw("</div>")
                         }
 
                     </div>

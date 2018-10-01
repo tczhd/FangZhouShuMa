@@ -179,7 +179,7 @@ function PopulateAddModal() {
 
 function GetQuoteDetail(data) {
 
-    var tableContent ="<h3 style='text-align:center;font-weight: bold;'>方舟标识报价单</h3>";
+    var tableContent ="";
 
     $.each(data.productCustomFieldGroups, function (index, group) {
         var groupRow = "<div class='row'><div class='col-md-12'><h4 style='color:Lime;'>" +
@@ -189,6 +189,7 @@ function GetQuoteDetail(data) {
 
         var productCustomFieldRow = "";
 
+        var lastIndex = 0;
         $.each(group.productCustomFields, function (index, productCustomField) {
 
             if (index % 2 === 0) {
@@ -203,15 +204,21 @@ function GetQuoteDetail(data) {
                 productCustomFieldRow += "</div>";
             }
 
+            lastIndex = index;
         });
+
+        if (lastIndex % 2 === 0) {
+            productCustomFieldRow += "</div>";
+        }
 
         tableContent += productCustomFieldRow;
     });
 
-    var table = "<div class='table-responsive'><table class='table table-bordered'>" +
-        "<thead><tr>" +
+    var table = "<div class='table-responsive'><table class='table table-bordered' width='100%'>" +
+        "<thead><tr><th scope='row' colspan='4'>" + "<h3 style='text-align:center;font-weight: bold;'>方舟标识报价单</h3>" +
+        "</th ></tr > <tr>" +
         "<th scope='col'>印品类型：</th>" +
-        "<th scope ='col' >" + data.productName + 
+        "<th scope='col' >" + data.productName + 
         "</th>" +
         "<th scope='col'>报价日期：</th>" +
         "<th scope='col'>" + data.quoteDateString +
