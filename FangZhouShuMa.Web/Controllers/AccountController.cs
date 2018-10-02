@@ -84,6 +84,12 @@ namespace FangZhouShuMa.Web.Controllers
                         Response.Cookies.Delete(Constants.BASKET_COOKIENAME);
                     }
 
+                    if (Url.IsLocalUrl(returnUrl) && returnUrl.Contains("/Basket/Checkout"))
+                    {
+                        TempData["CheckOut"] = true;
+                        return RedirectToAction(nameof(BasketController.RedirectCheckout), "Basket");
+                    }
+
                     return RedirectToLocal(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
