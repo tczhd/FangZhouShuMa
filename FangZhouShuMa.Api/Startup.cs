@@ -20,6 +20,8 @@ using System.Text;
 using FangZhouShuMa.Api.Helpers;
 using FangZhouShuMa.Api.Services;
 using FangZhouShuMa.Api.Interfaces;
+using FangZhouShuMa.Infrastructure.Logging;
+using FangZhouShuMa.Infrastructure.Services;
 
 namespace FangZhouShuMa.Api
 {
@@ -76,7 +78,13 @@ namespace FangZhouShuMa.Api
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
             services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
 
+            services.AddScoped<ProductRepository>();
+            services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped(typeof(IAppLogger<>), typeof(LoggerAdapter<>));
+            services.AddTransient<IEmailSender, EmailSender>();
+
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
