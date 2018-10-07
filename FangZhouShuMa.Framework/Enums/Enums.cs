@@ -22,4 +22,18 @@ namespace FangZhouShuMa.Framework.Enums
         [Description("PseudoCode")]
         PseudoCode = 7
     }
+
+    public enum UserRoleType
+    {
+        [Description("Admin")]
+        Admin = 1,
+        [Description("Manager")]
+        Manager = 2,
+        [Description("Employee")]
+        Employee = 3,
+        [Description("Customer")]
+        Customer = 4,
+        [Description("Api")]
+        Api = 5
+    }
 }

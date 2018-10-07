@@ -16,6 +16,7 @@ using FangZhouShuMa.Web.Services;
 using FangZhouShuMa.ApplicationCore.Interfaces;
 using FangZhouShuMa.ApplicationCore.Interfaces.Services;
 using FangZhouShuMa.ApplicationCore.Entities.CustomerAggregate;
+using FangZhouShuMa.Framework.Enums;
 
 namespace FangZhouShuMa.Web.Controllers
 {
@@ -71,6 +72,20 @@ namespace FangZhouShuMa.Web.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
+                var user = await _userManager.FindByEmailAsync(model.Email);
+                if (user == null)
+                {
+                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    return View(model);
+                }
+                // Get the roles for the user
+                var roles = await _userManager.GetRolesAsync(user);
+                if (!roles.Contains(UserRoleType.Customer.ToString()))
+                {
+                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    return View(model);
+                }
+
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);

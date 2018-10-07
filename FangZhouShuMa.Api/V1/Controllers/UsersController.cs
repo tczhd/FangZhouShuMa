@@ -34,11 +34,11 @@ namespace FangZhouShuMa.Api.V1.Controllers
             return Ok(user);
         }
 
-        [HttpGet]
-        public IActionResult GetAll()
-        {
-            var users = _userService.GetAll();
-            return Ok(users);
-        }
+        //[HttpGet]
+        //public IActionResult GetAll()
+        //{
+        //    var users = _userService.GetAll();
+        //    return Ok(users);
+        //}
     }
 }

@@ -13,11 +13,11 @@ namespace FangZhouShuMa.Api.V1.Controllers
 {
     [Authorize]
     [Produces("application/json")]
-    [Route("api/Product")]
-    public class ProductController : ControllerBase
+    [Route("api/Products")]
+    public class ProductsController : ControllerBase
     {
         private readonly IProductService _productService;
-        public ProductController(IProductService productService) => _productService = productService;
+        public ProductsController(IProductService productService) => _productService = productService;
 
         [HttpGet]
         public IEnumerable<ProductViewModel> GetAllProducts()

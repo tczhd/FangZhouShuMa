@@ -11,7 +11,7 @@ namespace FangZhouShuMa.Api.Models.User
     public class User
     {
         [DataMember(Name = "id")]
-        public int Id { get; set; }
+        public string Id { get; set; }
         [DataMember(Name = "first_name")]
         public string FirstName { get; set; }
         [DataMember(Name = "last_name")]
