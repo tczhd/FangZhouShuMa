@@ -11,7 +11,7 @@ span.product-quantity {
     border: 1px solid red;
     width: 23px;
     margin: 0 3px;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 span.quantity-minus {
@@ -42,7 +42,7 @@ div.product-custom-field-row {
     text-align: center;
 }
 
-.content1190 {
+/*.content1190 {
     width: 1200px;
     margin: 15px auto 0px;
 }
@@ -86,8 +86,8 @@ div.product-custom-field-row {
             .content1190_l ul li:last-child {
                 border-bottom: none;
             }
-            /*.content1190_l ul li a.on{ color:#fff; font-weight:bold; width:150px; height:55px;}
-*/ .content1190_l ul li.on1 {
+
+            .content1190_l ul li.on1 {
                 background: #b2de0f;
                 font-weight: bold;
                 color: #fff;
@@ -139,7 +139,7 @@ div.product-custom-field-row {
         .upload a:hover {
             text-decoration: none;
             color: #E56315;
-        }
+        }*/
 
 .title {
     height: 50px;
@@ -167,7 +167,7 @@ div.product-custom-field-row {
     }
 
 
-.fenlei {
+/*.fenlei {
     height: 37px;
     width: 900px;
     margin: 24px auto 0px;
@@ -216,7 +216,7 @@ div.product-custom-field-row {
     .fenlei_button p a:hover {
         color: #e46713;
         text-decoration: none;
-    }
+    }*/
 
 .basic-parameter {
     margin: 0px auto 0px;
@@ -235,13 +235,13 @@ div.product-custom-field-row {
         font-family: "微软雅黑";
     }
 
-.xianshi2 {
+/*.xianshi2 {
     float: left;
     display: inline;
     width: 40%;
     margin-left: 5%;
     overflow: hidden;
-}
+}*/
 
 .control-group {
     margin-bottom: 13px;
@@ -310,14 +310,14 @@ div.product-custom-field-row {
         background: #8be231;
     }
 
-.cw80 {
+/*.cw80 {
     width: 80px;
-}
+}*/
 
 
 /*输入框显示*/
 
-.l2 {
+/*.l2 {
     float: left;
     display: inline;
 }
@@ -534,7 +534,7 @@ div.product-custom-field-row {
             padding-top: 8px;
             padding-bottom: 8px;
             font-weight: 400;
-        }
+        }*/
 
 
 
@@ -560,7 +560,7 @@ div.product-custom-field-row {
             width: 140px;
         }
 
-.input63 {
+/*.input63 {
     border: 1px solid #cccccc;
     height: 26px;
     border-radius: 3px;
@@ -570,7 +570,7 @@ div.product-custom-field-row {
     display: inline;
     margin-top: 2px;
     font-size: 14px;
-}
+}*/
 
 .basic-parameter ul li span {
     float: left;
@@ -581,7 +581,7 @@ div.product-custom-field-row {
     font-size: 14px;
 }
 
-.width102 {
+/*.width102 {
     width: 102px;
 }
 
@@ -672,7 +672,7 @@ div.product-custom-field-row {
     display: inline-block;
     float: left;
     margin-top: 7px;
-    line-height: 18px;
+    line-height: 18px;*/
     margin-left: 5px;
 }
 
@@ -683,7 +683,7 @@ div.product-custom-field-row {
     margin-top: 10px;
 }
 
-.tar_check ul {
+/*/*.tar_check ul {
     margin-top: 5px;
 }
 
@@ -736,11 +736,11 @@ div.product-custom-field-row {
     width: 16px;
     height: 16px;
     background: url(../images/hourglass_loading_time_16px_5076_easyicon.net.png) no-repeat;
-}
+}*/
 
 
 
-.table_frame {
+/*.table_frame {
     width: 100%;
     border: none;
     table-layout: fixed;
@@ -1241,11 +1241,11 @@ div.product-custom-field-row {
     text-indent: 0;
     text-align: left;
     padding-left: 5px;
-}
+}*/
 
 
 .submit-quote-row {
-    margin:20px;
+    margin: 20px;
 }
 
 section.quote-section, section.product-menu-section {
