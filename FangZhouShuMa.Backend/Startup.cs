@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using FangZhouShuMa.Backend.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using FangZhouShuMa.Backend.Services;
 
 namespace FangZhouShuMa.Backend
 {
@@ -40,6 +41,8 @@ namespace FangZhouShuMa.Backend
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+            // Add application services.
+            services.AddTransient<IEmailSender, EmailSender>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -49,6 +52,7 @@ namespace FangZhouShuMa.Backend
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseDirectoryBrowser();
                 app.UseDatabaseErrorPage();
             }
             else

@@ -32,8 +32,7 @@ namespace FangZhouShuMa.Web
 {
     public class Startup
     {
-        private IServiceCollection _services;
-
+        //private IServiceCollection _services;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;

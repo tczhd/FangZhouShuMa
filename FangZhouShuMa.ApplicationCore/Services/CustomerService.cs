@@ -68,7 +68,7 @@ namespace FangZhouShuMa.ApplicationCore.Services
 
                 return account;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }

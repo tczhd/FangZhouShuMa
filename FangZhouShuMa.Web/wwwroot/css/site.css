@@ -77,6 +77,12 @@
     padding:20px;
     min-height:260px;
 }
+
+.bar-login-cart {
+}
+.shopping-cart-main {
+    float:right;
+}
 /*Quote*/
 .baojia {
     margin: 10px auto 15px;
@@ -589,8 +595,13 @@ ul.account-bar {
         padding-top: 70px;
     }
 
-    .head-bar-phone {
+    .head-bar-phone,
+    .shopping-cart-main {
         display: none;
+    }
+
+    .bar-login-cart {
+        display: inline-block;
     }
 }
 
@@ -603,8 +614,14 @@ ul.account-bar {
     .body-content {
         padding-top: 70px;
     }
-    .head-bar-phone {
+
+    .head-bar-phone,
+    .shopping-cart-main {
         display: none;
+    }
+
+    .bar-login-cart {
+        display: inline-block;
     }
 }
 
@@ -618,8 +635,13 @@ ul.account-bar {
         padding-top: 60px;
     }
 
-    .head-bar-phone {
-        display:inline-block;
+    .head-bar-phone,
+    .shopping-cart-main {
+        display: inline-block;
+    }
+
+    .bar-login-cart {
+        display: none;
     }
 }
 
@@ -633,8 +655,13 @@ ul.account-bar {
         padding-top: 60px;
     }
 
-    .head-bar-phone {
-        display:inline-block;
+    .head-bar-phone,
+    .shopping-cart-main {
+        display: inline-block;
+    }
+
+    .bar-login-cart {
+        display: none;
     }
 }
 

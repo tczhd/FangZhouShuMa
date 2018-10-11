@@ -33,12 +33,13 @@
         <div class="bar-login row" style="">
             <div class="col-xs-6 col-md-6 text-left head-bar-left">  <span>欢迎来到方舟标识！</span><span class="head-bar-phone">免费服务电话：<font class="cheng66"> 0512-88888888</font> </span></div>
             <div class="col-xs-6 col-md-6 text-right head-bar-right">
+                <span class="bar-login-cart"><a asp-controller="Basket" asp-action="Index" asp-route-id="1"><img src="~/images/cart.jpg" width="20" height="20" /></a></span>
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <span><img src="~/images/customer.png"  width="20" height="20"/></span> <span> VIP 客户</span>
+                    <span><img src="~/images/customer.png" width="20" height="20" /></span> <span> VIP 客户</span>
                 }
                 else
-                { <span><img src="~/images/guest.png" width="20" height="20"/></span> <span> 普通游客</span>}
+                { <span><img src="~/images/guest.png" width="20" height="20" /></span> <span> 普通游客</span>}
             </div>
         </div>
         <div class="container-fluid navbar-container">
@@ -78,7 +79,7 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">联系方式</a></li>
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
-                <div style="float:right;">
+                <div class="shopping-cart-main" style="float:right;">
                     @await Component.InvokeAsync("Basket", new { userName = "" })
                 </div>
             </div>

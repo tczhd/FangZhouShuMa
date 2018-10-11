@@ -155,7 +155,7 @@ function PopulateAddModal() {
         } //End of AJAX error function  
 
     });
-};
+}
 
 //function post(path, parameters) {
 //    var form = $('<form></form>');

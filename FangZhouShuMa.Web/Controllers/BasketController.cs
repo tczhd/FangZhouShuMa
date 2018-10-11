@@ -133,8 +133,8 @@ namespace FangZhouShuMa.Web.Controllers
                     return true;
                 }
             }
-            catch (Exception wx)
-            {}
+            catch (Exception)
+            { }
 
             return false;
         }
