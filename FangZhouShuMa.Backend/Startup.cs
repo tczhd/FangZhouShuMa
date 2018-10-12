@@ -13,6 +13,7 @@ using FangZhouShuMa.Backend.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using FangZhouShuMa.Backend.Services;
+using FangZhouShuMa.Backend.Models;
 
 namespace FangZhouShuMa.Backend
 {
@@ -38,8 +39,10 @@ namespace FangZhouShuMa.Backend
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+             .AddEntityFrameworkStores<ApplicationDbContext>()
+             .AddDefaultTokenProviders();
+
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
@@ -52,7 +55,7 @@ namespace FangZhouShuMa.Backend
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseDirectoryBrowser();
+                //app.UseDirectoryBrowser();
                 app.UseDatabaseErrorPage();
             }
             else
@@ -61,7 +64,8 @@ namespace FangZhouShuMa.Backend
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
+            //app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
