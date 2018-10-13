@@ -18,4 +18,10 @@
     <Folder Include="wwwroot\js\views\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Account\_ViewStart.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
 </Project>

@@ -5,9 +5,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using FangZhouShuMa.Backend.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FangZhouShuMa.Backend.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public IActionResult Index()
