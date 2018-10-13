@@ -13,6 +13,7 @@ using Microsoft.Extensions.Options;
 using FangZhouShuMa.Backend.Models;
 using FangZhouShuMa.Backend.Models.ManageViewModels;
 using FangZhouShuMa.Backend.Services;
+using FangZhouShuMa.Infrastructure.Identity;
 
 namespace FangZhouShuMa.Backend.Controllers
 {

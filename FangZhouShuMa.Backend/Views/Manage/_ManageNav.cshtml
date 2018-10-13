@@ -1,6 +1,7 @@
 ﻿@using FangZhouShuMa.Backend.Models
 @using FangZhouShuMa.Backend.Views.Manage
 @using Microsoft.AspNetCore.Identity
+@using FangZhouShuMa.Infrastructure.Identity
 @inject SignInManager<ApplicationUser> SignInManager
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();

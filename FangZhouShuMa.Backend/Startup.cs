@@ -9,11 +9,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using FangZhouShuMa.Backend.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using FangZhouShuMa.Backend.Services;
 using FangZhouShuMa.Backend.Models;
+using FangZhouShuMa.Infrastructure.Identity;
+using FangZhouShuMa.Infrastructure.Data;
+using ApplicationUser = FangZhouShuMa.Infrastructure.Identity.ApplicationUser;
 
 namespace FangZhouShuMa.Backend
 {
@@ -36,9 +38,17 @@ namespace FangZhouShuMa.Backend
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            //services.AddDbContext<ApplicationDbContext>(options =>
+            //    options.UseSqlServer(
+            //        Configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")
+                , b => b.MigrationsAssembly("FangZhouShuMa.Infrastructure")));
+
+            services.AddDbContext<FangZhouShuMaContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")
+                  , b => b.MigrationsAssembly("FangZhouShuMa.Infrastructure")));
+
             services.AddIdentity<ApplicationUser, IdentityRole>()
              .AddEntityFrameworkStores<ApplicationDbContext>()
              .AddDefaultTokenProviders();

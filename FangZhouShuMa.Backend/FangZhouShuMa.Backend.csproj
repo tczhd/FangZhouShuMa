@@ -6,6 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\ApplicationDbContext.cs" />
+    <Compile Remove="Data\Migrations\00000000000000_CreateIdentitySchema.cs" />
+    <Compile Remove="Data\Migrations\00000000000000_CreateIdentitySchema.Designer.cs" />
+    <Compile Remove="Data\Migrations\ApplicationDbContextModelSnapshot.cs" />
+    <Compile Remove="Models\ApplicationUser.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="Views\_ViewStart.cshtml" />
   </ItemGroup>
 
@@ -15,7 +23,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Data\Migrations\" />
     <Folder Include="wwwroot\js\views\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FangZhouShuMa.ApplicationCore\FangZhouShuMa.ApplicationCore.csproj" />
+    <ProjectReference Include="..\FangZhouShuMa.Framework\FangZhouShuMa.Framework.csproj" />
+    <ProjectReference Include="..\FangZhouShuMa.Infrastructure\FangZhouShuMa.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
