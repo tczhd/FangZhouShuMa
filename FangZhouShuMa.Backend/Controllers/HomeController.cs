@@ -20,14 +20,14 @@ namespace FangZhouShuMa.Backend.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "方舟标识数码管理系统简介";
 
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "系统支持";
 
             return View();
         }

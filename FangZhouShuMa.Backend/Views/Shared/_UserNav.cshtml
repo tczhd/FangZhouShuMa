@@ -20,23 +20,21 @@
         </a>
         <div class="dropdown-menu dropdown-menu-right">
             <div class="dropdown-header text-center">
-                <strong>Account</strong>
+                <strong>帐户</strong>
             </div>
-            <a class="dropdown-item" href="#"><i class="fa fa-bell-o"></i> Updates<span class="badge badge-info">42</span></a>
-            <a class="dropdown-item" href="#"><i class="fa fa-envelope-o"></i> Messages<span class="badge badge-success">42</span></a>
-            <a class="dropdown-item" href="#"><i class="fa fa-tasks"></i> Tasks<span class="badge badge-danger">42</span></a>
-            <a class="dropdown-item" href="#"><i class="fa fa-comments"></i> Comments<span class="badge badge-warning">42</span></a>
+            <a class="dropdown-item" href="#"><i class="fa fa-bell-o"></i> 更新<span class="badge badge-info">42</span></a>
+            <a class="dropdown-item" href="#"><i class="fa fa-envelope-o"></i> 信息<span class="badge badge-success">42</span></a>
+            <a class="dropdown-item" href="#"><i class="fa fa-tasks"></i> 任务<span class="badge badge-danger">42</span></a>
+            <a class="dropdown-item" href="#"><i class="fa fa-comments"></i> 备注<span class="badge badge-warning">42</span></a>
             <div class="dropdown-header text-center">
-                <strong>Settings</strong>
+                <strong>设置</strong>
             </div>
-            <a class="dropdown-item" asp-area="" asp-controller="Manage" asp-action="Index"><i class="fa fa-user"></i> Profile</a>
-            <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Settings</a>
-            <a class="dropdown-item" href="#"><i class="fa fa-usd"></i> Payments<span class="badge badge-secondary">42</span></a>
-            <a class="dropdown-item" href="#"><i class="fa fa-file"></i> Projects<span class="badge badge-primary">42</span></a>
+            <a class="dropdown-item" asp-area="" asp-controller="Manage" asp-action="Index"><i class="fa fa-user"></i> 个人信息</a>
+            <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> 设置</a>
+            <a class="dropdown-item" href="#"><i class="fa fa-usd"></i> 付费<span class="badge badge-secondary">42</span></a>
             <div class="divider"></div>
-            <a class="dropdown-item" href="#"><i class="fa fa-shield"></i> Lock Account</a>
             <form asp-area="" asp-controller="Account" asp-action="Logout">
-                <button type="submit" class="dropdown-item" href="#"><i class="fa fa-lock"></i> Logout</button>
+                <button type="submit" class="dropdown-item" href="#"><i class="fa fa-lock"></i> 退出登录</button>
             </form>
         </div>
     </li>
@@ -44,11 +42,11 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li class="nav-item px-3">
+        @*<li class="nav-item px-3">
             <a asp-area="" asp-controller="Account" asp-action="Register">Register</a>
-        </li>
+        </li>*@
         <li class="nav-item px-3" style="margin-right: 15px !important;">
-            <a asp-area="" asp-controller="Account" asp-action="Login">Log in</a>
+            <a asp-area="" asp-controller="Account" asp-action="Login">登录</a>
         </li>
     </ul>
 }

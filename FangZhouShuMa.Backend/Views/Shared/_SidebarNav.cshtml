@@ -2,83 +2,102 @@
 <nav class="sidebar-nav">
     <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="index"><i class="icon-speedometer"></i> Dashboard <span class="badge badge-primary">NEW</span></a>
+            <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="index"><i class="icon-speedometer"></i> 主面板 <span class="badge badge-primary">NEW</span></a>
         </li>
         <li class="nav-title">
-            UI Elements
+            管理栏
         </li>
         <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i> Components</a>
+            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i> 客户管理</a>
             <ul class="nav-dropdown-items">
                 <li class="nav-item">
-                    <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="components-buttons"><i class="icon-puzzle"></i> Buttons</a>
+                    <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="components-buttons"><i class="icon-puzzle"></i> 新客户</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="components-social-buttons"><i class="icon-puzzle"></i> Social Buttons</a>
+                    <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="components-social-buttons"><i class="icon-puzzle"></i> 客户信息</a>
+                </li>
+
+            </ul>
+        </li>
+        <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-star"></i> 订单管理</a>
+            <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="icons-font-awesome"><i class="icon-star"></i>新订单 <span class="badge badge-secondary">4.7</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="components-cards"><i class="icon-puzzle"></i> Cards</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="components-forms"><i class="icon-puzzle"></i> Forms</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="components-modals"><i class="icon-puzzle"></i> Modals</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="components-switches"><i class="icon-puzzle"></i> Switches</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="components-tables"><i class="icon-puzzle"></i> Tables</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="components-tabs"><i class="icon-puzzle"></i> Tabs</a>
+                    <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="icons-simple-line-icons"><i class="icon-star"></i> 查询订单</a>
                 </li>
             </ul>
         </li>
         <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-star"></i> Icons</a>
+            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-star"></i> 发货管理</a>
             <ul class="nav-dropdown-items">
                 <li class="nav-item">
-                    <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="icons-font-awesome"><i class="icon-star"></i> Font Awesome <span class="badge badge-secondary">4.7</span></a>
+                    <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="icons-font-awesome"><i class="icon-star"></i>订单发货<span class="badge badge-secondary">4.7</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="icons-simple-line-icons"><i class="icon-star"></i> Simple Line Icons</a>
+                    <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="icons-simple-line-icons"><i class="icon-star"></i> 查询发货</a>
                 </li>
             </ul>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="widgets"><i class="icon-calculator"></i> Widgets <span class="badge badge-primary">NEW</span></a>
+        <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-star"></i> 财务管理</a>
+            <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="icons-font-awesome"><i class="icon-star"></i>应收款管理<span class="badge badge-secondary">4.7</span></a>
+                </li>
+            </ul>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="charts"><i class="icon-pie-chart"></i> Charts</a>
+        <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-star"></i> 产品管理</a>
+            <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="icons-font-awesome"><i class="icon-star"></i>产品管理<span class="badge badge-secondary">4.7</span></a>
+                </li>
+            </ul>
         </li>
         <li class="divider"></li>
         <li class="nav-title">
-            Extras
+            报表管理
         </li>
         <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-star"></i> Pages</a>
+            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-star"></i> 财务报表</a>
             <ul class="nav-dropdown-items">
                 <li class="nav-item">
-                    <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="pages-login" target="_top"><i class="icon-star"></i> Login</a>
+                    <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="pages-login" target="_top"><i class="icon-star"></i> 应收帐款</a>
                 </li>
+            </ul>
+        </li>
+        <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-star"></i> 客户报表</a>
+            <ul class="nav-dropdown-items">
                 <li class="nav-item">
-                    <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="pages-register" target="_top"><i class="icon-star"></i> Register</a>
+                    <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="pages-login" target="_top"><i class="icon-star"></i> 客户报表</a>
                 </li>
+            </ul>
+        </li>
+        <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-star"></i> 销售报表</a>
+            <ul class="nav-dropdown-items">
                 <li class="nav-item">
-                    <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="pages-404" target="_top"><i class="icon-star"></i> Error 404</a>
+                    <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="pages-login" target="_top"><i class="icon-star"></i> 销售报表</a>
                 </li>
+            </ul>
+        </li>
+        <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-star"></i> 库存报表</a>
+            <ul class="nav-dropdown-items">
                 <li class="nav-item">
-                    <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="pages-500" target="_top"><i class="icon-star"></i> Error 500</a>
+                    <a class="nav-link" asp-controller="CoreUI" asp-action="Index" asp-route-view="pages-login" target="_top"><i class="icon-star"></i> 库存报表</a>
                 </li>
             </ul>
         </li>
         <li class="nav-item mt-auto">
-            <a class="nav-link nav-link-success" href="http://coreui.io/" target="_top"><i class="icon-cloud-download"></i> Download CoreUI</a>
+            <a class="nav-link nav-link-success" href="http://www.fz-label.com/" target="_top"><i class="icon-cloud-download"></i> 系统设置</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link nav-link-danger" href="http://coreui.io/pro/" target="_top"><i class="icon-layers"></i> Try CoreUI <strong>PRO</strong></a>
+            <a class="nav-link nav-link-danger" href="http://www.fz-label.com/" target="_top"><i class="icon-layers"></i> 其它</a>
         </li>
     </ul>
 </nav>
