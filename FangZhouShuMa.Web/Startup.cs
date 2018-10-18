@@ -27,6 +27,7 @@ using FangZhouShuMa.Web.Services.ApiServices;
 using FangZhouShuMa.ApplicationCore.Interfaces.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using FangZhouShuMa.Framework.Enums;
 
 namespace FangZhouShuMa.Web
 {
@@ -144,6 +145,14 @@ namespace FangZhouShuMa.Web
                 roleResult = await RoleManager.CreateAsync(new IdentityRole("Customer"));
             }
 
+
+            roleCheck = await RoleManager.RoleExistsAsync(UserRoleType.Api.ToString());
+            // creating Creating Customer role    
+            if (!roleCheck)
+            {
+                //create the roles and seed them to the database
+                roleResult = await RoleManager.CreateAsync(new IdentityRole(UserRoleType.Api.ToString()));
+            }
             //Assign Admin role to the main User here we have given our newly registered 
             //login id for Admin management
             //ApplicationUser user = await UserManager.FindByEmailAsync("David@orderbot.com");

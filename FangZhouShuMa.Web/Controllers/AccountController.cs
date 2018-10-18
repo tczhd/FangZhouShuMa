@@ -17,6 +17,7 @@ using FangZhouShuMa.ApplicationCore.Interfaces;
 using FangZhouShuMa.ApplicationCore.Interfaces.Services;
 using FangZhouShuMa.ApplicationCore.Entities.CustomerAggregate;
 using FangZhouShuMa.Framework.Enums;
+using Microsoft.AspNetCore.Http.Authentication;
 
 namespace FangZhouShuMa.Web.Controllers
 {
@@ -72,40 +73,54 @@ namespace FangZhouShuMa.Web.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = await _userManager.FindByEmailAsync(model.Email);
-                if (user == null)
-                {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                    return View(model);
-                }
+                //var user = await _userManager.FindByEmailAsync(model.Email);
+                //if (user == null)
+                //{
+                //    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                //    return View(model);
+                //}
+              
+
+                //var roleCheck = await _rolesManager.RoleExistsAsync(UserRoleType.Manager.ToString());
+                //if (roleCheck)
+                //{
+                //    await _userManager.AddToRoleAsync(user, UserRoleType.Manager.ToString());
+                //}
+
                 // Get the roles for the user
-                var roles = await _userManager.GetRolesAsync(user);
-                if (!roles.Contains(UserRoleType.Customer.ToString()))
-                {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                    return View(model);
-                }
+              //  var roles = await _userManager.GetRolesAsync(user);
+                //if (!roles.Contains(UserRoleType.Customer.ToString()))
+                //{
+                //    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                //    return View(model);
+                //}
 
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User logged in.");
-                    string anonymousBasketId = Request.Cookies[Constants.BASKET_COOKIENAME];
-                    if (!String.IsNullOrEmpty(anonymousBasketId))
+                    if (User.IsInRole(UserRoleType.Customer.ToString()))
                     {
-                        await _basketService.TransferBasketAsync(anonymousBasketId, model.Email);
-                        Response.Cookies.Delete(Constants.BASKET_COOKIENAME);
+                        _logger.LogInformation("User logged in.");
+                        string anonymousBasketId = Request.Cookies[Constants.BASKET_COOKIENAME];
+                        if (!String.IsNullOrEmpty(anonymousBasketId))
+                        {
+                            await _basketService.TransferBasketAsync(anonymousBasketId, model.Email);
+                            Response.Cookies.Delete(Constants.BASKET_COOKIENAME);
+                        }
+
+                        if (Url.IsLocalUrl(returnUrl) && returnUrl.Contains("/Basket/Checkout"))
+                        {
+                            TempData["CheckOut"] = true;
+                            return RedirectToAction(nameof(BasketController.RedirectCheckout), "Basket");
+                        }
+
+                        return RedirectToLocal(returnUrl);
                     }
 
-                    if (Url.IsLocalUrl(returnUrl) && returnUrl.Contains("/Basket/Checkout"))
-                    {
-                        TempData["CheckOut"] = true;
-                        return RedirectToAction(nameof(BasketController.RedirectCheckout), "Basket");
-                    }
-
-                    return RedirectToLocal(returnUrl);
+                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    return View(model);
                 }
                 if (result.RequiresTwoFactor)
                 {
@@ -264,6 +279,13 @@ namespace FangZhouShuMa.Web.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+
+                    //var roleCheck = await _rolesManager.RoleExistsAsync(UserRoleType.Api.ToString());
+                    //if (roleCheck)
+                    //{
+                    //    await _userManager.AddToRoleAsync(user, UserRoleType.Api.ToString());
+                    //}
+
                     var utcDate = DateTime.UtcNow;
 
                     var customer = new Customer()

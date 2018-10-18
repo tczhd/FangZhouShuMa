@@ -91,7 +91,7 @@ namespace FangZhouShuMa.Api.Services
             }
             // Get the roles for the user
             var roles = await _userManager.GetRolesAsync(user);
-            if (!roles.Contains(UserRoleType.Customer.ToString()))
+            if (!roles.Contains(UserRoleType.Api.ToString()))
             {
                 return null;
             }
