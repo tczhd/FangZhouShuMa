@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
     <UserSecretsId>aspnet-FangZhouShuMa.Web-35EFC786-9F58-4BEA-A69A-8D426F349A42</UserSecretsId>
     <PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
     <ServerGarbageCollection>false</ServerGarbageCollection>
