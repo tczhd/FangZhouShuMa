@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FangZhouShuMa.ApplicationCore.Interfaces;
+using FangZhouShuMa.ApplicationCore.Interfaces.Services;
+using FangZhouShuMa.ApplicationCore.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Hosting;
@@ -15,7 +18,9 @@ using FangZhouShuMa.Backend.Services;
 using FangZhouShuMa.Backend.Models;
 using FangZhouShuMa.Infrastructure.Identity;
 using FangZhouShuMa.Infrastructure.Data;
+using FangZhouShuMa.Infrastructure.Data.Repository;
 using ApplicationUser = FangZhouShuMa.Infrastructure.Identity.ApplicationUser;
+using IEmailSender = FangZhouShuMa.Backend.Services.IEmailSender;
 
 namespace FangZhouShuMa.Backend
 {
@@ -53,7 +58,10 @@ namespace FangZhouShuMa.Backend
              .AddEntityFrameworkStores<ApplicationDbContext>()
              .AddDefaultTokenProviders();
 
+            services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
+            services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
 
+            services.AddScoped<ICustomerService, CustomerService>();
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

@@ -1,4 +1,5 @@
-﻿
+﻿@model FangZhouShuMa.ApplicationCore.Models.ViewModels.Customer.RegisterCustomerViewModel
+
 @{
     ViewData["Title"] = "NewCustomer";
 }
@@ -10,74 +11,34 @@
                 <div class="card">
                     <div class="card-header">
                         <strong>用户信息</strong>
-                        <small>表格</small>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label for="name">用户名</label>
-                                    <input type="text" class="form-control" id="userName" placeholder="输入用户名">
+                                    @*<label for="userName">用户名</label>
+                                    <input type="text" class="form-control" id="userName" placeholder="输入用户名">*@
+
+                                    <label asp-for="Email"></label>
+                                    <input asp-for="Email" class="form-control"  placeholder="输入用户名"/>
+                                    <span asp-validation-for="Email" class="text-danger"></span>
                                 </div>
                             </div>
                         </div>
-                        <!--/.row-->
+
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label for="ccnumber">Credit Card Number</label>
-                                    <input type="text" class="form-control" id="ccnumber" placeholder="0000 0000 0000 0000">
+                                    <label class="col-md-3 col-form-label" for="password-input">密码</label>
+                                    <input type="password" id="password-input" name="password-input" class="form-control" placeholder="Password">
                                 </div>
                             </div>
                         </div>
-                        <!--/.row-->
-                        <div class="row">
-                            <div class="form-group col-sm-4">
-                                <label for="ccmonth">Month</label>
-                                <select class="form-control" id="ccmonth">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
-                                    <option>11</option>
-                                    <option>12</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <label for="ccyear">Year</label>
-                                <select class="form-control" id="ccyear">
-                                    <option>2014</option>
-                                    <option>2015</option>
-                                    <option>2016</option>
-                                    <option>2017</option>
-                                    <option>2018</option>
-                                    <option>2019</option>
-                                    <option>2020</option>
-                                    <option>2021</option>
-                                    <option>2022</option>
-                                    <option>2023</option>
-                                    <option>2024</option>
-                                    <option>2025</option>
-                                </select>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label for="cvv">CVV/CVC</label>
-                                    <input type="text" class="form-control" id="cvv" placeholder="123">
-                                </div>
-                            </div>
-                        </div>
-                        <!--/.row-->
+
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
-                        <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> 提交</button>
+                        <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i>重置</button>
                     </div>
                 </div>
             </div>
@@ -86,35 +47,34 @@
                 <div class="card">
                     <div class="card-header">
                         <strong>公司信息</strong>
-                        <small>表格</small>
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="company">Company</label>
-                            <input type="text" class="form-control" id="company" placeholder="Enter your company name">
+                            <label for="company">公司名称</label>
+                            <input type="text" class="form-control" id="company" placeholder="输入公司名称">
                         </div>
                         <div class="form-group">
-                            <label for="vat">VAT</label>
-                            <input type="text" class="form-control" id="vat" placeholder="PL1234567890">
+                            <label for="vat">联系人</label>
+                            <input type="text" class="form-control" id="vat" placeholder="输入联系人">
                         </div>
                         <div class="form-group">
-                            <label for="street">Street</label>
-                            <input type="text" class="form-control" id="street" placeholder="Enter street name">
+                            <label for="street">地址</label>
+                            <input type="text" class="form-control" id="street" placeholder="输入地址">
                         </div>
                         <div class="row">
                             <div class="form-group col-sm-8">
-                                <label for="city">City</label>
-                                <input type="text" class="form-control" id="city" placeholder="Enter your city">
+                                <label for="city">城市</label>
+                                <input type="text" class="form-control" id="city" placeholder="输入城市">
                             </div>
                             <div class="form-group col-sm-4">
-                                <label for="postal-code">Postal Code</label>
-                                <input type="text" class="form-control" id="postal-code" placeholder="Postal Code">
+                                <label for="postal-code">邮编</label>
+                                <input type="text" class="form-control" id="postal-code" placeholder="输入邮编">
                             </div>
                         </div>
                         <!--/.row-->
                         <div class="form-group">
-                            <label for="country">Country</label>
-                            <input type="text" class="form-control" id="country" placeholder="Country name">
+                            <label for="state">省</label>
+                            <input type="text" class="form-control" id="state" placeholder="输入省">
                         </div>
                     </div>
                 </div>
