@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using FangZhouShuMa.ApplicationCore.Entities.CustomerAggregate;
 using FangZhouShuMa.ApplicationCore.Interfaces.Services;
 using FangZhouShuMa.ApplicationCore.Models.ViewModels.Customer;
+using FangZhouShuMa.Backend.Models.AccountViewModels;
 using FangZhouShuMa.Infrastructure.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -36,7 +37,6 @@ namespace FangZhouShuMa.Backend.Controllers
             _logger = logger;
         }
 
-        [Route("{view=Index}")]
         public IActionResult Index(string view)
         {
             ViewData["Title"] = "客户";
@@ -47,6 +47,35 @@ namespace FangZhouShuMa.Backend.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            if (ModelState.IsValid)
+            {
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var result = await _userManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    _logger.LogInformation("User created a new account with password.");
+
+                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
+
+                }
+   
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult AddCustomer()
+        {
+            return View();
+        }
+
+        [HttpPost]
         public async Task<IActionResult> AddCustomer(RegisterCustomerViewModel model)
         {
             if (ModelState.IsValid)
