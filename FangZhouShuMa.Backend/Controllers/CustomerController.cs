@@ -40,7 +40,6 @@ namespace FangZhouShuMa.Backend.Controllers
         public IActionResult Index(string view)
         {
             ViewData["Title"] = "客户";
-
             return View(view);
         }
 

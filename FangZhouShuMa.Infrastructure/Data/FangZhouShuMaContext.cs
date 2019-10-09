@@ -6,6 +6,7 @@ using FangZhouShuMa.ApplicationCore.Entities.OrderAggreagte;
 using FangZhouShuMa.ApplicationCore.Entities.ProductAggregate;
 using FangZhouShuMa.ApplicationCore.Entities.UserAggregate;
 using FangZhouShuMa.ApplicationCore.Entities.GenericAggregate;
+using FangZhouShuMa.ApplicationCore.Entities;
 
 namespace FangZhouShuMa.Infrastructure.Data
 {
@@ -41,6 +42,7 @@ namespace FangZhouShuMa.Infrastructure.Data
         public DbSet<ProductCustomFieldOptionsDisplayByRelationship> ProductCustomFieldOptionsDisplayByRelationships { get; set; }
         public DbSet<Basket> Baskets { get; set; }
         public DbSet<BasketItem> BasketItems { get; set; }
+        public DbSet<Schedule> Schedules { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

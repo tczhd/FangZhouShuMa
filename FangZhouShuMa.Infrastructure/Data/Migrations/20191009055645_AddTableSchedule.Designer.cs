@@ -11,9 +11,10 @@ using System;
 namespace FangZhouShuMa.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(FangZhouShuMaContext))]
-    partial class FangZhouShuMaContextModelSnapshot : ModelSnapshot
+    [Migration("20191009055645_AddTableSchedule")]
+    partial class AddTableSchedule
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -82,6 +82,7 @@ namespace FangZhouShuMa.Api
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IScheduleService, ScheduleService>();
             services.AddScoped(typeof(IAppLogger<>), typeof(LoggerAdapter<>));
             services.AddTransient<IEmailSender, EmailSender>();
 
